@@ -1,0 +1,153 @@
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\KinectingTheDotsUserControl.exe
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\KinectingTheDotsUserControl.pdb
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl_MarkupCompile.cache
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.g.resources
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.exe
+c:\users\feynman\documents\visual studio 2010\Projects\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.pdb
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectQuiz_V1_MarkupCompile.cache
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectQuiz_V1.g.resources
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\KinectQuiz_V1.exe
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\KinectQuiz_V1.pdb
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectQuiz_V1.exe
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectQuiz_V1.pdb
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\KinectQuiz_V1.exe.manifest
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\KinectQuiz_V1.application
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectQuiz_V1.exe.manifest
+C:\Users\rdchambers\Desktop\buttons\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectQuiz_V1.application
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.application
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.pdb
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_Content.g.cs
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_MarkupCompile.cache
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.g.resources
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+C:\Users\rdchambers\Desktop\Kinect Sound Board\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_MarkupCompile.cache
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.g.resources
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.application
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.pdb
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.WinForm.dll
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.WinForm.pdb
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\rdchambers\Desktop\KinectKeyboardSource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe.manifest
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.application
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.pdb
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.WinForm.dll
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\ResolveAssemblyReference.cache
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_MarkupCompile.cache
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.g.resources
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.read.1.tlog
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.write.1.tlog
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe.manifest
+\\FS01\rdchambers$\KinectOctober\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
+C:\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+C:\KinectDigestiveSystemsource\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_MarkupCompile.cache
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.g.resources
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe.manifest
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.application
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.pdb
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.WinForm.dll
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe.manifest
+C:\Lesson1\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.application
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.pdb
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csprojResolveAssemblyReference.cache
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_MarkupCompile.cache
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.g.resources
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csproj.GenerateResource.Cache
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.pdb
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.application
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.exe
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Kinect_Keyboard.pdb
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csprojResolveAssemblyReference.cache
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard_MarkupCompile.cache
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.g.resources
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csproj.GenerateResource.Cache
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.exe.manifest
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application

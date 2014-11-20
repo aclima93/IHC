@@ -1,0 +1,77 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml" caret="989" fromTop="13" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="4131" fromTop="25" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml" caret="415" fromTop="8" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="88" fromTop="3" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="757" fromTop="19" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="782" fromTop="20" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="3693" fromTop="25" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="1733" fromTop="26" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="2342" fromTop="39" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="3030" fromTop="45" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="418" fromTop="16" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="3676" fromTop="24" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="1621" fromTop="27" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="689" fromTop="8" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml" caret="360" fromTop="3" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="1392" fromTop="24" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="983" fromTop="14" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml.cs" caret="1169" fromTop="19" />
+      <File id="76E54701-FEBE-4D06-8AB4-6DC9F0A99C16/f:MainWindow.xaml" caret="905" fromTop="9" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="kinectButton" priority="0" />
+      <Item value="MessageBox`0" priority="1" />
+      <Item value="rightHand" priority="0" />
+      <Item value="MessageBox" priority="1" />
+      <Item value="new" priority="1" />
+      <Item value="WindowStyleProperty" priority="0" />
+      <Item value="_messageBox" priority="0" />
+      <Item value="TextBlock`0" priority="0" />
+      <Item value="textBlock" priority="2" />
+      <Item value="TextBlock" priority="0" />
+      <Item value="theGrid" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Coding4Fun.Kinect.Wpf.Controls.HoverButton">
+      <Item value="Loaded" priority="0" />
+      <Item value="Click" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.MessageBox">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.TextBlock">
+      <Item value="Text" priority="0" />
+      <Item value="FontSize" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.Grid">
+      <Item value="Children" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.UIElementCollection">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
