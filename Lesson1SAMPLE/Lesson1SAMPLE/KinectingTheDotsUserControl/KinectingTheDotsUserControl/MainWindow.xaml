@@ -1,18 +1,19 @@
 ﻿<Window x:Class="KinectingTheDotsUserControl.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" Title="The Digestive System" Height="600" Width="800" Icon="/Kinect_Keyboard;component/Resources/hand-palm-th.png">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" Title="weImagine: Dodgeball" Height="600" Width="800" Icon="/Kinect_Keyboard;component/Resources/ball.png">
     <Grid x:Name="theGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="729*" />
-            <ColumnDefinition Width="49*" />
+            <ColumnDefinition Width="745*" />
+            <ColumnDefinition Width="47*" />
         </Grid.ColumnDefinitions>
 
-        <Canvas Background="Transparent" Height="600" Width="1000" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.ColumnSpan="2">
+        <Canvas Background="Transparent" Height="569" Width="792" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-4,0,4,0" Grid.ColumnSpan="2">
 
             <Image  Name="videoImage"  Canvas.Left="110" Canvas.Top="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="600" Height="1000"></Image>
-            
+
             <!-- buttons -->
-            
+
+            <!-- -->
             <Image Canvas.Left="343" Canvas.Top="89" Height="109" Name="PlaySound1" Stretch="Fill" Width="110" Source="/Kinect_Keyboard;component/Resources/button1.png" />
            <Controls:HoverButton x:Name="Song1" ImageSize="100" TimeInterval="1000" Height="109" Width="111" Canvas.Left="343" Canvas.Top="89" />
            
@@ -25,10 +26,10 @@
 
             <Image Canvas.Left="200" Canvas.Top="289" Height="109" Name="PlaySound4" Stretch="Fill" Width="110" Source="/Kinect_Keyboard;component/Resources/button2.png" />
             <Controls:HoverButton x:Name="Song4" ImageSize="100" TimeInterval="1000" Height="109" Width="111" Canvas.Left="200" Canvas.Top="289" />
-
+            <!-- -->-->
 
             <!-- tracked drawbles -->
-
+            <!-- -->
             <Ellipse Height="90" Width="70" Name="Head" Canvas.Left="0" Canvas.Top="0">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Resources/head.png" />
@@ -58,7 +59,7 @@
                     <ImageBrush ImageSource="/Resources/foot_2.png" />
                 </Ellipse.Fill>
             </Ellipse>
-
+            <!-- -->-->
 
 
         </Canvas>

@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Kinect Quiz V1")]
-[assembly: AssemblyDescription("Quiz for Teachers to Play With")]
+[assembly: AssemblyTitle("weImagine: Dodgeball")]
+[assembly: AssemblyDescription("Play dodgeball with the Kinect")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Lodge Park Technology College")]
-[assembly: AssemblyProduct("Kinect Quiz V1")]
-[assembly: AssemblyCopyright("Copyright © Lodge Park Technology College 2011")]
+[assembly: AssemblyCompany("University of Coimbra - Dept. Informatics Engineering")]
+[assembly: AssemblyProduct("weImagine: Dodgeball")]
+[assembly: AssemblyCopyright("Copyright © University of Coimbra - Dept. Informatics Engineering")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

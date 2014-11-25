@@ -52,38 +52,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Coding4Fun.Kinect.WinForm.dll" size="11264">
-      <assemblyIdentity name="Coding4Fun.Kinect.WinForm" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Coding4Fun.Kinect.WinForm.dll" size="10240">
+      <assemblyIdentity name="Coding4Fun.Kinect.WinForm" version="1.7.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HZzyMTpb0Pb8WOduJMd4gJ83Vyc=</dsig:DigestValue>
+        <dsig:DigestValue>OcRN01XhkUEx52FBuMFnaFB2fzM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Coding4Fun.Kinect.Wpf.dll" size="18944">
-      <assemblyIdentity name="Coding4Fun.Kinect.Wpf" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Coding4Fun.Kinect.Wpf" version="1.7.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>2NujXTzKqtc+KjiOQ8m0+j42GBs=</dsig:DigestValue>
+        <dsig:DigestValue>qk6vUQZEp6zDtkEt4Qp5MKDDgRk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kinect_Keyboard.exe" size="110592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kinect_Keyboard.exe" size="111104">
       <assemblyIdentity name="Kinect_Keyboard" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Sfo5HdllK0kRbW9jnIqJZ1GleA8=</dsig:DigestValue>
+        <dsig:DigestValue>Pmux1Fkh+ogrLdBNogfYUuUNkQE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -99,4 +99,31 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Coding4Fun.Kinect.WinForm.dll" size="10240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>OcRN01XhkUEx52FBuMFnaFB2fzM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Coding4Fun.Kinect.Wpf.dll" size="18944">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>qk6vUQZEp6zDtkEt4Qp5MKDDgRk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Microsoft.Expression.Drawing.dll" size="122880">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>rUxD+M8zP3GKvtY6FZyDcUiy/Ng=</dsig:DigestValue>
+    </hash>
+  </file>
 </asmv1:assembly>

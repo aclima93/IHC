@@ -11,6 +11,9 @@ using Microsoft.Research.Kinect.Nui;
 using System.IO;
 
 
+enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_LOAD_SAVE, GAME_ON };
+
+
 namespace KinectingTheDotsUserControl
 {
     public partial class MainWindow : Window
@@ -34,7 +37,8 @@ namespace KinectingTheDotsUserControl
 
             //Runtime runtime;
 
-            
+
+            game_states_t game_state = game_states_t.MAIN_MENU;
 
 
             InitializeComponent();
@@ -42,42 +46,18 @@ namespace KinectingTheDotsUserControl
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
-            Song1.Click +=new RoutedEventHandler(Song1_Click);
-            Song2.Click += new RoutedEventHandler(Song2_Click);
-
-            Song3.Click += new RoutedEventHandler(Song3_Click);
-            Song4.Click += new RoutedEventHandler(Song4_Click);
+            Song1.Click += new RoutedEventHandler(MainMenuItemSelection);
+            Song2.Click += new RoutedEventHandler(MainMenuItemSelection);
+            Song3.Click += new RoutedEventHandler(MainMenuItemSelection);
+            Song4.Click += new RoutedEventHandler(MainMenuItemSelection);
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
 
-        void Song1_Click(object sender, RoutedEventArgs e)
-        {
 
-                SoundPlayer correct = new SoundPlayer("tada.wav");
-                correct.Play();
-
-        }
-
-        void Song2_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("tada.wav");
-            correct.Play();
-
-        }
-
-        void Song3_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("tada.wav");
-            correct.Play();
-
-        }
-
-        void Song4_Click(object sender, RoutedEventArgs e)
+        void MainMenuItemSelection(object sender, RoutedEventArgs e)
         {
 
             SoundPlayer correct = new SoundPlayer("tada.wav");
@@ -158,7 +138,7 @@ namespace KinectingTheDotsUserControl
             }
 
 
-
+            // Check button selection
             CheckButton(Song1, RightHand);
             CheckButton(Song2, LeftHand);
 
@@ -208,7 +188,7 @@ namespace KinectingTheDotsUserControl
             runtime.Initialize(Microsoft.Research.Kinect.Nui.RuntimeOptions.UseColor | RuntimeOptions.UseSkeletalTracking);
 
             //You can adjust the resolution here.
-            runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution640x480, ImageType.Color);
+            runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution1280x1024, ImageType.Color);
         }
 
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
