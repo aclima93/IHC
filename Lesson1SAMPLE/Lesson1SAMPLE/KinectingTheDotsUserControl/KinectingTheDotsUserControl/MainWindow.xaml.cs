@@ -9,9 +9,13 @@ using System.Windows.Media.Imaging;
 using Coding4Fun.Kinect.Wpf.Controls;
 using Microsoft.Research.Kinect.Nui;
 using System.IO;
-
-
-enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_LOAD_SAVE, GAME_ON };
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Navigation; 
 
 
 namespace KinectingTheDotsUserControl
@@ -19,9 +23,9 @@ namespace KinectingTheDotsUserControl
     public partial class MainWindow : Window
     {
 
-
-
         Runtime runtime = Runtime.Kinects[0];
+
+        public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -29,6 +33,7 @@ namespace KinectingTheDotsUserControl
         private static double _rightBoundary;
         private static double _itemLeft;
         private static double _itemTop;
+        public game_states_t game_state = game_states_t.MAIN_MENU;
 
       public MainWindow()
         {
@@ -37,31 +42,69 @@ namespace KinectingTheDotsUserControl
 
             //Runtime runtime;
 
-
-            game_states_t game_state = game_states_t.MAIN_MENU;
-
             InitializeComponent();
+            this.WindowState = System.Windows.WindowState.Maximized;
+            this.WindowStyle = System.Windows.WindowStyle.None;
 
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
-            MainMenuItem1.Click +=new RoutedEventHandler(MainMenuItem_Click);
-            MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem_Click);
+            MainMenuItem1.Click +=new RoutedEventHandler(MainMenuItem1_Click);
+            MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem2_Click);
 
-            MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem_Click);
-            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem_Click);
+            MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem3_Click);
+            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem4_Click);
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
 
-        void MainMenuItem_Click(object sender, RoutedEventArgs e)
+      private void UnregisterEvents()
+      {
+
+          /*
+          KinectSensor.KinectSensors.StatusChanged -= KinectSensors_StatusChanged;
+          this.Kinect.SkeletonFrameReady -= Kinect_SkeletonFrameReady;
+          this.Kinect.ColorFrameReady -= Kinect_ColorFrameReady; 
+          */
+           
+      } 
+
+        void MainMenuItem1_Click(object sender, RoutedEventArgs e)
         {
 
             SoundPlayer correct = new SoundPlayer("tada.wav");
             correct.Play();
 
+            game_state = game_states_t.PLAY;
+
+        }
+        void MainMenuItem2_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("tada.wav");
+            correct.Play();
+
+            game_state = game_states_t.PRACTICE;
+
+        }
+        void MainMenuItem3_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("tada.wav");
+            correct.Play();
+
+            game_state = game_states_t.CHOOSE_AVATAR;
+
+        }
+        void MainMenuItem4_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("tada.wav");
+            correct.Play();
+
+            game_state = game_states_t.NEW_SAVE_LOAD;
         }
 
       
@@ -79,7 +122,6 @@ namespace KinectingTheDotsUserControl
                 button.Release();
             }
         }
-
        
 
         public static bool IsItemMidpointInContainer(FrameworkElement container, FrameworkElement target)
@@ -135,6 +177,19 @@ namespace KinectingTheDotsUserControl
             CheckButton(MainMenuItem2, RightHand);
             CheckButton(MainMenuItem3, RightHand);
             CheckButton(MainMenuItem4, RightHand);
+
+            if (game_state == game_states_t.NEW_SAVE_LOAD)
+            {
+                Page1 newPage1 = new Page1();
+
+                // hurrr
+                // TODO: estou aqui parado que nem um calhau porque como merda
+                // hurr
+
+                UnregisterEvents();
+                (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative); 
+
+            }
 
         }
 

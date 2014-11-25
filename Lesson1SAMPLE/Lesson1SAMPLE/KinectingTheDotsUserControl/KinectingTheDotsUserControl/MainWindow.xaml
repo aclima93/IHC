@@ -1,6 +1,10 @@
 ﻿<Window x:Class="KinectingTheDotsUserControl.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" Title="weImagine: Dodgeball" Width="1280" Height="1024" Icon="/Kinect_Keyboard;component/Resources/hand-palm-th.png">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
+        Title="weImagine: Dodgeball" Width="1280" Height="1024" Background="Black"
+        Icon="/Kinect_Keyboard;component/Resources/myhand.png">
+    
     <Grid x:Name="theGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -47,9 +51,9 @@
             <!-- tracked drawbles -->
 
 
-            <Ellipse Height="81" Width="70" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
+            <Ellipse Height="64" Width="64" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Resources/hand-palm-th.png" />
+                    <ImageBrush ImageSource="/Resources/myhand.png" />
                 </Ellipse.Fill>
             </Ellipse>
 
