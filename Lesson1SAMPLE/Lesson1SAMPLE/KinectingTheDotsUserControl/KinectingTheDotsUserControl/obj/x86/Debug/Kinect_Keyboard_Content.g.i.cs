@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("coding4fun.kinect.winform.dll")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("coding4fun.kinect.wpf.dll")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("microsoft.expression.drawing.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/foot.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/foot_2.png")]
 
 
