@@ -11,8 +11,7 @@
 
     <Grid>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="GGWP" Foreground="LightSkyBlue" FontSize="30" TextWrapping="Wrap" Margin="108,137,105,125" Width="87" Height="38"/>
+        <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
 
-        
-        
     </Grid>
 </Page>

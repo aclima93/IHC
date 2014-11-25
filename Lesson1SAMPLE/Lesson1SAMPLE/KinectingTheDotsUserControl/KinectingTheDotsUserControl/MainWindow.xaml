@@ -4,14 +4,14 @@
         xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
         Title="weImagine: Dodgeball" Width="1280" Height="1024" Background="Black"
         Icon="/Kinect_Keyboard;component/Resources/myhand.png">
-    
+
     <Grid x:Name="theGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="0*" />
         </Grid.ColumnDefinitions>
 
-        <Canvas Background="Black" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
+        <Canvas Background="Transparent" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
 
             <!--
             <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
@@ -19,9 +19,9 @@
 
             <!-- buttons -->
 
-            <Grid Height="405" Canvas.Left="420" Canvas.Top="373" Width="500">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
 
-                <Grid Margin="-80,-235,-170,490" Height="150" Width="750" >
+                <Grid Margin="-74,-178,-176,433" Height="150" Width="750" >
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="weImagine: Dodgeball" Foreground="LightSkyBlue" FontSize="55" TextWrapping="Wrap" Margin="52,40,148,30" Width="550" Height="80"/>
                 </Grid>
 

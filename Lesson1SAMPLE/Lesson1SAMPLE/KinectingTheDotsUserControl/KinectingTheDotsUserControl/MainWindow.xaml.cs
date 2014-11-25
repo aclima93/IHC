@@ -74,7 +74,7 @@ namespace KinectingTheDotsUserControl
         void MainMenuItem1_Click(object sender, RoutedEventArgs e)
         {
 
-            SoundPlayer correct = new SoundPlayer("tada.wav");
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
             game_state = game_states_t.PLAY;
@@ -83,7 +83,7 @@ namespace KinectingTheDotsUserControl
         void MainMenuItem2_Click(object sender, RoutedEventArgs e)
         {
 
-            SoundPlayer correct = new SoundPlayer("tada.wav");
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
             game_state = game_states_t.PRACTICE;
@@ -92,7 +92,7 @@ namespace KinectingTheDotsUserControl
         void MainMenuItem3_Click(object sender, RoutedEventArgs e)
         {
 
-            SoundPlayer correct = new SoundPlayer("tada.wav");
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
             game_state = game_states_t.CHOOSE_AVATAR;
@@ -101,7 +101,7 @@ namespace KinectingTheDotsUserControl
         void MainMenuItem4_Click(object sender, RoutedEventArgs e)
         {
 
-            SoundPlayer correct = new SoundPlayer("tada.wav");
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
             game_state = game_states_t.NEW_SAVE_LOAD;
