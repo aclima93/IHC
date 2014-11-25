@@ -128,33 +128,23 @@ namespace KinectingTheDotsUserControl
 
             if (data != null)
             {
-                //SetEllipsePosition(Head, data.Joints[JointID.Head]);
-
                 SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
-                /*
-                SetEllipsePosition(LeftHand, data.Joints[JointID.HandLeft]);
-
-                SetEllipsePosition(RightFoot, data.Joints[JointID.FootRight]);
-                SetEllipsePosition(LeftFoot, data.Joints[JointID.FootLeft]);
-                */
             }
-
-
 
             CheckButton(MainMenuItem1, RightHand);
             CheckButton(MainMenuItem2, RightHand);
             CheckButton(MainMenuItem3, RightHand);
             CheckButton(MainMenuItem4, RightHand);
-            //CheckButton(MainMenuItem2, LeftHand);
 
         }
 
 
         private void SetEllipsePosition(Ellipse ellipse, Joint joint)
         {
+
             Microsoft.Research.Kinect.Nui.Vector vector = new Microsoft.Research.Kinect.Nui.Vector();
-            vector.X = ScaleVector(800, joint.Position.X);
-            vector.Y = ScaleVector(600, -joint.Position.Y);
+            vector.X = ScaleVector(1280, joint.Position.X);
+            vector.Y = ScaleVector(1024, -joint.Position.Y);
             vector.Z = joint.Position.Z;
 
             Joint updatedJoint = new Joint();

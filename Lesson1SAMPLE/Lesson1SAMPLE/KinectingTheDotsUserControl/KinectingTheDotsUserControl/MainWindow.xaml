@@ -12,21 +12,36 @@
             <!--
             <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
             -->
-            
-            <!-- buttons -->
-            
-            <Grid Height="405" Canvas.Left="327" Canvas.Top="312" Width="656">
-                <Controls:HoverButton x:Name="MainMenuItem1" ImageSize="100" TimeInterval="1000" Margin="0,0,0,320" />
-                <Controls:HoverButton x:Name="MainMenuItem2" ImageSize="100" TimeInterval="1000" Margin="0,104,0,212" />
-                <Controls:HoverButton x:Name="MainMenuItem3" ImageSize="100" TimeInterval="1000" Margin="0,212,0,104" />
-                <Controls:HoverButton x:Name="MainMenuItem4" ImageSize="100" TimeInterval="1000" Margin="0,320,0,0" />
-            </Grid>
 
-            <Grid Height="405" Canvas.Left="327" Canvas.Top="312" Width="656">
-                <Rectangle x:Name="MainMenuItemImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,0,0,320" />
-                <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,104,0,212" />
-                <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,212,0,104" />
-                <Rectangle x:Name="MainMenuItemImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,320,0,0" />
+            <!-- buttons -->
+
+            <Grid Height="405" Canvas.Left="420" Canvas.Top="373" Width="500">
+
+                <Grid Margin="-80,-235,-170,490" Height="150" Width="750" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="weImagine: Dodgeball" Foreground="LightSkyBlue" FontSize="55" TextWrapping="Wrap" Margin="52,40,148,30" Width="550" Height="80"/>
+                </Grid>
+
+
+                <Grid Margin="0,0,0,320">
+                    <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,104,0,212">
+                    <Controls:HoverButton x:Name="MainMenuItem2" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Practice" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,212,0,104">
+                    <Controls:HoverButton x:Name="MainMenuItem3" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Avatar" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,320,0,0">
+                    <Controls:HoverButton x:Name="MainMenuItem4" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New / Save / Load" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
             </Grid>
 
             <!-- tracked drawbles -->
