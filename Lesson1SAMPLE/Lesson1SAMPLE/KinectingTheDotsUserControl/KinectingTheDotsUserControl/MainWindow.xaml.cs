@@ -187,7 +187,7 @@ namespace KinectingTheDotsUserControl
                 // hurr
 
                 UnregisterEvents();
-                (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative); 
+                (Application.Current.MainWindow.FindName("MainWindow") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative); 
 
             }
 
