@@ -76,14 +76,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kinect_Keyboard.exe" size="110592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kinect_Keyboard.exe" size="108544">
       <assemblyIdentity name="Kinect_Keyboard" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>79IHElygq7dS3+qOR/qsYx358kA=</dsig:DigestValue>
+        <dsig:DigestValue>h0cRMqt63ygmyP7OWg9WhuU3npE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

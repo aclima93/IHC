@@ -1,61 +1,40 @@
 ﻿<Window x:Class="KinectingTheDotsUserControl.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" Title="weImagine: Dodgeball" Height="600" Width="800" Icon="/Kinect_Keyboard;component/Resources/hand-palm-th.png">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" Title="weImagine: Dodgeball" Width="1280" Height="1024" Icon="/Kinect_Keyboard;component/Resources/hand-palm-th.png">
     <Grid x:Name="theGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="729*" />
-            <ColumnDefinition Width="49*" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="0*" />
         </Grid.ColumnDefinitions>
 
-        <Canvas Background="Transparent" Height="569" Width="792" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+        <Canvas Background="Black" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
 
-            <Image  Name="videoImage" VerticalAlignment="Top" HorizontalAlignment="Right" Width="792" Height="569"/>
-
+            <!--
+            <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
+            -->
+            
             <!-- buttons -->
+            
+            <Grid Height="405" Canvas.Left="327" Canvas.Top="312" Width="656">
+                <Controls:HoverButton x:Name="MainMenuItem1" ImageSize="100" TimeInterval="1000" Margin="0,0,0,320" />
+                <Controls:HoverButton x:Name="MainMenuItem2" ImageSize="100" TimeInterval="1000" Margin="0,104,0,212" />
+                <Controls:HoverButton x:Name="MainMenuItem3" ImageSize="100" TimeInterval="1000" Margin="0,212,0,104" />
+                <Controls:HoverButton x:Name="MainMenuItem4" ImageSize="100" TimeInterval="1000" Margin="0,320,0,0" />
+            </Grid>
 
-            <Image Canvas.Left="525" Canvas.Top="119" Height="109" Name="PlaySound1" Stretch="Fill" Width="110" Source="/Kinect_Keyboard;component/Resources/button1.png" />
-            <Controls:HoverButton x:Name="Song1" ImageSize="100" TimeInterval="1000" Height="109" Width="111" Canvas.Left="525" Canvas.Top="119" />
-
-            <Image Canvas.Left="178" Canvas.Top="119" Height="109" Name="PlaySound2" Stretch="Fill" Width="110" Source="/Kinect_Keyboard;component/Resources/button2.png" />
-            <Controls:HoverButton x:Name="Song2" ImageSize="100" TimeInterval="1000" Height="109" Width="111" Canvas.Left="177" Canvas.Top="119" />
-
-
-            <Image Canvas.Left="526" Canvas.Top="310" Height="109" Name="PlaySound3" Stretch="Fill" Width="110" Source="/Kinect_Keyboard;component/Resources/button1.png" />
-            <Controls:HoverButton x:Name="Song3" ImageSize="100" TimeInterval="1000" Height="109" Width="111" Canvas.Left="525" Canvas.Top="310" />
-
-            <Image Canvas.Left="172" Canvas.Top="310" Height="109" Name="PlaySound4" Stretch="Fill" Width="110" Source="/Kinect_Keyboard;component/Resources/button2.png" />
-            <Controls:HoverButton x:Name="Song4" ImageSize="100" TimeInterval="1000" Height="109" Width="111" Canvas.Left="172" Canvas.Top="310" />
-
+            <Grid Height="405" Canvas.Left="327" Canvas.Top="312" Width="656">
+                <Rectangle x:Name="MainMenuItemImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,0,0,320" />
+                <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,104,0,212" />
+                <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,212,0,104" />
+                <Rectangle x:Name="MainMenuItemImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,320,0,0" />
+            </Grid>
 
             <!-- tracked drawbles -->
 
-            <Ellipse Height="90" Width="70" Name="Head" Canvas.Left="370" Canvas.Top="41">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Resources/head.png" />
-                </Ellipse.Fill>
-            </Ellipse>
 
-
-            <Ellipse Height="90" Width="70" Name="RightHand" Canvas.Left="450" Canvas.Top="119">
+            <Ellipse Height="81" Width="70" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Resources/hand-palm-th.png" />
-                </Ellipse.Fill>
-            </Ellipse>
-            <Ellipse Height="90" Width="70" Name="LeftHand" Canvas.Left="293" Canvas.Top="119">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Resources/hand-palm-th_2.png" />
-                </Ellipse.Fill>
-            </Ellipse>
-
-
-            <Ellipse Height="70" Width="90" Name="RightFoot" Canvas.Left="430" Canvas.Top="410">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Resources/foot.png" />
-                </Ellipse.Fill>
-            </Ellipse>
-            <Ellipse Height="70" Width="90" Name="LeftFoot" Canvas.Left="287" Canvas.Top="410">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Resources/foot_2.png" />
                 </Ellipse.Fill>
             </Ellipse>
 

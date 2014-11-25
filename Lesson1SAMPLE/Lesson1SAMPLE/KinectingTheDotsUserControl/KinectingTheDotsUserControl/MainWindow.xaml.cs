@@ -11,6 +11,9 @@ using Microsoft.Research.Kinect.Nui;
 using System.IO;
 
 
+enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_LOAD_SAVE, GAME_ON };
+
+
 namespace KinectingTheDotsUserControl
 {
     public partial class MainWindow : Window
@@ -34,34 +37,26 @@ namespace KinectingTheDotsUserControl
 
             //Runtime runtime;
 
-            
 
+            game_states_t game_state = game_states_t.MAIN_MENU;
 
             InitializeComponent();
 
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
-            Song1.Click +=new RoutedEventHandler(Song1_Click);
-            Song2.Click += new RoutedEventHandler(Song2_Click);
+            MainMenuItem1.Click +=new RoutedEventHandler(MainMenuItem_Click);
+            MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem_Click);
 
-            Song3.Click += new RoutedEventHandler(Song3_Click);
-            Song4.Click += new RoutedEventHandler(Song4_Click);
+            MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem_Click);
+            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem_Click);
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
 
-        void Song1_Click(object sender, RoutedEventArgs e)
-        {
-
-                SoundPlayer correct = new SoundPlayer("tada.wav");
-                correct.Play();
-
-        }
-
-        void Song2_Click(object sender, RoutedEventArgs e)
+        void MainMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
             SoundPlayer correct = new SoundPlayer("tada.wav");
@@ -69,21 +64,6 @@ namespace KinectingTheDotsUserControl
 
         }
 
-        void Song3_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("tada.wav");
-            correct.Play();
-
-        }
-
-        void Song4_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("tada.wav");
-            correct.Play();
-
-        }
       
        
         private static void CheckButton(HoverButton button, Ellipse thumbStick)
@@ -148,22 +128,25 @@ namespace KinectingTheDotsUserControl
 
             if (data != null)
             {
-                SetEllipsePosition(Head, data.Joints[JointID.Head]);
+                //SetEllipsePosition(Head, data.Joints[JointID.Head]);
 
                 SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
+                /*
                 SetEllipsePosition(LeftHand, data.Joints[JointID.HandLeft]);
 
                 SetEllipsePosition(RightFoot, data.Joints[JointID.FootRight]);
                 SetEllipsePosition(LeftFoot, data.Joints[JointID.FootLeft]);
+                */
             }
 
 
 
-            CheckButton(Song1, RightHand);
-            CheckButton(Song2, LeftHand);
+            CheckButton(MainMenuItem1, RightHand);
+            CheckButton(MainMenuItem2, RightHand);
+            CheckButton(MainMenuItem3, RightHand);
+            CheckButton(MainMenuItem4, RightHand);
+            //CheckButton(MainMenuItem2, LeftHand);
 
-            CheckButton(Song3, RightFoot);
-            CheckButton(Song4, LeftFoot);
         }
 
 
@@ -208,7 +191,7 @@ namespace KinectingTheDotsUserControl
             runtime.Initialize(Microsoft.Research.Kinect.Nui.RuntimeOptions.UseColor | RuntimeOptions.UseSkeletalTracking);
 
             //You can adjust the resolution here.
-            runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution640x480, ImageType.Color);
+            runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution1280x1024, ImageType.Color);
         }
 
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
@@ -217,7 +200,7 @@ namespace KinectingTheDotsUserControl
         
             BitmapSource source = BitmapSource.Create(image.Width, image.Height, 0, 0,
                 PixelFormats.Bgr32, null, image.Bits, image.Width * image.BytesPerPixel);
-            videoImage.Source = source;
+            //videoImage.Source = source;
         }
 
 
