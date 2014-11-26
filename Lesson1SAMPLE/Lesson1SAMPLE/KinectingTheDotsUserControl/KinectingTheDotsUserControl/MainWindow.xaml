@@ -3,8 +3,65 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
         Title="weImagine: Dodgeball" Width="1280" Height="1024" Background="Black"
-        Icon="/Kinect_Keyboard;component/Resources/myhand.png">
+        Icon="/weImage_DodgeBall;component/Resources/dodgeball.ico">
 
-    <ContentPresenter Name="WindowContent">
-    </ContentPresenter>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0*" />
+        </Grid.ColumnDefinitions>
+
+        <Canvas Background="Transparent" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
+
+
+            <Grid x:Name="NewSaveLoad" Visibility="Collapsed" Canvas.Left="432" Canvas.Top="329">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="NewSaveLoad" Foreground="LightSkyBlue" FontSize="50" TextWrapping="Wrap" Margin="94,169,94,159" Width="312" Height="77"/>
+            </Grid>
+
+
+            <Grid x:Name="Play" Visibility="Collapsed">
+                <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
+            </Grid>
+
+            <Grid x:Name="MainMenu" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
+
+                <Grid Margin="-74,-178,-176,433" Height="150" Width="750" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="weImagine: Dodgeball" Foreground="LightSkyBlue" FontSize="55" TextWrapping="Wrap" Margin="52,40,148,30" Width="550" Height="80"/>
+                </Grid>
+
+
+                <Grid Margin="0,0,0,320">
+                    <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,104,0,212">
+                    <Controls:HoverButton x:Name="MainMenuItem2" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Practice" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,212,0,104">
+                    <Controls:HoverButton x:Name="MainMenuItem3" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Avatar" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,320,0,0">
+                    <Controls:HoverButton x:Name="MainMenuItem4" TimeInterval="1000" />
+                    <Rectangle x:Name="MainMenuItemImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New / Save / Load" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+            </Grid>
+
+            <!-- tracked drawbles -->
+            <Ellipse Height="64" Width="64" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Resources/myhand.png" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+
+
+        </Canvas>
+    </Grid>
+
 </Window>

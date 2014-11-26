@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dodgeball.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/dodgeball.png")]
 
 

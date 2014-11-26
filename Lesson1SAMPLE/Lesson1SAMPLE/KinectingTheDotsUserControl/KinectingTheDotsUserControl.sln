@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectingTheDotsUserControl", "KinectingTheDotsUserControl\KinectingTheDotsUserControl.csproj", "{76E54701-FEBE-4D06-8AB4-6DC9F0A99C16}"
 EndProject
 Global

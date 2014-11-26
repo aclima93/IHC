@@ -32,8 +32,6 @@ namespace KinectingTheDotsUserControl
         public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
         public game_states_t game_state = game_states_t.MAIN_MENU;
 
-        public static Page2 page2 = new Page2();
-
         private static double _topBoundary;
         private static double _bottomBoundary;
         private static double _leftBoundary;
@@ -56,18 +54,48 @@ namespace KinectingTheDotsUserControl
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
-            if (game_state == game_states_t.MAIN_MENU){
 
-                StreamReader mysr = new StreamReader("page2.xaml");
-                WindowContent.Content = (Page)XamlReader.Load(mysr.BaseStream);
+            /*
+            StreamReader mysr = new StreamReader("xaml");
+            WindowContent.Content = (Page)XamlReader.Load(mysr.BaseStream);
+            */
 
-                page2.setEventHandlers();
-            }
+            
+            MainMenu.Visibility = Visibility.Visible;
+            NewSaveLoad.Visibility = Visibility.Collapsed;
+            Play.Visibility = Visibility.Collapsed;
+            /*
+            MainMenu.Visibility = Visibility.Collapsed;
+            NewSaveLoad.Visibility = Visibility.Visible;
+            Play.Visibility = Visibility.Collapsed;
+            */
+            
+
+            MainMenuItem1.Click += new RoutedEventHandler(MainMenuItem1_Click);
+            MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem2_Click);
+
+            MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem3_Click);
+            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem4_Click);
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
+
+      private void transitionFromTo(UIElement from, UIElement to)
+      {
+          from.Visibility = Visibility.Collapsed;
+          to.Visibility = Visibility.Visible;
+      }
+
+      private void checkMainMenuButtons() {
+
+          CheckButton(MainMenuItem1, RightHand);
+          CheckButton(MainMenuItem2, RightHand);
+          CheckButton(MainMenuItem3, RightHand);
+          CheckButton(MainMenuItem4, RightHand);
+
+      }
 
       private void UnregisterEvents()
       {
@@ -79,6 +107,44 @@ namespace KinectingTheDotsUserControl
           */
            
       } 
+
+        void MainMenuItem1_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
+            correct.Play();
+
+            game_state = game_states_t.PLAY;
+
+        }
+        void MainMenuItem2_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
+            correct.Play();
+
+            game_state = game_states_t.PRACTICE;
+
+        }
+        void MainMenuItem3_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
+            correct.Play();
+
+            game_state = game_states_t.CHOOSE_AVATAR;
+
+        }
+        void MainMenuItem4_Click(object sender, RoutedEventArgs e)
+        {
+
+            SoundPlayer correct = new SoundPlayer("swoosh.wav");
+            correct.Play();
+
+            game_state = game_states_t.NEW_SAVE_LOAD;
+            transitionFromTo(MainMenu, NewSaveLoad);
+        }
+
       
        
         private static void CheckButton(HoverButton button, Ellipse thumbStick)
@@ -140,31 +206,15 @@ namespace KinectingTheDotsUserControl
                                  where s.TrackingState == SkeletonTrackingState.Tracked
                                  select s).FirstOrDefault();
 
+
+            if (data != null)
+            {
+                SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
+            }
+
             if (game_state == game_states_t.MAIN_MENU)
             {
-                if (data != null)
-                {
-                    SetEllipsePosition(page2.RightHand, data.Joints[JointID.HandRight]);
-                }
-
-                CheckButton(page2.MainMenuItem1, page2.RightHand);
-                CheckButton(page2.MainMenuItem2, page2.RightHand);
-                CheckButton(page2.MainMenuItem3, page2.RightHand);
-                CheckButton(page2.MainMenuItem4, page2.RightHand);
-
-                if (game_state == game_states_t.NEW_SAVE_LOAD)
-                {
-
-                    /*
-                    StringReader reader = new StringReader(File.ReadAllText("button.txt"));
-                    XmlReader xmlReader = XmlReader.Create(reader);
-                    WindowContent.Content = (Page) XamlReader.Load(xmlReader);
-                    */
-
-                    StreamReader mysr = new StreamReader("Page1.xaml");
-                    WindowContent.Content = (Page)XamlReader.Load(mysr.BaseStream);
-
-                }
+                checkMainMenuButtons();
             }
 
         }
@@ -221,7 +271,7 @@ namespace KinectingTheDotsUserControl
         
             BitmapSource source = BitmapSource.Create(image.Width, image.Height, 0, 0,
                 PixelFormats.Bgr32, null, image.Bits, image.Width * image.BytesPerPixel);
-            //videoImage.Source = source;
+            videoImage.Source = source;
         }
 
 
