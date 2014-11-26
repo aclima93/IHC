@@ -8,14 +8,18 @@ using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using Coding4Fun.Kinect.Wpf.Controls;
 using Microsoft.Research.Kinect.Nui;
-using System.IO;
+
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Navigation; 
+using System.Windows.Navigation;
+
+using System.Xml;
+using System.Windows.Markup;
+using System.IO;
+using System.Text;
 
 
 namespace KinectingTheDotsUserControl
@@ -26,6 +30,9 @@ namespace KinectingTheDotsUserControl
         Runtime runtime = Runtime.Kinects[0];
 
         public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
+        public game_states_t game_state = game_states_t.MAIN_MENU;
+
+        public static Page2 page2 = new Page2();
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -33,7 +40,7 @@ namespace KinectingTheDotsUserControl
         private static double _rightBoundary;
         private static double _itemLeft;
         private static double _itemTop;
-        public game_states_t game_state = game_states_t.MAIN_MENU;
+
 
       public MainWindow()
         {
@@ -49,11 +56,13 @@ namespace KinectingTheDotsUserControl
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
-            MainMenuItem1.Click +=new RoutedEventHandler(MainMenuItem1_Click);
-            MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem2_Click);
+            if (game_state == game_states_t.MAIN_MENU){
 
-            MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem3_Click);
-            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem4_Click);
+                StreamReader mysr = new StreamReader("page2.xaml");
+                WindowContent.Content = (Page)XamlReader.Load(mysr.BaseStream);
+
+                page2.setEventHandlers();
+            }
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
@@ -70,43 +79,6 @@ namespace KinectingTheDotsUserControl
           */
            
       } 
-
-        void MainMenuItem1_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            game_state = game_states_t.PLAY;
-
-        }
-        void MainMenuItem2_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            game_state = game_states_t.PRACTICE;
-
-        }
-        void MainMenuItem3_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            game_state = game_states_t.CHOOSE_AVATAR;
-
-        }
-        void MainMenuItem4_Click(object sender, RoutedEventArgs e)
-        {
-
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            game_state = game_states_t.NEW_SAVE_LOAD;
-        }
-
       
        
         private static void CheckButton(HoverButton button, Ellipse thumbStick)
@@ -168,27 +140,31 @@ namespace KinectingTheDotsUserControl
                                  where s.TrackingState == SkeletonTrackingState.Tracked
                                  select s).FirstOrDefault();
 
-            if (data != null)
+            if (game_state == game_states_t.MAIN_MENU)
             {
-                SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
-            }
+                if (data != null)
+                {
+                    SetEllipsePosition(page2.RightHand, data.Joints[JointID.HandRight]);
+                }
 
-            CheckButton(MainMenuItem1, RightHand);
-            CheckButton(MainMenuItem2, RightHand);
-            CheckButton(MainMenuItem3, RightHand);
-            CheckButton(MainMenuItem4, RightHand);
+                CheckButton(page2.MainMenuItem1, page2.RightHand);
+                CheckButton(page2.MainMenuItem2, page2.RightHand);
+                CheckButton(page2.MainMenuItem3, page2.RightHand);
+                CheckButton(page2.MainMenuItem4, page2.RightHand);
 
-            if (game_state == game_states_t.NEW_SAVE_LOAD)
-            {
-                Page1 newPage1 = new Page1();
+                if (game_state == game_states_t.NEW_SAVE_LOAD)
+                {
 
-                // hurrr
-                // TODO: estou aqui parado que nem um calhau porque como merda
-                // hurr
+                    /*
+                    StringReader reader = new StringReader(File.ReadAllText("button.txt"));
+                    XmlReader xmlReader = XmlReader.Create(reader);
+                    WindowContent.Content = (Page) XamlReader.Load(xmlReader);
+                    */
 
-                UnregisterEvents();
-                (Application.Current.MainWindow.FindName("MainWindow") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative); 
+                    StreamReader mysr = new StreamReader("Page1.xaml");
+                    WindowContent.Content = (Page)XamlReader.Load(mysr.BaseStream);
 
+                }
             }
 
         }

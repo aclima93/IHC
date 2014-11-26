@@ -153,3 +153,5 @@ C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Le
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Page1.baml
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Page1.g.cs
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Page2.baml
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Page2.g.cs
