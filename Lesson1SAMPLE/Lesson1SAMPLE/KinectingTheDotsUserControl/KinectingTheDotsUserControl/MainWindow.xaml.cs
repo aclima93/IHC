@@ -21,6 +21,10 @@ using System.Windows.Markup;
 using System.IO;
 using System.Text;
 
+using System.Windows.Controls;
+using Microsoft.Win32;
+
+
 
 namespace KinectingTheDotsUserControl
 {
@@ -32,7 +36,7 @@ namespace KinectingTheDotsUserControl
         public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
         public game_states_t game_state = game_states_t.MAIN_MENU;
         public int selected_avatar = 1;
-        //public string[] game_file = File.ReadAllLines("/Resources/game_files/saved_game_1.txt");
+        public string[] game_file;
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -98,6 +102,39 @@ namespace KinectingTheDotsUserControl
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
+
+      private void openFileDialog()
+      {
+          // Create an instance of the open file dialog box.
+          OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+          // Set filter options and filter index.
+          openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+          openFileDialog1.FilterIndex = 1;
+          openFileDialog1.Multiselect = false;
+          //openFileDialog1.InitialDirectory = @"pack://application:,,,/Resources/game_files";
+          openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+          
+
+          // Call the ShowDialog method to show the dialog box.
+          bool? userClickedOK = openFileDialog1.ShowDialog();
+
+          // Process input if the user clicked OK.
+          if (userClickedOK == true)
+          {
+              /*
+              // Open the selected file to read.
+              System.IO.Stream fileStream = openFileDialog1.File.OpenRead();
+              using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
+              */
+              using (System.IO.StreamReader reader = new System.IO.StreamReader(openFileDialog1.FileName))
+              {
+                  // Read lines into a string array
+                  game_file = reader.ReadToEnd().Split('\n');
+              }
+              //fileStream.Close();
+          }
+      }
 
       private void transitionFromTo(UIElement from, UIElement to)
       {
@@ -486,13 +523,16 @@ namespace KinectingTheDotsUserControl
         void NewSaveLoadItem1_Click(object sender, RoutedEventArgs e)
         {
             // do something to call the file browsing thingamajiggy
+            openFileDialog();
         }
         void NewSaveLoadItem2_Click(object sender, RoutedEventArgs e)
         {
             // do something to call the file browsing thingamajiggy
+            openFileDialog();
         }
         void NewSaveLoadItem3_Click(object sender, RoutedEventArgs e){
             // do something to call the file browsing thingamajiggy
+            openFileDialog();
         }
 
         void NewSaveLoadItem4_Click(object sender, RoutedEventArgs e)
