@@ -37,6 +37,7 @@ namespace KinectingTheDotsUserControl
         public game_states_t game_state = game_states_t.MAIN_MENU;
         public int selected_avatar = 1;
         public string[] game_file;
+        public bool DEBUG = true;
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -62,46 +63,21 @@ namespace KinectingTheDotsUserControl
 
           
             // Hide your kids, hide your wife
+            activateHandlersFor(game_state);
             MainMenu.Visibility = Visibility.Visible;
             Play.Visibility = Visibility.Collapsed;
             Practice.Visibility = Visibility.Collapsed;
             GameOn.Visibility = Visibility.Collapsed;
             ChooseAvatar.Visibility = Visibility.Collapsed;
             NewSaveLoad.Visibility = Visibility.Collapsed;
-            
-
-            // Main Memu Handlers
-            MainMenuItem1.Click += new RoutedEventHandler(MainMenuItem1_Click);
-            MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem2_Click);
-            MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem3_Click);
-            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem4_Click);
-
-
-            // Choose Avatar Handlers
-            Avatar1.Click += new RoutedEventHandler(Avatar1_Click);
-            Avatar2.Click += new RoutedEventHandler(Avatar2_Click);
-            Avatar3.Click += new RoutedEventHandler(Avatar3_Click);
-            Avatar4.Click += new RoutedEventHandler(Avatar4_Click);
-            Avatar5.Click += new RoutedEventHandler(Avatar5_Click);
-            Avatar6.Click += new RoutedEventHandler(Avatar6_Click);
-            Avatar7.Click += new RoutedEventHandler(Avatar7_Click);
-            Avatar8.Click += new RoutedEventHandler(Avatar8_Click);
-            Avatar9.Click += new RoutedEventHandler(Avatar9_Click);
-            AvatarReturnToMainMenu.Click += new RoutedEventHandler(AvatarReturnToMainMenu_Click);
-
-
-            // New Save Load Handlers
-            NewSaveLoadItem1.Click += new RoutedEventHandler(NewSaveLoadItem1_Click);
-            NewSaveLoadItem2.Click += new RoutedEventHandler(NewSaveLoadItem2_Click);
-            NewSaveLoadItem3.Click += new RoutedEventHandler(NewSaveLoadItem3_Click);
-            NewSaveLoadItem4.Click += new RoutedEventHandler(NewSaveLoadItem4_Click);
-
 
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
+
+
 
       private void openFileDialog()
       {
@@ -134,53 +110,6 @@ namespace KinectingTheDotsUserControl
               }
               //fileStream.Close();
           }
-      }
-
-      private void transitionFromTo(UIElement from, UIElement to)
-      {
-          from.Visibility = Visibility.Collapsed;
-          to.Visibility = Visibility.Visible;
-      }
-
-      private void checkMainMenuButtons()
-      {
-
-          CheckButton(MainMenuItem1, RightHand);
-          CheckButton(MainMenuItem2, RightHand);
-          CheckButton(MainMenuItem3, RightHand);
-          CheckButton(MainMenuItem4, RightHand);
-
-      }
-
-      private void checkChooseAvatarButtons()
-      {
-
-          CheckButton(Avatar1, RightHand);
-          CheckButton(Avatar2, RightHand);
-          CheckButton(Avatar3, RightHand);
-          CheckButton(Avatar4, RightHand);
-          CheckButton(Avatar5, RightHand);
-          CheckButton(Avatar6, RightHand);
-          CheckButton(Avatar7, RightHand);
-          CheckButton(Avatar8, RightHand);
-          CheckButton(Avatar9, RightHand);
-
-      }
-
-      private void checkPlayButtons()
-      {
-      }
-
-      private void checkPracticeButtons()
-      {
-      }
-
-      private void checkGameOnButtons()
-      {
-      }
-
-      private void checkNewSaveLoadButtons()
-      {
       }
 
       private void UnregisterEvents()
@@ -352,6 +281,143 @@ namespace KinectingTheDotsUserControl
             _itemTop = itemTopLeft.Y + (target.ActualHeight / 2);
         }
 
+        private void changeGameState(game_states_t new_state, UIElement from, UIElement to)
+        {
+            deactivateHandlersFor(game_state);
+            game_state = new_state;
+            transitionFromTo(from, to);
+            activateHandlersFor(game_state);
+        }
+
+        private void activateHandlersFor(game_states_t state)
+        {
+
+            if (DEBUG) Console.WriteLine("Activating event handlers for game state: {0}", state);
+
+            if (state == game_states_t.MAIN_MENU)
+            {
+                // Main Memu Handlers
+                MainMenuItem1.Click += new RoutedEventHandler(MainMenuItem1_Click);
+                MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem2_Click);
+                MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem3_Click);
+                MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem4_Click);
+            }
+            else if (state == game_states_t.CHOOSE_AVATAR)
+            {
+                // Choose Avatar Handlers
+                Avatar1.Click += new RoutedEventHandler(Avatar1_Click);
+                Avatar2.Click += new RoutedEventHandler(Avatar2_Click);
+                Avatar3.Click += new RoutedEventHandler(Avatar3_Click);
+                Avatar4.Click += new RoutedEventHandler(Avatar4_Click);
+                Avatar5.Click += new RoutedEventHandler(Avatar5_Click);
+                Avatar6.Click += new RoutedEventHandler(Avatar6_Click);
+                Avatar7.Click += new RoutedEventHandler(Avatar7_Click);
+                Avatar8.Click += new RoutedEventHandler(Avatar8_Click);
+                Avatar9.Click += new RoutedEventHandler(Avatar9_Click);
+                AvatarReturnToMainMenu.Click += new RoutedEventHandler(AvatarReturnToMainMenu_Click);
+            }
+            else if (state == game_states_t.NEW_SAVE_LOAD)
+            {
+                // New Save Load Handlers
+                NewSaveLoadItem1.Click += new RoutedEventHandler(NewSaveLoadItem1_Click);
+                NewSaveLoadItem2.Click += new RoutedEventHandler(NewSaveLoadItem2_Click);
+                NewSaveLoadItem3.Click += new RoutedEventHandler(NewSaveLoadItem3_Click);
+                NewSaveLoadItem4.Click += new RoutedEventHandler(NewSaveLoadItem4_Click);
+            }
+
+        }
+
+        private void deactivateHandlersFor(game_states_t state)
+        {
+
+            if(DEBUG) Console.WriteLine("Deactivating event handlers for game state: {0}", state);
+
+            if (state == game_states_t.MAIN_MENU)
+            {
+                // Main Memu Handlers
+                MainMenuItem1.Click -= new RoutedEventHandler(MainMenuItem1_Click);
+                MainMenuItem2.Click -= new RoutedEventHandler(MainMenuItem2_Click);
+                MainMenuItem3.Click -= new RoutedEventHandler(MainMenuItem3_Click);
+                MainMenuItem4.Click -= new RoutedEventHandler(MainMenuItem4_Click);
+            }
+            else if (state == game_states_t.CHOOSE_AVATAR)
+            {
+                // Choose Avatar Handlers
+                Avatar1.Click -= new RoutedEventHandler(Avatar1_Click);
+                Avatar2.Click -= new RoutedEventHandler(Avatar2_Click);
+                Avatar3.Click -= new RoutedEventHandler(Avatar3_Click);
+                Avatar4.Click -= new RoutedEventHandler(Avatar4_Click);
+                Avatar5.Click -= new RoutedEventHandler(Avatar5_Click);
+                Avatar6.Click -= new RoutedEventHandler(Avatar6_Click);
+                Avatar7.Click -= new RoutedEventHandler(Avatar7_Click);
+                Avatar8.Click -= new RoutedEventHandler(Avatar8_Click);
+                Avatar9.Click -= new RoutedEventHandler(Avatar9_Click);
+                AvatarReturnToMainMenu.Click -= new RoutedEventHandler(AvatarReturnToMainMenu_Click);
+            }
+            else if (state == game_states_t.NEW_SAVE_LOAD)
+            {
+                // New Save Load Handlers
+                NewSaveLoadItem1.Click -= new RoutedEventHandler(NewSaveLoadItem1_Click);
+                NewSaveLoadItem2.Click -= new RoutedEventHandler(NewSaveLoadItem2_Click);
+                NewSaveLoadItem3.Click -= new RoutedEventHandler(NewSaveLoadItem3_Click);
+                NewSaveLoadItem4.Click -= new RoutedEventHandler(NewSaveLoadItem4_Click);
+            }
+
+        }
+
+        private void transitionFromTo(UIElement from, UIElement to)
+        {
+            from.Visibility = Visibility.Collapsed;
+            to.Visibility = Visibility.Visible;
+        }
+
+        private void checkMainMenuButtons()
+        {
+
+            CheckButton(MainMenuItem1, RightHand);
+            CheckButton(MainMenuItem2, RightHand);
+            CheckButton(MainMenuItem3, RightHand);
+            CheckButton(MainMenuItem4, RightHand);
+
+        }
+
+        private void checkChooseAvatarButtons()
+        {
+
+            CheckButton(Avatar1, RightHand);
+            CheckButton(Avatar2, RightHand);
+            CheckButton(Avatar3, RightHand);
+            CheckButton(Avatar4, RightHand);
+            CheckButton(Avatar5, RightHand);
+            CheckButton(Avatar6, RightHand);
+            CheckButton(Avatar7, RightHand);
+            CheckButton(Avatar8, RightHand);
+            CheckButton(Avatar9, RightHand);
+            CheckButton(AvatarReturnToMainMenu, RightHand);
+
+        }
+
+        private void checkPlayButtons()
+        {
+        }
+
+        private void checkPracticeButtons()
+        {
+        }
+
+        private void checkGameOnButtons()
+        {
+        }
+
+        private void checkNewSaveLoadButtons()
+        {
+            CheckButton(NewSaveLoadItem1, RightHand);
+            CheckButton(NewSaveLoadItem2, RightHand);
+            CheckButton(NewSaveLoadItem3, RightHand);
+            CheckButton(NewSaveLoadItem4, RightHand);
+        }
+
+
 
         // --------
         // Button EventHandlers
@@ -364,8 +430,7 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
-            game_state = game_states_t.PLAY;
-            transitionFromTo(MainMenu, Play);
+            changeGameState(game_states_t.PLAY, MainMenu, Play);
 
         }
         void MainMenuItem2_Click(object sender, RoutedEventArgs e)
@@ -374,8 +439,7 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
-            game_state = game_states_t.PRACTICE;
-            transitionFromTo(MainMenu, Practice);
+            changeGameState(game_states_t.PRACTICE, MainMenu, Practice);
 
         }
         void MainMenuItem3_Click(object sender, RoutedEventArgs e)
@@ -384,8 +448,7 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
-            game_state = game_states_t.CHOOSE_AVATAR;
-            transitionFromTo(MainMenu, ChooseAvatar);
+            changeGameState(game_states_t.CHOOSE_AVATAR, MainMenu, ChooseAvatar);
 
         }
         void MainMenuItem4_Click(object sender, RoutedEventArgs e)
@@ -394,8 +457,7 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
-            game_state = game_states_t.NEW_SAVE_LOAD;
-            transitionFromTo(MainMenu, NewSaveLoad);
+            changeGameState(game_states_t.NEW_SAVE_LOAD, MainMenu, NewSaveLoad);
         }
 
 
@@ -405,8 +467,6 @@ namespace KinectingTheDotsUserControl
 
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
-
-            game_state = game_states_t.CHOOSE_AVATAR;
 
             unselectAvatar(selected_avatar);
             selectAvatar(1);
@@ -418,8 +478,6 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
 
-            game_state = game_states_t.CHOOSE_AVATAR;
-
             unselectAvatar(selected_avatar);
             selectAvatar(2);
 
@@ -429,8 +487,6 @@ namespace KinectingTheDotsUserControl
 
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
-
-            game_state = game_states_t.CHOOSE_AVATAR;
 
             unselectAvatar(selected_avatar);
             selectAvatar(3);
@@ -442,8 +498,6 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
 
-            game_state = game_states_t.CHOOSE_AVATAR;
-
             unselectAvatar(selected_avatar);
             selectAvatar(4);
 
@@ -453,8 +507,6 @@ namespace KinectingTheDotsUserControl
 
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
-
-            game_state = game_states_t.CHOOSE_AVATAR;
 
             unselectAvatar(selected_avatar);
             selectAvatar(5);
@@ -466,8 +518,6 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
 
-            game_state = game_states_t.CHOOSE_AVATAR;
-
             unselectAvatar(selected_avatar);
             selectAvatar(6);
 
@@ -477,8 +527,6 @@ namespace KinectingTheDotsUserControl
 
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
-
-            game_state = game_states_t.CHOOSE_AVATAR;
 
             unselectAvatar(selected_avatar);
             selectAvatar(7);
@@ -490,8 +538,6 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
 
-            game_state = game_states_t.CHOOSE_AVATAR;
-
             unselectAvatar(selected_avatar);
             selectAvatar(8);
 
@@ -501,8 +547,6 @@ namespace KinectingTheDotsUserControl
 
             SoundPlayer correct = new SoundPlayer("selection-click.wav");
             correct.Play();
-
-            game_state = game_states_t.CHOOSE_AVATAR;
 
             unselectAvatar(selected_avatar);
             selectAvatar(9);
@@ -514,24 +558,21 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
-            game_state = game_states_t.MAIN_MENU;
-            transitionFromTo(ChooseAvatar, MainMenu);
+            changeGameState(game_states_t.MAIN_MENU, ChooseAvatar, MainMenu);
 
         }
 
 
         void NewSaveLoadItem1_Click(object sender, RoutedEventArgs e)
         {
-            // do something to call the file browsing thingamajiggy
-            openFileDialog();
+            // create something with the file browsing thingamajiggy
         }
         void NewSaveLoadItem2_Click(object sender, RoutedEventArgs e)
         {
-            // do something to call the file browsing thingamajiggy
-            openFileDialog();
+            // save something with the file browsing thingamajiggy
         }
         void NewSaveLoadItem3_Click(object sender, RoutedEventArgs e){
-            // do something to call the file browsing thingamajiggy
+            // select the file to load
             openFileDialog();
         }
 
@@ -541,8 +582,7 @@ namespace KinectingTheDotsUserControl
             SoundPlayer correct = new SoundPlayer("swoosh.wav");
             correct.Play();
 
-            game_state = game_states_t.MAIN_MENU;
-            transitionFromTo(NewSaveLoad, MainMenu);
+            changeGameState(game_states_t.MAIN_MENU, NewSaveLoad, MainMenu);
 
         }
 
@@ -631,6 +671,8 @@ namespace KinectingTheDotsUserControl
                 AvatarSelected9.Visibility = Visibility.Visible;
             }
         }
+
+
 
 
 
