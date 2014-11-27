@@ -13,46 +13,172 @@
 
         <Canvas Background="Transparent" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
 
+            <Grid x:Name="NewSaveLoad" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
 
-            <Grid x:Name="NewSaveLoad" Visibility="Collapsed" Canvas.Left="432" Canvas.Top="329">
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="NewSaveLoad" Foreground="LightSkyBlue" FontSize="50" TextWrapping="Wrap" Margin="94,169,94,159" Width="312" Height="77"/>
-            </Grid>
-
-
-            <Grid x:Name="Play" Visibility="Collapsed">
-                <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
-            </Grid>
-
-            <Grid x:Name="MainMenu" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
-
-                <Grid Margin="-74,-178,-176,433" Height="150" Width="750" >
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="weImagine: Dodgeball" Foreground="LightSkyBlue" FontSize="55" TextWrapping="Wrap" Margin="52,40,148,30" Width="550" Height="80"/>
+                <Grid Margin="0,-113,0,410" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New / Save / Load" Foreground="LightSkyBlue" FontSize="55" Margin="22,0,19,10" Width="459" Height="98"/>
                 </Grid>
 
 
                 <Grid Margin="0,0,0,320">
-                    <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1000" />
+                    <Controls:HoverButton x:Name="NewSaveLoadItem1" TimeInterval="1750" Width="500" Height="85"/>
+                    <Rectangle x:Name="NewSaveLoadImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New Game" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,104,0,212">
+                    <Controls:HoverButton x:Name="NewSaveLoadItem2" TimeInterval="1750" Width="500" Height="85"/>
+                    <Rectangle x:Name="NewSaveLoadImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Save current game" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,212,0,104">
+                    <Controls:HoverButton x:Name="NewSaveLoadItem3" TimeInterval="1750" Width="500" Height="85"/>
+                    <Rectangle x:Name="NewSaveLoadImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Load a game file" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Margin="0,320,0,0">
+                    <Controls:HoverButton x:Name="NewSaveLoadItem4" TimeInterval="1750" Width="500" Height="85"/>
+                    <Rectangle x:Name="NewSaveLoadImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Return to Main Menu" FontSize="40" TextWrapping="Wrap"/>
+                </Grid>
+            </Grid>
+
+
+            <Grid x:Name="ChooseAvatar" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="405" >
+
+                <Grid Margin="0,-113,0,410" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Your Avatar" Foreground="LightSkyBlue" FontSize="55" Margin="0,0,0,10" Width="500" Height="98"/>
+                </Grid>
+
+
+                <Grid Margin="0,0,0,10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Line 1 -->
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Controls:HoverButton x:Name="Avatar1" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected1" Visibility="Visible" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage1" Source="/Resources/avatars/avatar_head_1.png" Width="90" Height="90" />
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Controls:HoverButton x:Name="Avatar2" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected2" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage2" Source="/Resources/avatars/avatar_head_2.png" Width="90" Height="90" />
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="2">
+                        <Controls:HoverButton x:Name="Avatar3" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected3" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage3" Source="/Resources/avatars/avatar_head_3.png" Width="90" Height="90" />
+                    </Grid>
+
+                    <!-- Line 2 -->
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Controls:HoverButton x:Name="Avatar4" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected4" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage4" Source="/Resources/avatars/avatar_head_4.png" Width="90" Height="90" />
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Controls:HoverButton x:Name="Avatar5" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected5" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage5" Source="/Resources/avatars/avatar_head_5.png" Width="90" Height="90" />
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="2">
+                        <Controls:HoverButton x:Name="Avatar6" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected6" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage6" Source="/Resources/avatars/avatar_head_6.png" Width="90" Height="90" />
+                    </Grid>
+
+                    <!-- Line 3 -->
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Controls:HoverButton x:Name="Avatar7" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected7" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage7" Source="/Resources/avatars/avatar_head_7.png" Width="90" Height="90" />
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Controls:HoverButton x:Name="Avatar8" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected8" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage8" Source="/Resources/avatars/avatar_head_8.png" Width="90" Height="90" />
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="2">
+                        <Controls:HoverButton x:Name="Avatar9" TimeInterval="1750" Width="100" Height="100"/>
+                        <Rectangle x:Name="AvatarSelected9" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <Image x:Name="AvatarImage9" Source="/Resources/avatars/avatar_head_9.png" Width="90" Height="90" />
+                    </Grid>
+
+                    <Grid Margin="0,168,0,-136" Grid.Row="2" Grid.ColumnSpan="3" Height="85">
+                        <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" Width="500" Height="85"/>
+                        <Rectangle x:Name="AvatarReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Return to Main Menu" FontSize="40" TextWrapping="Wrap"/>
+                    </Grid>
+
+                </Grid>
+
+                <Grid Margin="564,0,-189,10">
+                    <Image x:Name="AvatarImage" Source="/Resources/avatars/avatar_body_1.png" Width="120" Height="320" />
+                </Grid>
+
+            </Grid>
+
+
+
+            <Grid x:Name="GameOn" Visibility="Collapsed">
+                <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
+            </Grid>
+
+
+
+            <Grid x:Name="Play" Visibility="Collapsed">
+
+            </Grid>
+
+
+
+            <Grid x:Name="Practice" Visibility="Collapsed">
+
+            </Grid>
+
+
+
+            <Grid x:Name="MainMenu" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
+
+                <Grid Margin="-27,-113,-30,410" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="weImagine: Dodgeball" Foreground="LightSkyBlue" FontSize="55" Margin="0,0,10,10" Width="547" Height="98"/>
+                </Grid>
+
+
+                <Grid Margin="0,0,0,320">
+                    <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1750" Width="500" Height="85"/>
                     <Rectangle x:Name="MainMenuItemImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" FontSize="40" TextWrapping="Wrap"/>
                 </Grid>
                 <Grid Margin="0,104,0,212">
-                    <Controls:HoverButton x:Name="MainMenuItem2" TimeInterval="1000" />
+                    <Controls:HoverButton x:Name="MainMenuItem2" TimeInterval="1750" Width="500" Height="85"/>
                     <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Practice" FontSize="40" TextWrapping="Wrap"/>
                 </Grid>
                 <Grid Margin="0,212,0,104">
-                    <Controls:HoverButton x:Name="MainMenuItem3" TimeInterval="1000" />
+                    <Controls:HoverButton x:Name="MainMenuItem3" TimeInterval="1750" Width="500" Height="85"/>
                     <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Avatar" FontSize="40" TextWrapping="Wrap"/>
                 </Grid>
                 <Grid Margin="0,320,0,0">
-                    <Controls:HoverButton x:Name="MainMenuItem4" TimeInterval="1000" />
+                    <Controls:HoverButton x:Name="MainMenuItem4" TimeInterval="1750" Width="500" Height="85"/>
                     <Rectangle x:Name="MainMenuItemImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New / Save / Load" FontSize="40" TextWrapping="Wrap"/>
                 </Grid>
             </Grid>
 
-            <!-- tracked drawbles -->
+            
+            
             <Ellipse Height="64" Width="64" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Resources/myhand.png" />

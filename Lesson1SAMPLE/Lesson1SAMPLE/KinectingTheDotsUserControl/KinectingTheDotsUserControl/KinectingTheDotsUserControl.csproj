@@ -163,14 +163,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\button1.png" />
     <Resource Include="Resources\hand-palm-th.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\hand-palm-th_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\button2.png" />
     <Resource Include="Resources\head.png" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +186,28 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\dodgeball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\avatars\avatar_body_1.png" />
+    <Resource Include="Resources\avatars\avatar_body_2.png" />
+    <Resource Include="Resources\avatars\avatar_body_3.png" />
+    <Resource Include="Resources\avatars\avatar_body_4.png" />
+    <Resource Include="Resources\avatars\avatar_body_5.png" />
+    <Resource Include="Resources\avatars\avatar_body_6.png" />
+    <Resource Include="Resources\avatars\avatar_body_7.png" />
+    <Resource Include="Resources\avatars\avatar_body_8.png" />
+    <Resource Include="Resources\avatars\avatar_head_1.png" />
+    <Resource Include="Resources\avatars\avatar_head_2.png" />
+    <Resource Include="Resources\avatars\avatar_head_3.png" />
+    <Resource Include="Resources\avatars\avatar_head_4.png" />
+    <Resource Include="Resources\avatars\avatar_head_5.png" />
+    <Resource Include="Resources\avatars\avatar_head_6.png" />
+    <Resource Include="Resources\avatars\avatar_head_7.png" />
+    <Resource Include="Resources\avatars\avatar_head_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\avatars\avatar_body_9.png" />
+    <Resource Include="Resources\avatars\avatar_head_9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
