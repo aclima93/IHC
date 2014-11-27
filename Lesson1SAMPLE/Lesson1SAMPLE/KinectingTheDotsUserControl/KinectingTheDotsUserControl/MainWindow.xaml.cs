@@ -32,7 +32,7 @@ namespace KinectingTheDotsUserControl
         public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
         public game_states_t game_state = game_states_t.MAIN_MENU;
         public int selected_avatar = 1;
-        public string[] game_file = File.ReadAllLines("/Resources/game_files/saved_game_1.txt");
+        //public string[] game_file = File.ReadAllLines("/Resources/game_files/saved_game_1.txt");
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -56,13 +56,8 @@ namespace KinectingTheDotsUserControl
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
-
-            /*
-            StreamReader mysr = new StreamReader("xaml");
-            WindowContent.Content = (Page)XamlReader.Load(mysr.BaseStream);
-            */
-
-            
+          
+            // Hide your kids, hide your wife
             MainMenu.Visibility = Visibility.Visible;
             Play.Visibility = Visibility.Collapsed;
             Practice.Visibility = Visibility.Collapsed;
