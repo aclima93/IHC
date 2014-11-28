@@ -34,11 +34,14 @@ namespace KinectingTheDotsUserControl
         public int selected_avatar = 1;
         private MainWindow mainWindow;
 
+        public XAMLChooseAvatar()
+        {
+            InitializeComponent();
+        }
 
-        public XAMLChooseAvatar(MainWindow mainWindow)
+        public void setMainWindow(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-            InitializeComponent();
         }
 
         public void setChooseAvatarHandlers()

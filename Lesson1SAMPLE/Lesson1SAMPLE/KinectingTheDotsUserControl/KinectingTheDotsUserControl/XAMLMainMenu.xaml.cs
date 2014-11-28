@@ -33,10 +33,14 @@ namespace KinectingTheDotsUserControl
 
         private MainWindow mainWindow;
 
-        public XAMLMainMenu(MainWindow mainWindow)
+        public XAMLMainMenu()
+        {
+            InitializeComponent();
+        }
+
+        public void setMainWindow(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-            InitializeComponent();
         }
 
         public void checkMainMenuButtons()

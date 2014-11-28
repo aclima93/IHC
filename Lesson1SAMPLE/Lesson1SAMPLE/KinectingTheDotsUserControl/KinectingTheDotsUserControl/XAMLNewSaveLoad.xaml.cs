@@ -33,10 +33,14 @@ namespace KinectingTheDotsUserControl
 
         private MainWindow mainWindow;
 
-        public XAMLNewSaveLoad(MainWindow mainWindow)
+        public XAMLNewSaveLoad()
+        {
+            InitializeComponent();
+        }
+
+        public void setMainWindow(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-            InitializeComponent();
         }
 
         private void openFileDialog()

@@ -38,10 +38,6 @@ namespace KinectingTheDotsUserControl
         public string[] game_file;
         private const bool DEBUG = true;
 
-        public XAMLMainMenu xamlMainMenu;
-        public XAMLChooseAvatar xamlChooseAvatar;
-        public XAMLNewSaveLoad xamlNewSaveLoad;
-
         private static double _topBoundary;
         private static double _bottomBoundary;
         private static double _leftBoundary;
@@ -65,9 +61,10 @@ namespace KinectingTheDotsUserControl
             Unloaded += new RoutedEventHandler(MainWindow_Unloaded);
 
 
-            xamlMainMenu = new XAMLMainMenu(this);
-            xamlChooseAvatar = new XAMLChooseAvatar(this);
-            xamlNewSaveLoad = new XAMLNewSaveLoad(this);
+            xamlMainMenu.setMainWindow(this);
+            xamlChooseAvatar.setMainWindow(this);
+            xamlNewSaveLoad.setMainWindow(this);
+
 
             // Hide your kids, hide your wife
             xamlMainMenu.MainMenu.Visibility = Visibility.Visible;

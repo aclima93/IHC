@@ -13,9 +13,11 @@
 
         <Canvas Background="Transparent" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
 
-            <Controls:XAMLNewSaveLoad />
+            <Controls:XAMLNewSaveLoad x:Name="xamlNewSaveLoad" Canvas.Left="400" Canvas.Top="300"/>
 
-            <Controls:XAMLChooseAvatar />
+            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Canvas.Left="400" Canvas.Top="300"/>
+
+            <Controls:XAMLMainMenu x:Name="xamlMainMenu" Canvas.Left="400" Canvas.Top="300"/>
 
 
             <Grid x:Name="GameOn" Visibility="Collapsed">
@@ -33,9 +35,6 @@
             <Grid x:Name="Practice" Visibility="Collapsed">
                 <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
             </Grid>
-
-
-            <Controls:XAMLMainMenu />
             
 
 
