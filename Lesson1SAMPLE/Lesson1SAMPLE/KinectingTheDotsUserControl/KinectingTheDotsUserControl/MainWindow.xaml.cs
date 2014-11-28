@@ -37,6 +37,9 @@ namespace KinectingTheDotsUserControl
         private game_states_t game_state = game_states_t.MAIN_MENU;
         public string[] game_file;
         private const bool DEBUG = true;
+        public SoundPlayer transition = new SoundPlayer("swoosh.wav");
+        public SoundPlayer selection = new SoundPlayer("selection-click.wav");
+
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -67,53 +70,83 @@ namespace KinectingTheDotsUserControl
 
 
             // Hide your kids, hide your wife
-            xamlMainMenu.MainMenu.Visibility = Visibility.Visible;
+            xamlMainMenu.Visibility = Visibility.Visible;
+
             Play.Visibility = Visibility.Collapsed;
-            Practice.Visibility = Visibility.Collapsed;
+            xamlPractice.Visibility = Visibility.Collapsed;
             GameOn.Visibility = Visibility.Collapsed;
-            xamlChooseAvatar.ChooseAvatar.Visibility = Visibility.Collapsed;
-            xamlNewSaveLoad.NewSaveLoad.Visibility = Visibility.Collapsed;
+            xamlChooseAvatar.Visibility = Visibility.Collapsed;
+            xamlNewSaveLoad.Visibility = Visibility.Collapsed;
+
 
             activateHandlersFor(game_state);
+
 
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
         }
 
+        private void checkGameStateButtons(game_states_t game_state){
+            if (game_state == game_states_t.MAIN_MENU)
+            {
+                xamlMainMenu.checkMainMenuButtons();
+            }
+            else if (game_state == game_states_t.CHOOSE_AVATAR)
+            {
+                xamlChooseAvatar.checkChooseAvatarButtons();
+            }
+            else if (game_state == game_states_t.NEW_SAVE_LOAD)
+            {
+                xamlNewSaveLoad.checkNewSaveLoadButtons();
+            }
+            else if (game_state == game_states_t.PLAY)
+            {
+                checkPlayButtons();
+            }
+            else if (game_state == game_states_t.PRACTICE)
+            {
+                xamlPractice.checkPracticeButtons();
+            }
+        }
+
 
         private void drawSkeletons(SkeletonData data)
         {
 
-            SetEllipsePosition(Joint1, data.Joints[JointID.AnkleLeft]);
-            SetEllipsePosition(Joint2, data.Joints[JointID.AnkleRight]);
+            if (DEBUG)
+            {
 
-            SetEllipsePosition(Joint3, data.Joints[JointID.ElbowLeft]);
-            SetEllipsePosition(Joint4, data.Joints[JointID.ElbowRight]);
+                SetEllipsePosition(Joint1, data.Joints[JointID.AnkleLeft]);
+                SetEllipsePosition(Joint2, data.Joints[JointID.AnkleRight]);
 
-            SetEllipsePosition(Joint5, data.Joints[JointID.FootLeft]);
-            SetEllipsePosition(Joint6, data.Joints[JointID.FootRight]);
+                SetEllipsePosition(Joint3, data.Joints[JointID.ElbowLeft]);
+                SetEllipsePosition(Joint4, data.Joints[JointID.ElbowRight]);
 
-            SetEllipsePosition(Joint7, data.Joints[JointID.HandLeft]);
-            SetEllipsePosition(Joint8, data.Joints[JointID.HandRight]);
+                SetEllipsePosition(Joint5, data.Joints[JointID.FootLeft]);
+                SetEllipsePosition(Joint6, data.Joints[JointID.FootRight]);
 
-            SetEllipsePosition(Joint9, data.Joints[JointID.Head]);
+                SetEllipsePosition(Joint7, data.Joints[JointID.HandLeft]);
+                SetEllipsePosition(Joint8, data.Joints[JointID.HandRight]);
 
-            SetEllipsePosition(Joint10, data.Joints[JointID.HipCenter]);
-            SetEllipsePosition(Joint11, data.Joints[JointID.HipLeft]);
-            SetEllipsePosition(Joint12, data.Joints[JointID.HipRight]);
+                SetEllipsePosition(Joint9, data.Joints[JointID.Head]);
 
-            SetEllipsePosition(Joint13, data.Joints[JointID.KneeLeft]);
-            SetEllipsePosition(Joint14, data.Joints[JointID.KneeRight]);
+                SetEllipsePosition(Joint10, data.Joints[JointID.HipCenter]);
+                SetEllipsePosition(Joint11, data.Joints[JointID.HipLeft]);
+                SetEllipsePosition(Joint12, data.Joints[JointID.HipRight]);
 
-            SetEllipsePosition(Joint15, data.Joints[JointID.ShoulderCenter]);
-            SetEllipsePosition(Joint16, data.Joints[JointID.ShoulderLeft]);
-            SetEllipsePosition(Joint17, data.Joints[JointID.ShoulderRight]);
+                SetEllipsePosition(Joint13, data.Joints[JointID.KneeLeft]);
+                SetEllipsePosition(Joint14, data.Joints[JointID.KneeRight]);
 
-            SetEllipsePosition(Joint18, data.Joints[JointID.Spine]);
+                SetEllipsePosition(Joint15, data.Joints[JointID.ShoulderCenter]);
+                SetEllipsePosition(Joint16, data.Joints[JointID.ShoulderLeft]);
+                SetEllipsePosition(Joint17, data.Joints[JointID.ShoulderRight]);
 
-            SetEllipsePosition(Joint19, data.Joints[JointID.WristLeft]);
-            SetEllipsePosition(Joint20, data.Joints[JointID.WristRight]);
+                SetEllipsePosition(Joint18, data.Joints[JointID.Spine]);
+
+                SetEllipsePosition(Joint19, data.Joints[JointID.WristLeft]);
+                SetEllipsePosition(Joint20, data.Joints[JointID.WristRight]);
+            }
 
         }
 
@@ -151,26 +184,7 @@ namespace KinectingTheDotsUserControl
 
             }
 
-            if (game_state == game_states_t.MAIN_MENU)
-            {
-                xamlMainMenu.checkMainMenuButtons();
-            }
-            else if (game_state == game_states_t.CHOOSE_AVATAR)
-            {
-                xamlChooseAvatar.checkChooseAvatarButtons();
-            }
-            else if (game_state == game_states_t.NEW_SAVE_LOAD)
-            {
-                xamlNewSaveLoad.checkNewSaveLoadButtons();
-            }
-            else if (game_state == game_states_t.PLAY)
-            {
-                checkPlayButtons();
-            }
-            else if (game_state == game_states_t.PRACTICE)
-            {
-                checkPracticeButtons();
-            }
+            checkGameStateButtons(game_state);
 
         }
 
@@ -226,7 +240,10 @@ namespace KinectingTheDotsUserControl
 
             BitmapSource source = BitmapSource.Create(image.Width, image.Height, 0, 0,
                 PixelFormats.Bgr32, null, image.Bits, image.Width * image.BytesPerPixel);
-            videoImage.Source = source;
+            if (DEBUG)
+            {
+                xamlPractice.videoImage.Source = source;
+            }
         }
 
 
@@ -335,10 +352,6 @@ namespace KinectingTheDotsUserControl
         }
 
         private void checkPlayButtons()
-        {
-        }
-
-        private void checkPracticeButtons()
         {
         }
 

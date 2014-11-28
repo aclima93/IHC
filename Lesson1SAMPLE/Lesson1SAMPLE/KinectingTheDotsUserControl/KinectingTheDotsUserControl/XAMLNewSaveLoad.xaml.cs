@@ -32,6 +32,7 @@ namespace KinectingTheDotsUserControl
     {
 
         private MainWindow mainWindow;
+        private string game_info = "It works! *throws a party*";
 
         public XAMLNewSaveLoad()
         {
@@ -43,18 +44,32 @@ namespace KinectingTheDotsUserControl
             this.mainWindow = mainWindow;
         }
 
-        
+
+        private void newFileDialog()
+        {
+            SaveFileDialog newFileDialog1 = new SaveFileDialog();
+            newFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+            newFileDialog1.AddExtension = true;
+            newFileDialog1.FilterIndex = 1;
+            newFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            newFileDialog1.ShowDialog();
+            // Get file name.
+            string name = newFileDialog1.FileName;
+            // Write to the file name selected.
+            File.WriteAllText(name, "");
+        }
+
         private void saveFileDialog()
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             saveFileDialog1.ShowDialog();
 	        // Get file name.
 	        string name = saveFileDialog1.FileName;
 	        // Write to the file name selected.
-            string game_info = "It works! *throws a party*";
 	        File.WriteAllText(name, game_info);
         }
         
@@ -135,11 +150,9 @@ namespace KinectingTheDotsUserControl
 
         private void NewSaveLoadItem4_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.transition.Play();
 
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.MAIN_MENU, NewSaveLoad, mainWindow.xamlMainMenu);
+            mainWindow.changeGameState(MainWindow.game_states_t.MAIN_MENU, mainWindow.xamlNewSaveLoad, mainWindow.xamlMainMenu);
 
         }
 

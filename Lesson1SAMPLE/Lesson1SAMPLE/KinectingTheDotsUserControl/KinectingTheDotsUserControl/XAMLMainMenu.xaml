@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="1024" d:DesignWidth="1280">
+             d:DesignHeight="768" d:DesignWidth="1366">
     
     <Grid x:Name="MainMenu" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
 

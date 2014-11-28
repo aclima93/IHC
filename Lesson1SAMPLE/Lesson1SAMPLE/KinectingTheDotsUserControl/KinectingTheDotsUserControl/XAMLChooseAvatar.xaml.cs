@@ -34,6 +34,7 @@ namespace KinectingTheDotsUserControl
         public int selected_avatar = 1;
         private MainWindow mainWindow;
 
+
         public XAMLChooseAvatar()
         {
             InitializeComponent();
@@ -179,9 +180,7 @@ namespace KinectingTheDotsUserControl
         // Avatar Button EventHandlers
         void Avatar1_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(1);
@@ -189,9 +188,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar2_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(2);
@@ -199,9 +196,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar3_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(3);
@@ -209,9 +204,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar4_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(4);
@@ -219,9 +212,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar5_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(5);
@@ -229,9 +220,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar6_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(6);
@@ -239,9 +228,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar7_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(7);
@@ -249,9 +236,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar8_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(8);
@@ -259,9 +244,7 @@ namespace KinectingTheDotsUserControl
         }
         void Avatar9_Click(object sender, RoutedEventArgs e)
         {
-
-            SoundPlayer correct = new SoundPlayer("selection-click.wav");
-            correct.Play();
+            mainWindow.selection.Play();
 
             unselectAvatar(selected_avatar);
             selectAvatar(9);
@@ -269,11 +252,9 @@ namespace KinectingTheDotsUserControl
         }
         void AvatarReturnToMainMenu_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.transition.Play();
 
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.MAIN_MENU, ChooseAvatar, mainWindow.xamlMainMenu.MainMenu);
+            mainWindow.changeGameState(MainWindow.game_states_t.MAIN_MENU, mainWindow.xamlChooseAvatar, mainWindow.xamlMainMenu);
 
         }
 

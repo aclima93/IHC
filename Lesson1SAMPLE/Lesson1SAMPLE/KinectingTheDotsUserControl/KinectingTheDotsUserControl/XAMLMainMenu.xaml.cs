@@ -72,38 +72,30 @@ namespace KinectingTheDotsUserControl
         // Main Menu Button EventHandlers
         private void MainMenuItem1_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.transition.Play();
 
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.PLAY, MainMenu, mainWindow.Play);
+            mainWindow.changeGameState(MainWindow.game_states_t.PLAY, mainWindow.xamlMainMenu, mainWindow.Play);
 
         }
         private void MainMenuItem2_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.transition.Play();
 
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.PRACTICE, MainMenu, mainWindow.Practice);
+            mainWindow.changeGameState(MainWindow.game_states_t.PRACTICE, mainWindow.xamlMainMenu, mainWindow.xamlPractice);
 
         }
         private void MainMenuItem3_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.transition.Play();
 
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.CHOOSE_AVATAR, MainMenu, mainWindow.xamlChooseAvatar.ChooseAvatar);
+            mainWindow.changeGameState(MainWindow.game_states_t.CHOOSE_AVATAR, mainWindow.xamlMainMenu, mainWindow.xamlChooseAvatar);
 
         }
         private void MainMenuItem4_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.transition.Play();
 
-            SoundPlayer correct = new SoundPlayer("swoosh.wav");
-            correct.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.NEW_SAVE_LOAD, MainMenu, mainWindow.xamlNewSaveLoad.NewSaveLoad);
+            mainWindow.changeGameState(MainWindow.game_states_t.NEW_SAVE_LOAD, mainWindow.xamlMainMenu, mainWindow.xamlNewSaveLoad);
         }
 
 

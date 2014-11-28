@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:Controls="clr-namespace:KinectingTheDotsUserControl" 
-        Title="weImagine: Dodgeball" Width="1280" Height="1024" Background="Black"
+        Title="weImagine: Dodgeball" Width="1366" Height="768" Background="Black"
         Icon="/weImage_DodgeBall;component/Resources/dodgeball.ico">
 
     <Grid>
@@ -13,12 +13,13 @@
 
         <Canvas Background="Transparent" Width="1276" Height="993" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,-4,0">
 
-            <Controls:XAMLNewSaveLoad x:Name="xamlNewSaveLoad" Canvas.Left="400" Canvas.Top="300"/>
+            <Controls:XAMLNewSaveLoad x:Name="xamlNewSaveLoad" Visibility="Collapsed" Canvas.Left="400" Canvas.Top="300"/>
 
-            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Canvas.Left="400" Canvas.Top="300"/>
+            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Visibility="Collapsed" Canvas.Left="400" Canvas.Top="300"/>
 
-            <Controls:XAMLMainMenu x:Name="xamlMainMenu" Canvas.Left="400" Canvas.Top="300"/>
+            <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="400" Canvas.Top="300"/>
 
+            <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" Canvas.Left="400" Canvas.Top="300"/>
 
             <Grid x:Name="GameOn" Visibility="Collapsed">
 
@@ -32,10 +33,8 @@
 
 
 
-            <Grid x:Name="Practice" Visibility="Collapsed">
-                <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
-            </Grid>
-            
+
+
 
 
             <Ellipse Height="64" Width="64" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
@@ -44,26 +43,26 @@
                 </Ellipse.Fill>
             </Ellipse>
 
-            <Ellipse Name="Joint1" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint2" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint3" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint4" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint5" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint6" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint7" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint8" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint9" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint10" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint11" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint12" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint13" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint14" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint15" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint16" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint17" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint18" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint19" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
-            <Ellipse Name="Joint20" Fill="Red" Height="10" Width="10" Canvas.Left="-441" Canvas.Top="835" />
+            <Ellipse Name="Joint1" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint2" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint3" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint4" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint5" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint6" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint7" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint8" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint9" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint10" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint11" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint12" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint13" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint14" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint15" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint16" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint17" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint18" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint19" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="Joint20" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
 
 
 
