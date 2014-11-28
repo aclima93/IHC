@@ -43,6 +43,22 @@ namespace KinectingTheDotsUserControl
             this.mainWindow = mainWindow;
         }
 
+        
+        private void saveFileDialog()
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+            saveFileDialog1.AddExtension = true;
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.ShowDialog();
+	        // Get file name.
+	        string name = saveFileDialog1.FileName;
+	        // Write to the file name selected.
+            string game_info = "It works! *throws a party*";
+	        File.WriteAllText(name, game_info);
+        }
+        
+
         private void openFileDialog()
         {
             // Create an instance of the open file dialog box.
@@ -109,6 +125,7 @@ namespace KinectingTheDotsUserControl
         private void NewSaveLoadItem2_Click(object sender, RoutedEventArgs e)
         {
             // save something with the file browsing thingamajiggy
+            saveFileDialog();
         }
         private void NewSaveLoadItem3_Click(object sender, RoutedEventArgs e)
         {
