@@ -34,12 +34,22 @@ namespace KinectingTheDotsUserControl
         Runtime runtime = Runtime.Kinects[0];
 
         public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
-        
         private game_states_t game_state = game_states_t.MAIN_MENU;
+
         public string[] game_file;
+
         public const bool DEBUG = true;
+
         public SoundPlayer transition = new SoundPlayer("swoosh.wav");
         public SoundPlayer selection = new SoundPlayer("selection-click.wav");
+
+        public Ball ball;
+
+        public int renderingCounter = 0;
+        public const int renderingStep = 10;
+
+        public const int screen_width = 1366;
+        public const int screen_height = 768;
 
 
         private static double _topBoundary;
@@ -68,6 +78,7 @@ namespace KinectingTheDotsUserControl
             xamlMainMenu.setMainWindow(this);
             xamlChooseAvatar.setMainWindow(this);
             xamlNewSaveLoad.setMainWindow(this);
+            xamlPractice.setMainWindow(this);
 
 
             // Hide your kids, hide your wife
@@ -86,38 +97,66 @@ namespace KinectingTheDotsUserControl
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
+            Random r = new Random();
+
+            float dx = 100;//r.Next(-1000, 1000)/1000;
+            float dy = 100;//r.Next(-1000, 1000)/1000;
+            float dz = 0;//r.Next(-1000, 1000)/1000;
+
+            float radius = 64 / 2; //hardcoded because fuck you, that's why
+
+            // because we use fullscreen. fuck you.
+            int window_width = screen_width;
+            int window_height = screen_height;
+
+            float x = 0;//r.Next(-window_width/2, window_width/2);
+            float y = 0;//r.Next(-window_height / 2, window_height / 2);
+            float z = 5; // to be tweeked?
+
+            float distLR = screen_width * 100;
+            float distUD = screen_height * 100;
+            float distFB = 10;
+
+            ball = new Ball(x, y, z, dx, dy, dz, radius, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
+
         }
 
-        private void checkGameStateButtons(game_states_t game_state){
-            if (game_state == game_states_t.MAIN_MENU)
-            {
-                xamlMainMenu.checkMainMenuButtons();
-            }
-            else if (game_state == game_states_t.CHOOSE_AVATAR)
-            {
-                xamlChooseAvatar.checkChooseAvatarButtons();
-            }
-            else if (game_state == game_states_t.NEW_SAVE_LOAD)
-            {
-                xamlNewSaveLoad.checkNewSaveLoadButtons();
-            }
-            else if (game_state == game_states_t.PLAY)
-            {
-                checkPlayButtons();
-            }
-            else if (game_state == game_states_t.PRACTICE)
-            {
-                xamlPractice.checkPracticeButtons();
-            }
-        }
+        public void updateBall()
+        {
+            ball.updatePosition();
+            ball.checkWallCollisions();
+            //ball.checkJointCollision();
 
+            /*
+            renderingCounter += 1;
+            if( (renderingCounter%renderingStep) == 0)
+            {
+            */
+            
+            Ball_2D.Height = ball.getSize();
+            Ball_2D.Width = Ball_2D.Height;
+            
+
+            float x = ball.getX2D();
+            float y = ball.getY2D();
+
+            Canvas.SetLeft(Ball_2D, x);
+            Canvas.SetTop(Ball_2D, y);
+
+            //}
+        }
 
         private void drawSkeleton1(SkeletonData data)
         {
+            updateBall();
 
+            //SetEllipsePosition(Ball_2D, data.Joints[JointID.HandRight]);
+
+            //if (DEBUG) Console.WriteLine("Ball at: x={0} y={1}, size={2}", ball.getX2D(), ball.getY2D(), ball.getSize());
+           
             if (DEBUG)
             {
-
+                
                 SetEllipsePosition(P1J1, data.Joints[JointID.AnkleLeft]);
                 SetEllipsePosition(P1J2, data.Joints[JointID.AnkleRight]);
 
@@ -187,8 +226,8 @@ namespace KinectingTheDotsUserControl
         {
 
             Microsoft.Research.Kinect.Nui.Vector vector = new Microsoft.Research.Kinect.Nui.Vector();
-            vector.X = ScaleVector(1280, joint.Position.X);
-            vector.Y = ScaleVector(1024, -joint.Position.Y);
+            vector.X = ScaleVector(screen_width, joint.Position.X);
+            vector.Y = ScaleVector(screen_height, -joint.Position.Y);
             vector.Z = joint.Position.Z;
 
             Joint updatedJoint = new Joint();
@@ -300,6 +339,26 @@ namespace KinectingTheDotsUserControl
             activateHandlersFor(game_state);
         }
 
+        private void checkGameStateButtons(game_states_t game_state)
+        {
+            if (game_state == game_states_t.MAIN_MENU)
+            {
+                xamlMainMenu.checkMainMenuButtons();
+            }
+            else if (game_state == game_states_t.CHOOSE_AVATAR)
+            {
+                xamlChooseAvatar.checkChooseAvatarButtons();
+            }
+            else if (game_state == game_states_t.NEW_SAVE_LOAD)
+            {
+                xamlNewSaveLoad.checkNewSaveLoadButtons();
+            }
+            else if (game_state == game_states_t.PRACTICE)
+            {
+                xamlPractice.checkPracticeButtons();
+            }
+        }
+
         private void activateHandlersFor(game_states_t state)
         {
 
@@ -316,6 +375,10 @@ namespace KinectingTheDotsUserControl
             else if (state == game_states_t.NEW_SAVE_LOAD)
             {
                 xamlNewSaveLoad.setNewSaveLoadHandlers();
+            }
+            else if (state == game_states_t.PRACTICE)
+            {
+                xamlPractice.setPracticeHandlers();
             }
 
         }
@@ -337,6 +400,10 @@ namespace KinectingTheDotsUserControl
             {
                 xamlNewSaveLoad.removeNewSaveLoadHandlers();
             }
+            else if (state == game_states_t.PRACTICE)
+            {
+                xamlPractice.removePracticeHandlers();
+            }
 
         }
 
@@ -345,15 +412,6 @@ namespace KinectingTheDotsUserControl
             from.Visibility = Visibility.Collapsed;
             to.Visibility = Visibility.Visible;
         }
-
-        private void checkPlayButtons()
-        {
-        }
-
-        private void checkGameOnButtons()
-        {
-        }
-
 
 
     }

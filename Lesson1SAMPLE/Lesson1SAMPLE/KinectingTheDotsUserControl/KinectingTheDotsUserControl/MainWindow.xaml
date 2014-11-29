@@ -39,7 +39,13 @@
 
             <Ellipse Height="64" Width="64" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Resources/myhand.png" />
+                    <ImageBrush ImageSource="Resources/myhand.png" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Ellipse Height="64" Width="64" Name="Ball_2D" Canvas.Left="-222" Canvas.Top="481">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Resources/ball1.png" />
                 </Ellipse.Fill>
             </Ellipse>
 

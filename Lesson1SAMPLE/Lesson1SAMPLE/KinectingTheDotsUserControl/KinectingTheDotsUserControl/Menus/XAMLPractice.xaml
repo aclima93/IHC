@@ -11,17 +11,20 @@
 
         <!-- <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="768" Margin="-684,-382,684,382"/> -->
 
+        <Rectangle Height="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,187,0,571"/>
+        <Rectangle Height="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+        <Rectangle Height="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,550,0,208"/>
+
+        <Rectangle Width="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+        <Rectangle Width="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="306,0,1050,0"/>
+        <Rectangle Width="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="1044,0,312,0"/>
+
         <Grid Margin="573,37,573,671">
             <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000"/>
             <Rectangle x:Name="PracticeReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="30" Height="44" Width="154" Margin="35,7,31,3"/>
         </Grid>
 
-        <Ellipse Height="64" Width="64" Name="Ball_2D" Canvas.Left="-222" Canvas.Top="373" Margin="-750,242,1186,99">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="ball1.png" />
-            </Ellipse.Fill>
-        </Ellipse>
     </Grid>
 
 </UserControl>

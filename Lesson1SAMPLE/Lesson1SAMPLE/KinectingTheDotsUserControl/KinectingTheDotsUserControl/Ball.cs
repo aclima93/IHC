@@ -58,61 +58,66 @@ namespace KinectingTheDotsUserControl
 
             this.window_aspect = window_width / window_height;
 
-            this.left = distLR;
-            this.right = distLR;
+            this.left = -distLR/2;
+            this.right = distLR/2;
 
-            this.up = distUD;
-            this.down = distUD;
+            this.up = distUD/2;
+            this.down = -distUD/2;
 
-            this.front = distFB;
-            this.back = distFB;
+            this.front = distFB/2;
+            this.back = -distFB/2;
 
         }
 
         public float getX2D()
         {
-            return x_2D;
+            return this.x_2D;
         }
 
         public float getY2D()
         {
-            return y_2D;
+            return this.y_2D;
         }
 
         public float getSize()
         {
-            return radius*2*getDrawingRatio();
+            return (this.radius * 2)*getDrawingRatio();
         }
 
         public void updatePosition()
         {
+
+            Console.WriteLine("[PRE] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
             update3DCoordinates();
             update2DCoordinates();
+            Console.WriteLine("[POS] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
+
+
         }
 
         public bool checkJointCollision(float joint_x, float joint_y, float joint_z)
         {
 
-            bool leftHit = ((x_3D - radius) >= joint_x);
-            bool rightHit = (joint_x <= (x_3D + radius));
+            bool leftHit = ((this.x_3D - this.radius) >= joint_x);
+            bool rightHit = (joint_x <= (this.x_3D + this.radius));
 
-            bool downHit = ((y_3D - radius) >= joint_y);
-            bool upHit = (joint_y <= (y_3D + radius));
+            bool downHit = ((this.y_3D - this.radius) >= joint_y);
+            bool upHit = (joint_y <= (this.y_3D + this.radius));
 
             if (leftHit || rightHit)
             {
                 if (downHit || upHit)
                 {
-                    if ((z_3D - radius) >= joint_z || joint_z <= (z_3D + radius))
+                    if ((this.z_3D - this.radius) >= joint_z || joint_z <= (this.z_3D + this.radius))
                     {
 
-                        if ((leftHit && (dx_3D < 0)) || (rightHit && (dx_3D > 0)))
+                        if ((leftHit && (this.dx_3D < 0)) || (rightHit && (this.dx_3D > 0)))
                         {
                             xAxisRicochet();
                         }
 
 
-                        if ((downHit && (dy_3D < 0)) || (upHit && (dx_3D > 0)))
+                        if ((downHit && (this.dy_3D < 0)) || (upHit && (this.dx_3D > 0)))
                         {
                             yAxisRicochet();
                         }
@@ -122,6 +127,7 @@ namespace KinectingTheDotsUserControl
 
                         updatePosition();
 
+                        Console.WriteLine("[Collision] Hit joint at: x={0} y={1}, z={2}", joint_x, joint_y, joint_z);
                         return true;
                     }
                 }
@@ -145,89 +151,92 @@ namespace KinectingTheDotsUserControl
 
         private float getDrawingRatio()
         {
-            float temp1_x_2D = ((x_3D - radius) / z_3D) + half_screen_width;
-            float temp2_x_2D = ((x_3D + radius) / z_3D) + half_screen_width;
+            float temp1_x_2D = ((this.x_3D - this.radius) / this.z_3D) + this.half_screen_width;
+            float temp2_x_2D = ((this.x_3D + this.radius) / this.z_3D) + this.half_screen_width;
 
-            if (window_aspect > 1.0)
+            if (this.window_aspect > 1.0)
             {
-                temp1_x_2D = temp1_x_2D / window_aspect;
-                temp2_x_2D = temp2_x_2D / window_aspect;
+                temp1_x_2D = temp1_x_2D / this.window_aspect;
+                temp2_x_2D = temp2_x_2D / this.window_aspect;
             }
 
             // because it's a sphere, the ratio is the same in every direction
-            // ratio = newdist / olddist
-            return ((Math.Abs(temp1_x_2D) + Math.Abs(temp2_x_2D)) / dist);
+            return dist / (Math.Abs(temp1_x_2D) + Math.Abs(temp2_x_2D));
         }
 
         private void update2DCoordinates()
         {
-            x_2D = (x_3D / z_3D) + half_screen_width;
-            y_2D = (-1*(y_3D / z_3D)) + half_screen_height;
+            this.x_2D = (this.x_3D / this.z_3D) + this.half_screen_width;
+            this.y_2D = (-1 * (this.y_3D / this.z_3D)) + this.half_screen_height;
 
-            
-            if (window_aspect > 1.0)
+
+            if (this.window_aspect > 1.0)
             {
-                x_2D = x_2D / window_aspect;
+                this.x_2D = this.x_2D / this.window_aspect;
             }
             else
             {
-                y_2D = y_2D * window_aspect;
+                this.y_2D = this.y_2D * this.window_aspect;
             }
             
         }
 
         private void update3DCoordinates()
         {
-            x_3D += dx_3D;
-            y_3D += dy_3D;
-            z_3D += dz_3D;
+            this.x_3D = this.x_3D + this.dx_3D;
+            this.y_3D = this.y_3D + this.dy_3D;
+            this.z_3D = this.z_3D + this.dz_3D;
         }
 
         private void xAxisRicochet()
         {
-            dx_3D *= (-1);
+            this.dx_3D = this.dx_3D * (-1);
         }
         private void yAxisRicochet()
         {
-            dy_3D *= (-1);
+            this.dy_3D = this.dy_3D * (-1);
         }
         private void zAxisRicochet()
         {
-            dz_3D *= (-1);
+            this.dz_3D = this.dz_3D * (-1);
         }
 
         private void checkLeftRightWallCollisions()
         {
-            if( (x_3D - radius) <= left || (x_3D + radius) >= right )
+            if ((this.x_3D - this.radius) <= this.left || (this.x_3D + this.radius) >= this.right)
             {
                 xAxisRicochet();
-                updatePosition(); 
+                updatePosition();
+                Console.WriteLine("[Collision] Left/Right Wall Collision");
             }
         }
 
         private void checkUpDownCollisions()
         {
-            if( (y_3D - radius) <= down || (y_3D + radius) >= up)
+            if ((this.y_3D - this.radius) <= this.down || (this.y_3D + this.radius) >= this.up)
             {
                 yAxisRicochet();
                 updatePosition();
+                Console.WriteLine("[Collision] Up or Down Wall Collision");
             }
         }
 
 
         private void checkFrontCollision()
         {
-            if ((z_3D + radius) >= front)
+            if ((this.z_3D + this.radius) >= this.front)
             {
                 zAxisRicochet();
                 updatePosition();
+                Console.WriteLine("[Collision] Front Wall Collision");
             }
         }
 
         private bool checkBackCollision()
         {
-            if ((z_3D - radius) <= back)
+            if ((this.z_3D - this.radius) <= this.back)
             {
+                Console.WriteLine("[Collision] Back Wall Collision");
                 return true;
             }
             return false;
