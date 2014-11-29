@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KinectingTheDotsUserControl
 {
-    class Ball
+    public class Ball
     {
         private float radius;
         private float dist;
@@ -69,6 +69,80 @@ namespace KinectingTheDotsUserControl
 
         }
 
+        public float getX2D()
+        {
+            return x_2D;
+        }
+
+        public float getY2D()
+        {
+            return y_2D;
+        }
+
+        public float getSize()
+        {
+            return radius*2*getDrawingRatio();
+        }
+
+        public void updatePosition()
+        {
+            update3DCoordinates();
+            update2DCoordinates();
+        }
+
+        public bool checkJointCollision(float joint_x, float joint_y, float joint_z)
+        {
+
+            bool leftHit = ((x_3D - radius) >= joint_x);
+            bool rightHit = (joint_x <= (x_3D + radius));
+
+            bool downHit = ((y_3D - radius) >= joint_y);
+            bool upHit = (joint_y <= (y_3D + radius));
+
+            if (leftHit || rightHit)
+            {
+                if (downHit || upHit)
+                {
+                    if ((z_3D - radius) >= joint_z || joint_z <= (z_3D + radius))
+                    {
+
+                        if ((leftHit && (dx_3D < 0)) || (rightHit && (dx_3D > 0)))
+                        {
+                            xAxisRicochet();
+                        }
+
+
+                        if ((downHit && (dy_3D < 0)) || (upHit && (dx_3D > 0)))
+                        {
+                            yAxisRicochet();
+                        }
+
+                        //collision so just reverse dz of ball
+                        zAxisRicochet();
+
+                        updatePosition();
+
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool checkWallCollisions()
+        {
+            checkLeftRightWallCollisions();
+            checkUpDownCollisions();
+
+            return checkFrontBackCollisions();
+        }
+
+
+        // -----------------
+        // helping functions
+        // -----------------
+
         private float getDrawingRatio()
         {
             float temp1_x_2D = ((x_3D - radius) / z_3D) + half_screen_width;
@@ -82,13 +156,8 @@ namespace KinectingTheDotsUserControl
 
             // because it's a sphere, the ratio is the same in every direction
             // ratio = newdist / olddist
-            return ( (Math.Abs(temp1_x_2D) + Math.Abs(temp2_x_2D)) / dist);
+            return ((Math.Abs(temp1_x_2D) + Math.Abs(temp2_x_2D)) / dist);
         }
-
-
-        // -----------------
-        // helping functions
-        // -----------------
 
         private void update2DCoordinates()
         {
@@ -114,12 +183,6 @@ namespace KinectingTheDotsUserControl
             z_3D += dz_3D;
         }
 
-        private void updatePosition()
-        {
-            update3DCoordinates();
-            update2DCoordinates();
-        }
-
         private void xAxisRicochet()
         {
             dx_3D *= (-1);
@@ -131,46 +194,6 @@ namespace KinectingTheDotsUserControl
         private void zAxisRicochet()
         {
             dz_3D *= (-1);
-        }
-
-        private bool checkJointCollision(float joint_x, float joint_y, float joint_z)
-        {
-
-            bool leftHit = ( (x_3D - radius) >= joint_x );
-            bool rightHit = ( joint_x <= (x_3D + radius) );
-
-            bool downHit = ( (y_3D - radius) >= joint_y );
-            bool upHit = ( joint_y <= (y_3D + radius) );
-
-            if( leftHit || rightHit )
-            {
-                if( downHit || upHit )
-                {
-                    if( (z_3D - radius) >= joint_z || joint_z <= (z_3D + radius) )
-                    {
-                        
-                        if( (leftHit && (dx_3D < 0) ) || (rightHit && (dx_3D > 0) ) )
-                        {
-                            xAxisRicochet();
-                        }
-
-
-                        if( (downHit && (dy_3D < 0) ) || (upHit && (dx_3D > 0) ) )
-                        {
-                            yAxisRicochet();
-                        }
-
-                        //collision so just reverse dz of ball
-                        zAxisRicochet();
-
-                        updatePosition();
-
-                        return true;
-                    }
-                }
-            }
-
-            return false;
         }
 
         private void checkLeftRightWallCollisions()
@@ -218,14 +241,6 @@ namespace KinectingTheDotsUserControl
             checkFrontCollision();
             return checkBackCollision(); // deduce points and reset ball
 
-        }
-
-        private bool checkWallCollisions()
-        {
-            checkLeftRightWallCollisions();
-            checkUpDownCollisions();
-
-            return checkFrontBackCollisions();
         }
 
     }

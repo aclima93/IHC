@@ -7,21 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
 
-    <Grid x:Name="Practice" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
-        
-        <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="1024"/>
-        
-        <Grid Margin="164,-113,164,458">
+    <Grid x:Name="Practice" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="1366" Height="768" >
+
+        <!-- <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="768" Margin="-684,-382,684,382"/> -->
+
+        <Grid Margin="573,37,573,671">
             <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000"/>
             <Rectangle x:Name="PracticeReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="30" TextWrapping="Wrap"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="30" Height="44" Width="154" Margin="35,7,31,3"/>
         </Grid>
 
-        <Ellipse Height="64" Width="64" Name="Ball" Canvas.Left="-222" Canvas.Top="373" Margin="-750,242,1186,99">
+        <Ellipse Height="64" Width="64" Name="Ball_2D" Canvas.Left="-222" Canvas.Top="373" Margin="-750,242,1186,99">
             <Ellipse.Fill>
-                <ImageBrush ImageSource="/Resources/ball1.png" />
+                <ImageBrush ImageSource="ball1.png" />
             </Ellipse.Fill>
         </Ellipse>
     </Grid>
-    
+
 </UserControl>

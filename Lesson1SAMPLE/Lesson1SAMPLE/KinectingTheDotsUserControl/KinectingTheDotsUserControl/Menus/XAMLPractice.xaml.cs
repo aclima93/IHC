@@ -8,6 +8,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using Coding4Fun.Kinect.Wpf.Controls;
 using Microsoft.Research.Kinect.Nui;
+//using Microsoft.Kinect;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -34,12 +35,17 @@ namespace KinectingTheDotsUserControl
         private MainWindow mainWindow;
         private Ball ball;
 
+        public int renderingCounter = 0;
+        public int renderingStep = 10;
+
 
         public XAMLPractice()
         {
             InitializeComponent();
-            Random r = new Random();
 
+            //ball_image.ImageSource = new BitmapImage( new Uri("ball1.png", UriKind.Relative));
+
+            Random r = new Random();
 
             float dx = r.Next(-1000, 1000)/1000;
             float dy = r.Next(-1000, 1000)/1000;
@@ -54,24 +60,41 @@ namespace KinectingTheDotsUserControl
             int window_width = screen_width;
             int window_height = screen_height;
 
-            float x = r.Next(-window_width/2, window_width/2);
-            float y = r.Next(-window_height / 2, window_height / 2);
+            float x = 0;//r.Next(-window_width/2, window_width/2);
+            float y = 0;//r.Next(-window_height / 2, window_height / 2);
             float z = 10; // to be tweeked?
 
             float distLR = screen_width*10;
             float distUD = screen_height*10;
             float distFB = screen_width*20;
 
-            ball = new Ball( x, y, z, dx, dy, dz, radius, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
+            this.ball = new Ball( x, y, z, dx, dy, dz, radius, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
         
         }
 
-        meter aqui a correr a bola e o seu "significado"
-
-        private void checkPracticeButtons(MainWindow mainWindow)
+        
+        public void setBallPosition(Ellipse ellipse, float x, float y)
         {
-            this.mainWindow = mainWindow;
+            Canvas.SetLeft(ellipse, x);
+            Canvas.SetTop(ellipse, y);
         }
+
+        public void updateBall()
+        {
+            ball.updatePosition();
+            ball.checkWallCollisions();
+            //ball.checkJointCollision();
+
+            renderingCounter += 1;
+            if( (renderingCounter%renderingStep) == 0)
+            {
+                float size = ball.getSize();
+                Ball_2D.Height = size;
+                Ball_2D.Width = size;
+                setBallPosition(Ball_2D, ball.getX2D(), ball.getY2D());
+            }
+        }
+
 
         public void setMainWindow(MainWindow mainWindow)
         {
@@ -92,7 +115,12 @@ namespace KinectingTheDotsUserControl
 
         public void checkPracticeButtons()
         {
-            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.RightHand);
+            //mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.RightHand);
+            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P1J7);
+            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P1J8);
+            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P2J7);
+            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P2J8);
+            updateBall();
 
         }
 

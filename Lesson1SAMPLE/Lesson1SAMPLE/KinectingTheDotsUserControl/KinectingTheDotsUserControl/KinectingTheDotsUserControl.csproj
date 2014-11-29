@@ -103,14 +103,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Ball.cs" />
-    <Compile Include="XAMLPractice.xaml.cs">
+    <Compile Include="Menus\XAMLPractice.xaml.cs">
       <DependentUpon>XAMLPractice.xaml</DependentUpon>
     </Compile>
-    <Page Include="XAMLChooseAvatar.xaml">
+    <Page Include="Menus\XAMLChooseAvatar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="XAMLMainMenu.xaml">
+    <Page Include="Menus\XAMLMainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,27 +122,27 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="XAMLChooseAvatar.xaml.cs">
+    <Compile Include="Menus\XAMLChooseAvatar.xaml.cs">
       <DependentUpon>XAMLChooseAvatar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="XAMLMainMenu.xaml.cs">
+    <Compile Include="Menus\XAMLMainMenu.xaml.cs">
       <DependentUpon>XAMLMainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="XAMLNewSaveLoad.xaml">
+    <Page Include="Menus\XAMLNewSaveLoad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="XAMLPractice.xaml">
+    <Page Include="Menus\XAMLPractice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="XAMLNewSaveLoad.xaml.cs">
+    <Compile Include="Menus\XAMLNewSaveLoad.xaml.cs">
       <DependentUpon>XAMLNewSaveLoad.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -237,6 +237,9 @@
   <ItemGroup>
     <Resource Include="Resources\avatars\avatar_body_9.png" />
     <Resource Include="Resources\avatars\avatar_head_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Menus\ball1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

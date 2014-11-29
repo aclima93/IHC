@@ -8,6 +8,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using Coding4Fun.Kinect.Wpf.Controls;
 using Microsoft.Research.Kinect.Nui;
+//using Microsoft.Kinect;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace KinectingTheDotsUserControl
         
         private game_states_t game_state = game_states_t.MAIN_MENU;
         public string[] game_file;
-        private const bool DEBUG = true;
+        public const bool DEBUG = true;
         public SoundPlayer transition = new SoundPlayer("swoosh.wav");
         public SoundPlayer selection = new SoundPlayer("selection-click.wav");
 
@@ -111,41 +112,41 @@ namespace KinectingTheDotsUserControl
         }
 
 
-        private void drawSkeletons(SkeletonData data)
+        private void drawSkeleton1(SkeletonData data)
         {
 
             if (DEBUG)
             {
 
-                SetEllipsePosition(Joint1, data.Joints[JointID.AnkleLeft]);
-                SetEllipsePosition(Joint2, data.Joints[JointID.AnkleRight]);
+                SetEllipsePosition(P1J1, data.Joints[JointID.AnkleLeft]);
+                SetEllipsePosition(P1J2, data.Joints[JointID.AnkleRight]);
 
-                SetEllipsePosition(Joint3, data.Joints[JointID.ElbowLeft]);
-                SetEllipsePosition(Joint4, data.Joints[JointID.ElbowRight]);
+                SetEllipsePosition(P1J3, data.Joints[JointID.ElbowLeft]);
+                SetEllipsePosition(P1J4, data.Joints[JointID.ElbowRight]);
 
-                SetEllipsePosition(Joint5, data.Joints[JointID.FootLeft]);
-                SetEllipsePosition(Joint6, data.Joints[JointID.FootRight]);
+                SetEllipsePosition(P1J5, data.Joints[JointID.FootLeft]);
+                SetEllipsePosition(P1J6, data.Joints[JointID.FootRight]);
 
-                SetEllipsePosition(Joint7, data.Joints[JointID.HandLeft]);
-                SetEllipsePosition(Joint8, data.Joints[JointID.HandRight]);
+                SetEllipsePosition(P1J7, data.Joints[JointID.HandLeft]);
+                SetEllipsePosition(P1J8, data.Joints[JointID.HandRight]);
 
-                SetEllipsePosition(Joint9, data.Joints[JointID.Head]);
+                SetEllipsePosition(P1J9, data.Joints[JointID.Head]);
 
-                SetEllipsePosition(Joint10, data.Joints[JointID.HipCenter]);
-                SetEllipsePosition(Joint11, data.Joints[JointID.HipLeft]);
-                SetEllipsePosition(Joint12, data.Joints[JointID.HipRight]);
+                SetEllipsePosition(P1J10, data.Joints[JointID.HipCenter]);
+                SetEllipsePosition(P1J11, data.Joints[JointID.HipLeft]);
+                SetEllipsePosition(P1J12, data.Joints[JointID.HipRight]);
 
-                SetEllipsePosition(Joint13, data.Joints[JointID.KneeLeft]);
-                SetEllipsePosition(Joint14, data.Joints[JointID.KneeRight]);
+                SetEllipsePosition(P1J13, data.Joints[JointID.KneeLeft]);
+                SetEllipsePosition(P1J14, data.Joints[JointID.KneeRight]);
 
-                SetEllipsePosition(Joint15, data.Joints[JointID.ShoulderCenter]);
-                SetEllipsePosition(Joint16, data.Joints[JointID.ShoulderLeft]);
-                SetEllipsePosition(Joint17, data.Joints[JointID.ShoulderRight]);
+                SetEllipsePosition(P1J15, data.Joints[JointID.ShoulderCenter]);
+                SetEllipsePosition(P1J16, data.Joints[JointID.ShoulderLeft]);
+                SetEllipsePosition(P1J17, data.Joints[JointID.ShoulderRight]);
 
-                SetEllipsePosition(Joint18, data.Joints[JointID.Spine]);
+                SetEllipsePosition(P1J18, data.Joints[JointID.Spine]);
 
-                SetEllipsePosition(Joint19, data.Joints[JointID.WristLeft]);
-                SetEllipsePosition(Joint20, data.Joints[JointID.WristRight]);
+                SetEllipsePosition(P1J19, data.Joints[JointID.WristLeft]);
+                SetEllipsePosition(P1J20, data.Joints[JointID.WristRight]);
             }
 
         }
@@ -162,24 +163,17 @@ namespace KinectingTheDotsUserControl
             if (data != null)
             {
 
-                if (RightHand.Visibility != Visibility.Collapsed)
+                SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
+
+                //if (game_state != game_states_t.GAME_ON)
+                if (game_state == game_states_t.PLAY || game_state == game_states_t.PRACTICE)
                 {
-                    //if (game_state != game_states_t.GAME_ON)
-                    if (game_state != game_states_t.PLAY && game_state != game_states_t.PRACTICE)
-                    {
-                        SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
-                    }
-                    else
-                    {
-                        RightHand.Visibility = Visibility.Collapsed;
-                        drawSkeletons(data);
-                    }
+                    RightHand.Visibility = Visibility.Collapsed;
+                    drawSkeleton1(data);
                 }
                 else
                 {
-
-                    drawSkeletons(data);
-
+                    RightHand.Visibility = Visibility.Visible;
                 }
 
             }
@@ -240,9 +234,10 @@ namespace KinectingTheDotsUserControl
 
             BitmapSource source = BitmapSource.Create(image.Width, image.Height, 0, 0,
                 PixelFormats.Bgr32, null, image.Bits, image.Width * image.BytesPerPixel);
+
             if (DEBUG)
             {
-                xamlPractice.videoImage.Source = source;
+                //xamlPractice.videoImage.Source = source;
             }
         }
 

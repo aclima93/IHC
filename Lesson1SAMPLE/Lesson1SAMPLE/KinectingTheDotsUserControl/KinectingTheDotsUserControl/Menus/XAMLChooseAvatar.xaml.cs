@@ -8,6 +8,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using Coding4Fun.Kinect.Wpf.Controls;
 using Microsoft.Research.Kinect.Nui;
+//using Microsoft.Kinect;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
