@@ -70,6 +70,9 @@ namespace KinectingTheDotsUserControl
             saveFileDialog1.ShowDialog();
 	        // Get file name.
 	        string name = saveFileDialog1.FileName;
+
+            if (name.Length == 0) name = "save_file_1337.txt";
+
 	        // Write to the file name selected.
 	        File.WriteAllText(name, game_info);
         }
@@ -136,16 +139,17 @@ namespace KinectingTheDotsUserControl
 
         private void NewSaveLoadItem1_Click(object sender, RoutedEventArgs e)
         {
-            // create something with the file browsing thingamajiggy
+            // reset contents of current game file
+            game_info = "";
         }
         private void NewSaveLoadItem2_Click(object sender, RoutedEventArgs e)
         {
-            // save something with the file browsing thingamajiggy
+            // save current game file
             saveFileDialog();
         }
         private void NewSaveLoadItem3_Click(object sender, RoutedEventArgs e)
         {
-            // select the file to load
+            // select the game file to load
             openFileDialog();
         }
 

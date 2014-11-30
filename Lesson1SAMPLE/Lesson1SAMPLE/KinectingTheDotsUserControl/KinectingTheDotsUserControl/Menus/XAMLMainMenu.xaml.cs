@@ -75,7 +75,9 @@ namespace KinectingTheDotsUserControl
         {
             mainWindow.transition.Play();
 
-            mainWindow.changeGameState(MainWindow.game_states_t.PLAY, mainWindow.xamlMainMenu, mainWindow.Play);
+            // TODO: to be implemented
+            //mainWindow.changeGameState(MainWindow.game_states_t.PLAY, mainWindow.xamlMainMenu, mainWindow.Play);
+            mainWindow.changeGameState(MainWindow.game_states_t.PRACTICE, mainWindow.xamlMainMenu, mainWindow.xamlPractice);
 
         }
         private void MainMenuItem2_Click(object sender, RoutedEventArgs e)

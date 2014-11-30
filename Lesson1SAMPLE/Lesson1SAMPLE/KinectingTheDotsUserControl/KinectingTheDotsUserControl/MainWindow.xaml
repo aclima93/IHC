@@ -15,21 +15,21 @@
 
             <Controls:XAMLNewSaveLoad x:Name="xamlNewSaveLoad" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
-            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
+            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Visibility="Visible" Canvas.Left="415" Canvas.Top="117"/>
 
             <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
             <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" Height="727" Width="1338"/>
 
+            <!--
             <Grid x:Name="GameOn" Visibility="Collapsed">
 
             </Grid>
 
-
-
             <Grid x:Name="Play" Visibility="Collapsed">
 
             </Grid>
+            -->
 
 
 
@@ -56,6 +56,14 @@
             <Ellipse Name="yU" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
             <Ellipse Name="yD" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
             -->
+
+            <!-- helper dots for back wall dimentions -->
+            
+            <Ellipse Name="LU" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="LD" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="RU" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="RD" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            
 
             <Ellipse Name="P1J1" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
             <Ellipse Name="P1J2" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />

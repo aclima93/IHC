@@ -60,16 +60,19 @@ namespace KinectingTheDotsUserControl
 
         public void checkPracticeButtons()
         {
+
+            score.Text = mainWindow.player_score.ToString();
+
             // cursor hand
-            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.RightHand);
+            //mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.RightHand);
 
             // player1's hands
             mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P1J7);
-            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P1J8);
+            //mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P1J8);
 
             // player2's hands
-            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P2J7);
-            mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P2J8);
+            //mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P2J7);
+            //mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P2J8);
 
         }
 

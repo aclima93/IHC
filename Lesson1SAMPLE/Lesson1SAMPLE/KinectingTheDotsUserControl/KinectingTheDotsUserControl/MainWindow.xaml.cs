@@ -49,6 +49,8 @@ namespace KinectingTheDotsUserControl
         public const int screen_height = 768;
 
         public int player_score = 0;
+        public const int gained_points = 50;
+        public const int lost_points = 0;
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -85,8 +87,8 @@ namespace KinectingTheDotsUserControl
             xamlPractice.Visibility = Visibility.Collapsed;
             xamlChooseAvatar.Visibility = Visibility.Collapsed;
             xamlNewSaveLoad.Visibility = Visibility.Collapsed;
-            Play.Visibility = Visibility.Collapsed;
-            GameOn.Visibility = Visibility.Collapsed;
+            //Play.Visibility = Visibility.Collapsed;
+            //GameOn.Visibility = Visibility.Collapsed;
 
 
             activateHandlersFor(game_state);
@@ -103,25 +105,26 @@ namespace KinectingTheDotsUserControl
         {
             Random r = new Random();
 
-            float dx = r.Next(-10000, 10000)/1000;
-            float dy = r.Next(-10000, 10000)/1000;
-            float dz = -1;//r.Next(-1000, 1000)/1000;
+            float dx = r.Next(-10, 11);
+            float dy = r.Next(-10, 11);
+            float dz = r.Next(-3, 0);
 
-            float radius = 64 / 2; //hardcoded because fuck you, that's why
+            float radius = 32; //hardcoded because fuck you, that's why
+            int size = 64;
 
             // because we use fullscreen. fuck you.
             int window_width = screen_width;
             int window_height = screen_height;
 
-            float x = r.Next(-window_width/2, window_width/2);
-            float y = r.Next(-window_height / 2, window_height / 2);
-            float z = radius+1; // to be tweeked?
+            int distLR = window_width * 10;
+            int distUD = window_height * 10;
+            int distFB = 100;
 
-            float distLR = window_width * 10;
-            float distUD = window_height * 10;
-            float distFB = 100;
+            float x = r.Next(-distLR / 2, distLR / 2);
+            float y = r.Next(-distUD / 2, distUD / 2);
+            float z = radius*2 + 1; // to be tweeked?
 
-            ball = new Ball(x, y, z, dx, dy, dz, radius, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
+            ball = new Ball(x, y, z, dx, dy, dz, radius, size, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
         }
 
         public void updateBallAndSkeleton(SkeletonData data)
@@ -134,14 +137,12 @@ namespace KinectingTheDotsUserControl
             if (ball.checkWallCollisions())
             {
                 //resetBall();
-                player_score = player_score - 15;
+                player_score = player_score - lost_points;
             }
             
             Console.WriteLine("");
             Console.WriteLine("");
 
-            
-            
             
             Ball_2D.Height = ball.getSize();
             Ball_2D.Width = Ball_2D.Height;
@@ -149,9 +150,8 @@ namespace KinectingTheDotsUserControl
             Canvas.SetLeft(Ball_2D, ball.getX2D() - Ball_2D.Height/2);
             Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
 
-
-            //helper dots
             /*
+            //helper dots for ball
             Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height/2);
             Canvas.SetTop(xL, ball.getY2D());
             Canvas.SetLeft(xR, ball.getX2D() + Ball_2D.Height / 2);
@@ -161,6 +161,22 @@ namespace KinectingTheDotsUserControl
             Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height / 2);
             Canvas.SetLeft(yD, ball.getX2D());
             Canvas.SetTop(yD, ball.getY2D() - Ball_2D.Height / 2);
+            */
+
+            /*
+            //helper dots for back wall limits
+            int w = (screen_width * 1) / 2;
+            int h = (screen_height * 1) / 2;
+
+            Canvas.SetLeft(LU, 0 - w/2);
+            Canvas.SetTop(LU, 0 + h / 2);
+            Canvas.SetLeft(LD, 0 - w / 2);
+            Canvas.SetTop(LD, 0 + h / 2);
+
+            Canvas.SetLeft(RU, 0 + w / 2);
+            Canvas.SetTop(RU, 0 + h / 2);
+            Canvas.SetLeft(RD, 0 - w / 2);
+            Canvas.SetTop(RD, 0 - h / 2);
             */
 
 
@@ -206,7 +222,7 @@ namespace KinectingTheDotsUserControl
             num_joint_collisions += SetEllipsePosition(P1J20, data.Joints[JointID.WristRight], true);
 
 
-            player_score = player_score + (50 * num_joint_collisions);
+            player_score = player_score + (gained_points * num_joint_collisions);
             if (num_joint_collisions > 0)
             {
                 Console.WriteLine("");
@@ -233,11 +249,76 @@ namespace KinectingTheDotsUserControl
                 if (game_state == game_states_t.PLAY || game_state == game_states_t.PRACTICE)
                 {
                     RightHand.Visibility = Visibility.Collapsed;
+                    Ball_2D.Visibility = Visibility.Visible;
+
+                    P1J1.Visibility = Visibility.Visible;
+                    P1J2.Visibility = Visibility.Visible;
+
+                    P1J3.Visibility = Visibility.Visible;
+                    P1J4.Visibility = Visibility.Visible;
+
+                    P1J5.Visibility = Visibility.Visible;
+                    P1J6.Visibility = Visibility.Visible;
+
+                    P1J7.Visibility = Visibility.Visible;
+                    P1J8.Visibility = Visibility.Visible;
+
+                    P1J9.Visibility = Visibility.Visible;
+
+                    P1J10.Visibility = Visibility.Visible;
+                    P1J11.Visibility = Visibility.Visible;
+                    P1J12.Visibility = Visibility.Visible;
+
+                    P1J13.Visibility = Visibility.Visible;
+                    P1J14.Visibility = Visibility.Visible;
+
+                    P1J15.Visibility = Visibility.Visible;
+                    P1J16.Visibility = Visibility.Visible;
+                    P1J17.Visibility = Visibility.Visible;
+
+                    P1J18.Visibility = Visibility.Visible;
+
+                    P1J19.Visibility = Visibility.Visible;
+                    P1J20.Visibility = Visibility.Visible;
+
+
+
                     updateBallAndSkeleton(data);
                 }
                 else
                 {
                     RightHand.Visibility = Visibility.Visible;
+                    Ball_2D.Visibility = Visibility.Collapsed;
+
+                    P1J1.Visibility = Visibility.Collapsed;
+                    P1J2.Visibility = Visibility.Collapsed;
+
+                    P1J3.Visibility = Visibility.Collapsed;
+                    P1J4.Visibility = Visibility.Collapsed;
+
+                    P1J5.Visibility = Visibility.Collapsed;
+                    P1J6.Visibility = Visibility.Collapsed;
+
+                    P1J7.Visibility = Visibility.Collapsed;
+                    P1J8.Visibility = Visibility.Collapsed;
+
+                    P1J9.Visibility = Visibility.Collapsed;
+
+                    P1J10.Visibility = Visibility.Collapsed;
+                    P1J11.Visibility = Visibility.Collapsed;
+                    P1J12.Visibility = Visibility.Collapsed;
+
+                    P1J13.Visibility = Visibility.Collapsed;
+                    P1J14.Visibility = Visibility.Collapsed;
+
+                    P1J15.Visibility = Visibility.Collapsed;
+                    P1J16.Visibility = Visibility.Collapsed;
+                    P1J17.Visibility = Visibility.Collapsed;
+
+                    P1J18.Visibility = Visibility.Collapsed;
+
+                    P1J19.Visibility = Visibility.Collapsed;
+                    P1J20.Visibility = Visibility.Collapsed;
                 }
 
             }

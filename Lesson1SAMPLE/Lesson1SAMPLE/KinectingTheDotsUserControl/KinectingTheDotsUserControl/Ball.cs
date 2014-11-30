@@ -8,6 +8,7 @@ namespace KinectingTheDotsUserControl
     public class Ball
     {
         private float radius;
+        private int size;
         private float dist;
 
         private float x_3D;
@@ -37,7 +38,7 @@ namespace KinectingTheDotsUserControl
 
         public Ball(float x, float y, float z,
             float dx, float dy, float dz,             
-            float radius, 
+            float radius, int size,
             int screen_width, int screen_height, 
             int window_width, int window_height,
             float distLR, float distUD, float distFB)
@@ -47,6 +48,7 @@ namespace KinectingTheDotsUserControl
             this.z_3D = z;
 
             this.radius = radius;
+            this.size = size;
             this.dist = 2 * radius;
 
             this.dx_3D = dx;
@@ -79,14 +81,15 @@ namespace KinectingTheDotsUserControl
             return this.y_2D;
         }
 
-        public float getSize()
+        public int getSize()
         {
-            return radius * 2 * getDrawingRatio();
+            return (int)(Math.Abs(size * getDrawingRatio()));
         }
 
         private float getDrawingRatio()
         {
 
+            // como um pedreiro de verdade, mas não quero saber. if it works don't fuck with it!
             return 1 - (this.z_3D / this.front);
 
             /*
@@ -139,14 +142,27 @@ namespace KinectingTheDotsUserControl
                     if ((this.z_3D - this.radius) >= joint_z || joint_z <= (this.z_3D + this.radius))
                     {
 
-                        if ((leftHit && (this.dx_3D < 0)) || (rightHit && (this.dx_3D > 0)))
+
+                        if (leftHit )//&& (this.dx_3D < 0))
                         {
+                            Console.WriteLine("[LeftHit]");
+                            xAxisRicochet();
+                        }
+                        else if (rightHit )//&& (this.dx_3D > 0))
+                        {
+                            Console.WriteLine("[RightHit]");
                             xAxisRicochet();
                         }
 
 
-                        if ((downHit && (this.dy_3D < 0)) || (upHit && (this.dx_3D > 0)))
+                        if (downHit )//&& (this.dy_3D < 0))
                         {
+                            Console.WriteLine("[DownHit]");
+                            yAxisRicochet();
+                        }
+                        else if (upHit )//&& (this.dx_3D > 0))
+                        {
+                            Console.WriteLine("[UpHit]");
                             yAxisRicochet();
                         }
 

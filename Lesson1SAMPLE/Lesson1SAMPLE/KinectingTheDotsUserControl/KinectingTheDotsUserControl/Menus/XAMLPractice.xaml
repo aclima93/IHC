@@ -11,6 +11,8 @@
 
         <!-- <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="768" Margin="-684,-382,684,382"/> -->
 
+        <!-- Debug lines for ball position -->
+        <!--
         <Rectangle Height="1" Fill="LightSkyBlue" Margin="0,187,0,571"/>
         <Rectangle Height="1" Fill="LightSkyBlue" />
         <Rectangle Height="1" Fill="LightSkyBlue" Margin="0,550,0,208"/>
@@ -18,13 +20,39 @@
         <Rectangle Width="1" Fill="LightSkyBlue" />
         <Rectangle Width="1" Fill="LightSkyBlue" Margin="306,0,1050,0"/>
         <Rectangle Width="1" Fill="LightSkyBlue" Margin="1044,0,312,0"/>
+        -->
 
-        <Grid Margin="573,37,573,671">
-            <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000"/>
-            <Rectangle x:Name="PracticeReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="30" Height="44" Width="154" Margin="35,7,31,3"/>
+        <Grid>
+            <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="0" X2="1366" Y2="768" />
+            <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="768" X2="1366" Y2="0"/>
         </Grid>
 
+
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Rectangle Height="1" Fill="LightSkyBlue" Margin="460,258,460,509"/>
+            <Rectangle Height="1" Fill="LightSkyBlue" Margin="460,509,460,258"/>
+            <Rectangle Width="1" Fill="LightSkyBlue" Margin="460,259,905,259"/>
+            <Rectangle Width="1" Fill="LightSkyBlue" Margin="906,258,459,258"/>
+        </Grid>
+
+        <Grid Margin="10" >
+            <Rectangle Height="10" Fill="LightSkyBlue" Margin="0,0,0,767"/>
+            <Rectangle Height="10" Fill="LightSkyBlue" Margin="0,767,0,0"/>
+            <Rectangle Width="10" Fill="LightSkyBlue" Margin="0,0,1365,0"/>
+            <Rectangle Width="10" Fill="LightSkyBlue" Margin="1365,0,0,0"/>
+        </Grid>
+
+
+        <Grid Margin="29,22,1147,705">
+            <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000" Margin="0,0,0,-5"/>
+            <Rectangle x:Name="PracticeReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,0,0,-5"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="25" Height="44" Width="134" Margin="30,6,26,-9"/>
+        </Grid>
+
+        <Grid Margin="1104,11,0,697">
+            <TextBlock Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Score: " FontSize="30" Height="44" Width="90" Margin="0,0,155,0"/>
+            <TextBlock Name="score" Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0" FontSize="30" Height="44" Width="155" Margin="90,0,0,0"/>
+        </Grid>
     </Grid>
 
 </UserControl>

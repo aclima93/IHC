@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
     
-    <Grid x:Name="ChooseAvatar" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="405" >
+    <Grid x:Name="ChooseAvatar" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="405">
 
         <Grid Margin="0,-113,0,410" >
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Your Avatar" Foreground="LightSkyBlue" FontSize="55" Margin="0,0,0,10" Width="500" Height="98"/>
@@ -78,7 +78,7 @@
                 <Image x:Name="AvatarImage9" Source="/Resources/avatars/avatar_head_9.png" Width="90" Height="90" />
             </Grid>
 
-            <Grid Margin="0,168,0,-136" Grid.Row="2" Grid.ColumnSpan="3" Height="85">
+            <Grid Margin="0,142,0,-96" Grid.Row="2" Grid.ColumnSpan="3" Height="85">
                 <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" Width="400" Height="85"/>
                 <Rectangle x:Name="AvatarReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Return to Main Menu" FontSize="40" TextWrapping="Wrap"/>
