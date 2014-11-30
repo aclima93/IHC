@@ -45,12 +45,10 @@ namespace KinectingTheDotsUserControl
 
         public Ball ball;
 
-        public int renderingCounter = 0;
-        public const int renderingStep = 10;
-
         public const int screen_width = 1366;
         public const int screen_height = 768;
 
+        public int player_score = 0;
 
         private static double _topBoundary;
         private static double _bottomBoundary;
@@ -84,11 +82,11 @@ namespace KinectingTheDotsUserControl
             // Hide your kids, hide your wife
             xamlMainMenu.Visibility = Visibility.Visible;
 
-            Play.Visibility = Visibility.Collapsed;
             xamlPractice.Visibility = Visibility.Collapsed;
-            GameOn.Visibility = Visibility.Collapsed;
             xamlChooseAvatar.Visibility = Visibility.Collapsed;
             xamlNewSaveLoad.Visibility = Visibility.Collapsed;
+            Play.Visibility = Visibility.Collapsed;
+            GameOn.Visibility = Visibility.Collapsed;
 
 
             activateHandlersFor(game_state);
@@ -97,11 +95,17 @@ namespace KinectingTheDotsUserControl
             runtime.VideoFrameReady += runtime_VideoFrameReady;
             runtime.SkeletonFrameReady += runtime_SkeletonFrameReady;
 
+            resetBall();
+
+        }
+
+        public void resetBall()
+        {
             Random r = new Random();
 
-            float dx = 100;//r.Next(-1000, 1000)/1000;
-            float dy = 100;//r.Next(-1000, 1000)/1000;
-            float dz = 0;//r.Next(-1000, 1000)/1000;
+            float dx = r.Next(-10000, 10000)/1000;
+            float dy = r.Next(-10000, 10000)/1000;
+            float dz = -1;//r.Next(-1000, 1000)/1000;
 
             float radius = 64 / 2; //hardcoded because fuck you, that's why
 
@@ -109,83 +113,104 @@ namespace KinectingTheDotsUserControl
             int window_width = screen_width;
             int window_height = screen_height;
 
-            float x = 0;//r.Next(-window_width/2, window_width/2);
-            float y = 0;//r.Next(-window_height / 2, window_height / 2);
-            float z = 5; // to be tweeked?
+            float x = r.Next(-window_width/2, window_width/2);
+            float y = r.Next(-window_height / 2, window_height / 2);
+            float z = radius+1; // to be tweeked?
 
-            float distLR = screen_width * 100;
-            float distUD = screen_height * 100;
-            float distFB = 10;
+            float distLR = window_width * 10;
+            float distUD = window_height * 10;
+            float distFB = 100;
 
             ball = new Ball(x, y, z, dx, dy, dz, radius, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
-
         }
 
-        public void updateBall()
+        public void updateBallAndSkeleton(SkeletonData data)
         {
-            ball.updatePosition();
-            ball.checkWallCollisions();
-            //ball.checkJointCollision();
 
-            /*
-            renderingCounter += 1;
-            if( (renderingCounter%renderingStep) == 0)
+            ball.updatePosition();
+
+            drawSkeleton1(data); // joint collisions with ball are made when they are updated and drawn to reduce redundance
+
+            if (ball.checkWallCollisions())
             {
-            */
+                //resetBall();
+                player_score = player_score - 15;
+            }
+            
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            
+            
             
             Ball_2D.Height = ball.getSize();
             Ball_2D.Width = Ball_2D.Height;
             
+            Canvas.SetLeft(Ball_2D, ball.getX2D() - Ball_2D.Height/2);
+            Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
 
-            float x = ball.getX2D();
-            float y = ball.getY2D();
 
-            Canvas.SetLeft(Ball_2D, x);
-            Canvas.SetTop(Ball_2D, y);
+            //helper dots
+            /*
+            Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height/2);
+            Canvas.SetTop(xL, ball.getY2D());
+            Canvas.SetLeft(xR, ball.getX2D() + Ball_2D.Height / 2);
+            Canvas.SetTop(xR, ball.getY2D());
 
-            //}
+            Canvas.SetLeft(yU, ball.getX2D());
+            Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height / 2);
+            Canvas.SetLeft(yD, ball.getX2D());
+            Canvas.SetTop(yD, ball.getY2D() - Ball_2D.Height / 2);
+            */
+
+
         }
 
         private void drawSkeleton1(SkeletonData data)
         {
-            updateBall();
 
             //SetEllipsePosition(Ball_2D, data.Joints[JointID.HandRight]);
 
             //if (DEBUG) Console.WriteLine("Ball at: x={0} y={1}, size={2}", ball.getX2D(), ball.getY2D(), ball.getSize());
-           
-            if (DEBUG)
+
+            int num_joint_collisions = 0;
+
+            num_joint_collisions += SetEllipsePosition(P1J1, data.Joints[JointID.AnkleLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J2, data.Joints[JointID.AnkleRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J3, data.Joints[JointID.ElbowLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J4, data.Joints[JointID.ElbowRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J5, data.Joints[JointID.FootLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J6, data.Joints[JointID.FootRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J7, data.Joints[JointID.HandLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J8, data.Joints[JointID.HandRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J9, data.Joints[JointID.Head], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J10, data.Joints[JointID.HipCenter], true);
+            num_joint_collisions += SetEllipsePosition(P1J11, data.Joints[JointID.HipLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J12, data.Joints[JointID.HipRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J13, data.Joints[JointID.KneeLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J14, data.Joints[JointID.KneeRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J15, data.Joints[JointID.ShoulderCenter], true);
+            num_joint_collisions += SetEllipsePosition(P1J16, data.Joints[JointID.ShoulderLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J17, data.Joints[JointID.ShoulderRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J18, data.Joints[JointID.Spine], true);
+
+            num_joint_collisions += SetEllipsePosition(P1J19, data.Joints[JointID.WristLeft], true);
+            num_joint_collisions += SetEllipsePosition(P1J20, data.Joints[JointID.WristRight], true);
+
+
+            player_score = player_score + (50 * num_joint_collisions);
+            if (num_joint_collisions > 0)
             {
-                
-                SetEllipsePosition(P1J1, data.Joints[JointID.AnkleLeft]);
-                SetEllipsePosition(P1J2, data.Joints[JointID.AnkleRight]);
-
-                SetEllipsePosition(P1J3, data.Joints[JointID.ElbowLeft]);
-                SetEllipsePosition(P1J4, data.Joints[JointID.ElbowRight]);
-
-                SetEllipsePosition(P1J5, data.Joints[JointID.FootLeft]);
-                SetEllipsePosition(P1J6, data.Joints[JointID.FootRight]);
-
-                SetEllipsePosition(P1J7, data.Joints[JointID.HandLeft]);
-                SetEllipsePosition(P1J8, data.Joints[JointID.HandRight]);
-
-                SetEllipsePosition(P1J9, data.Joints[JointID.Head]);
-
-                SetEllipsePosition(P1J10, data.Joints[JointID.HipCenter]);
-                SetEllipsePosition(P1J11, data.Joints[JointID.HipLeft]);
-                SetEllipsePosition(P1J12, data.Joints[JointID.HipRight]);
-
-                SetEllipsePosition(P1J13, data.Joints[JointID.KneeLeft]);
-                SetEllipsePosition(P1J14, data.Joints[JointID.KneeRight]);
-
-                SetEllipsePosition(P1J15, data.Joints[JointID.ShoulderCenter]);
-                SetEllipsePosition(P1J16, data.Joints[JointID.ShoulderLeft]);
-                SetEllipsePosition(P1J17, data.Joints[JointID.ShoulderRight]);
-
-                SetEllipsePosition(P1J18, data.Joints[JointID.Spine]);
-
-                SetEllipsePosition(P1J19, data.Joints[JointID.WristLeft]);
-                SetEllipsePosition(P1J20, data.Joints[JointID.WristRight]);
+                Console.WriteLine("");
+                Console.WriteLine("");
             }
 
         }
@@ -202,13 +227,13 @@ namespace KinectingTheDotsUserControl
             if (data != null)
             {
 
-                SetEllipsePosition(RightHand, data.Joints[JointID.HandRight]);
+                SetEllipsePosition(RightHand, data.Joints[JointID.HandRight], false);
 
                 //if (game_state != game_states_t.GAME_ON)
                 if (game_state == game_states_t.PLAY || game_state == game_states_t.PRACTICE)
                 {
                     RightHand.Visibility = Visibility.Collapsed;
-                    drawSkeleton1(data);
+                    updateBallAndSkeleton(data);
                 }
                 else
                 {
@@ -222,7 +247,7 @@ namespace KinectingTheDotsUserControl
         }
 
 
-        private void SetEllipsePosition(Ellipse ellipse, Joint joint)
+        private int SetEllipsePosition(Ellipse ellipse, Joint joint, bool checkCollisionWithBall)
         {
 
             Microsoft.Research.Kinect.Nui.Vector vector = new Microsoft.Research.Kinect.Nui.Vector();
@@ -237,6 +262,15 @@ namespace KinectingTheDotsUserControl
 
             Canvas.SetLeft(ellipse, updatedJoint.Position.X);
             Canvas.SetTop(ellipse, updatedJoint.Position.Y);
+
+            if (checkCollisionWithBall)
+            {
+                if (ball.checkJointCollision(updatedJoint.Position.X, updatedJoint.Position.Y, updatedJoint.Position.Z))
+                {
+                    return 1;
+                }
+            }
+            return 0;
         }
 
         private float ScaleVector(int length, float position)

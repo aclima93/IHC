@@ -11,13 +11,13 @@
 
         <!-- <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="768" Margin="-684,-382,684,382"/> -->
 
-        <Rectangle Height="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,187,0,571"/>
-        <Rectangle Height="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-        <Rectangle Height="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="0,550,0,208"/>
+        <Rectangle Height="1" Fill="LightSkyBlue" Margin="0,187,0,571"/>
+        <Rectangle Height="1" Fill="LightSkyBlue" />
+        <Rectangle Height="1" Fill="LightSkyBlue" Margin="0,550,0,208"/>
 
-        <Rectangle Width="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-        <Rectangle Width="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="306,0,1050,0"/>
-        <Rectangle Width="10" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="1044,0,312,0"/>
+        <Rectangle Width="1" Fill="LightSkyBlue" />
+        <Rectangle Width="1" Fill="LightSkyBlue" Margin="306,0,1050,0"/>
+        <Rectangle Width="1" Fill="LightSkyBlue" Margin="1044,0,312,0"/>
 
         <Grid Margin="573,37,573,671">
             <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000"/>

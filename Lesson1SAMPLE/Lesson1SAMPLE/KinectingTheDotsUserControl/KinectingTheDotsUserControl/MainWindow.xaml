@@ -49,9 +49,12 @@
                 </Ellipse.Fill>
             </Ellipse>
 
+            <!-- helper dots for ball position -->
             <!--
-            <Controls:XAMLPlayer1_Joints x:Name="xamlPlayer1_Joints" Visibility="Collapsed" Canvas.Left="400" Canvas.Top="300"/>
-            <Controls:XAMLPlayer2_Joints x:Name="xamlPlayer2_Joints" Visibility="Collapsed" Canvas.Left="400" Canvas.Top="300"/>
+            <Ellipse Name="xL" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="xR" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="yU" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="yD" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
             -->
 
             <Ellipse Name="P1J1" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />

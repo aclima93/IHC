@@ -27,12 +27,12 @@ namespace KinectingTheDotsUserControl
         private float window_aspect;
 
         // assuming http://www.povray.org/documentation/images/tutorial/handed.png coordinate system
-        private float left;
-        private float right;
-        private float up;
-        private float down;
-        private float front;
-        private float back;
+        private int left;
+        private int right;
+        private int up;
+        private int down;
+        private int front;
+        private int back;
 
 
         public Ball(float x, float y, float z,
@@ -58,14 +58,14 @@ namespace KinectingTheDotsUserControl
 
             this.window_aspect = window_width / window_height;
 
-            this.left = -distLR/2;
-            this.right = distLR/2;
+            this.left = (int)(-distLR/2);
+            this.right = (int)(distLR/2);
 
-            this.up = distUD/2;
-            this.down = -distUD/2;
+            this.up = (int)(distUD/2);
+            this.down = (int)(-distUD/2);
 
-            this.front = distFB/2;
-            this.back = -distFB/2;
+            this.front = (int)(distFB+1);
+            this.back = 1;
 
         }
 
@@ -81,16 +81,44 @@ namespace KinectingTheDotsUserControl
 
         public float getSize()
         {
-            return (this.radius * 2)*getDrawingRatio();
+            return radius * 2 * getDrawingRatio();
+        }
+
+        private float getDrawingRatio()
+        {
+
+            return 1 - (this.z_3D / this.front);
+
+            /*
+            float temp1_x_2D = (((this.x_3D - this.radius) / this.z_3D) + this.half_screen_width) * this.half_screen_width;
+            float temp2_x_2D = (((this.x_3D + this.radius) / this.z_3D) + this.half_screen_width) * this.half_screen_width;
+
+            
+            if (this.window_aspect > 1.0)
+            {
+                temp1_x_2D = temp1_x_2D / this.window_aspect;
+                temp2_x_2D = temp2_x_2D / this.window_aspect;
+            }
+            
+
+            // because it's a sphere, the ratio is the same in every direction
+            // // fully aware that it isn't a linear transformation and that the new distances might mean nothing. but fuck it!
+            return dist / (Math.Abs(temp1_x_2D) + Math.Abs(temp2_x_2D));
+            */
+
         }
 
         public void updatePosition()
         {
 
-            Console.WriteLine("[PRE] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
+            //Console.WriteLine("[PRE] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
             update3DCoordinates();
             update2DCoordinates();
-            Console.WriteLine("[POS] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
+            //Console.WriteLine("[POS] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
+            Console.WriteLine("[2D] Ball at: x={0} y={1}, size={2}", x_2D, y_2D, getSize());
+            Console.WriteLine("[3D] Ball at: x={0} y={1}, z={2}", x_3D, y_3D, z_3D);
+            Console.WriteLine("");
+            Console.WriteLine("");
 
 
         }
@@ -149,25 +177,15 @@ namespace KinectingTheDotsUserControl
         // helping functions
         // -----------------
 
-        private float getDrawingRatio()
-        {
-            float temp1_x_2D = ((this.x_3D - this.radius) / this.z_3D) + this.half_screen_width;
-            float temp2_x_2D = ((this.x_3D + this.radius) / this.z_3D) + this.half_screen_width;
-
-            if (this.window_aspect > 1.0)
-            {
-                temp1_x_2D = temp1_x_2D / this.window_aspect;
-                temp2_x_2D = temp2_x_2D / this.window_aspect;
-            }
-
-            // because it's a sphere, the ratio is the same in every direction
-            return dist / (Math.Abs(temp1_x_2D) + Math.Abs(temp2_x_2D));
-        }
-
         private void update2DCoordinates()
         {
             this.x_2D = (this.x_3D / this.z_3D) + this.half_screen_width;
             this.y_2D = (-1 * (this.y_3D / this.z_3D)) + this.half_screen_height;
+
+            /*
+            this.x_2D = ((this.x_3D / this.z_3D) + this.half_screen_width) * this.half_screen_width;
+            this.y_2D = ((-1 * (this.y_3D / this.z_3D)) + this.half_screen_height) * this.half_screen_height;
+             * */
 
 
             if (this.window_aspect > 1.0)
@@ -235,7 +253,10 @@ namespace KinectingTheDotsUserControl
         private bool checkBackCollision()
         {
             if ((this.z_3D - this.radius) <= this.back)
+            //if (this.z_3D <= this.back) // the radius was messing the initial position because it would always be colliding
             {
+                zAxisRicochet();
+                updatePosition();
                 Console.WriteLine("[Collision] Back Wall Collision");
                 return true;
             }
