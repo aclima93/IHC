@@ -15,7 +15,7 @@
 
             <Controls:XAMLNewSaveLoad x:Name="xamlNewSaveLoad" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
-            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Visibility="Visible" Canvas.Left="415" Canvas.Top="117"/>
+            <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="117"/>
 
             <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 

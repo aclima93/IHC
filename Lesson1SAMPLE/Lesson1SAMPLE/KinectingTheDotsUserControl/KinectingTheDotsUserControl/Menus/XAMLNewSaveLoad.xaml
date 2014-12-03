@@ -6,32 +6,50 @@
              xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
-    
+
     <Grid x:Name="NewSaveLoad" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
 
         <Grid Margin="0,-113,0,410" >
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New / Save / Load" Foreground="LightSkyBlue" FontSize="55" Margin="22,0,19,10" Width="459" Height="98"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" Foreground="LightSkyBlue" FontSize="55" Margin="196,10,195,20" Width="109" Height="78"/>
         </Grid>
 
 
-        <Grid Margin="0,0,0,320">
-            <Controls:HoverButton x:Name="NewSaveLoadItem1" TimeInterval="1750" Width="500" Height="85"/>
-            <Rectangle x:Name="NewSaveLoadImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New Game" FontSize="40" TextWrapping="Wrap"/>
+        <Grid Margin="-60,0,-60,156">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Line 1 -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Controls:HoverButton x:Name="PlayItem" TimeInterval="1750" Margin="10" />
+                <Rectangle x:Name="PlayImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" FontSize="40" TextWrapping="Wrap"/>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Controls:HoverButton x:Name="NewSaveLoadItem1" TimeInterval="1750" Margin="10" />
+                <Rectangle x:Name="NewSaveLoadImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New Game" FontSize="40" TextWrapping="Wrap"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Controls:HoverButton x:Name="NewSaveLoadItem2" TimeInterval="1750" Margin="10"  />
+                <Rectangle x:Name="NewSaveLoadImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Save Game" FontSize="40" TextWrapping="Wrap"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Controls:HoverButton x:Name="NewSaveLoadItem3" TimeInterval="1750" Margin="10"  />
+                <Rectangle x:Name="NewSaveLoadImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Load Game" FontSize="40" TextWrapping="Wrap"/>
+            </Grid>
         </Grid>
-        <Grid Margin="0,104,0,212">
-            <Controls:HoverButton x:Name="NewSaveLoadItem2" TimeInterval="1750" Width="500" Height="85"/>
-            <Rectangle x:Name="NewSaveLoadImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Save current game" FontSize="40" TextWrapping="Wrap"/>
-        </Grid>
-        <Grid Margin="0,212,0,104">
-            <Controls:HoverButton x:Name="NewSaveLoadItem3" TimeInterval="1750" Width="500" Height="85"/>
-            <Rectangle x:Name="NewSaveLoadImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Load a game file" FontSize="40" TextWrapping="Wrap"/>
-        </Grid>
-        <Grid Margin="0,320,0,0">
-            <Controls:HoverButton x:Name="NewSaveLoadItem4" TimeInterval="1750" Width="500" Height="85"/>
-            <Rectangle x:Name="NewSaveLoadImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
+        <Grid Margin="-60,254,-60,40">
+            <Controls:HoverButton x:Name="NewSaveLoadItem4" TimeInterval="1750" Margin="10"/>
+            <Rectangle x:Name="NewSaveLoadImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10" />
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Return to Main Menu" FontSize="40" TextWrapping="Wrap"/>
         </Grid>
     </Grid>

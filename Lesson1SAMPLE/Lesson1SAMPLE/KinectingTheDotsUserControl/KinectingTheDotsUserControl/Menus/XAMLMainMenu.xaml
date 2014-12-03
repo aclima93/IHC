@@ -29,11 +29,13 @@
             <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Avatar" FontSize="40" TextWrapping="Wrap"/>
         </Grid>
+        <!--
         <Grid Margin="0,320,0,0">
             <Controls:HoverButton x:Name="MainMenuItem4" TimeInterval="1750" Width="500" Height="85"/>
             <Rectangle x:Name="MainMenuItemImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="New / Save / Load" FontSize="40" TextWrapping="Wrap"/>
         </Grid>
+        -->
     </Grid>
 
 </UserControl>

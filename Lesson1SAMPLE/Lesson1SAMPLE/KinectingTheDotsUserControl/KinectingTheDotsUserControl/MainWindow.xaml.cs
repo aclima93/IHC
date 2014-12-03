@@ -109,7 +109,7 @@ namespace KinectingTheDotsUserControl
             float dy = r.Next(-10, 11);
             float dz = r.Next(-3, 0);
 
-            float radius = 32; //hardcoded because fuck you, that's why
+            float radius = 16;//32; //hardcoded because fuck you, that's why
             int size = 64;
 
             // because we use fullscreen. fuck you.
@@ -150,34 +150,7 @@ namespace KinectingTheDotsUserControl
             Canvas.SetLeft(Ball_2D, ball.getX2D() - Ball_2D.Height/2);
             Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
 
-            /*
-            //helper dots for ball
-            Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height/2);
-            Canvas.SetTop(xL, ball.getY2D());
-            Canvas.SetLeft(xR, ball.getX2D() + Ball_2D.Height / 2);
-            Canvas.SetTop(xR, ball.getY2D());
 
-            Canvas.SetLeft(yU, ball.getX2D());
-            Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height / 2);
-            Canvas.SetLeft(yD, ball.getX2D());
-            Canvas.SetTop(yD, ball.getY2D() - Ball_2D.Height / 2);
-            */
-
-            /*
-            //helper dots for back wall limits
-            int w = (screen_width * 1) / 2;
-            int h = (screen_height * 1) / 2;
-
-            Canvas.SetLeft(LU, 0 - w/2);
-            Canvas.SetTop(LU, 0 + h / 2);
-            Canvas.SetLeft(LD, 0 - w / 2);
-            Canvas.SetTop(LD, 0 + h / 2);
-
-            Canvas.SetLeft(RU, 0 + w / 2);
-            Canvas.SetTop(RU, 0 + h / 2);
-            Canvas.SetLeft(RD, 0 - w / 2);
-            Canvas.SetTop(RD, 0 - h / 2);
-            */
 
 
         }
@@ -225,7 +198,7 @@ namespace KinectingTheDotsUserControl
             player_score = player_score + (gained_points * num_joint_collisions);
             if (num_joint_collisions > 0)
             {
-                Console.WriteLine("");
+                Console.WriteLine("[Collision] Collided with {0} joints!", num_joint_collisions);
                 Console.WriteLine("");
             }
 
@@ -376,7 +349,7 @@ namespace KinectingTheDotsUserControl
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //Since only a color video stream is needed, RuntimeOptions.UseColor is used.
-            runtime.Initialize(Microsoft.Research.Kinect.Nui.RuntimeOptions.UseColor | RuntimeOptions.UseSkeletalTracking);
+            runtime.Initialize(Microsoft.Research.Kinect.Nui.RuntimeOptions.UseColor | RuntimeOptions.UseSkeletalTracking | RuntimeOptions.UseDepthAndPlayerIndex | RuntimeOptions.UseDepth);
 
             //You can adjust the resolution here.
             runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution1280x1024, ImageType.Color);

@@ -49,7 +49,6 @@ namespace KinectingTheDotsUserControl
             mainWindow.CheckButton(MainMenuItem1, mainWindow.RightHand);
             mainWindow.CheckButton(MainMenuItem2, mainWindow.RightHand);
             mainWindow.CheckButton(MainMenuItem3, mainWindow.RightHand);
-            mainWindow.CheckButton(MainMenuItem4, mainWindow.RightHand);
         }
 
         public void setMainMenuHandlers()
@@ -58,7 +57,6 @@ namespace KinectingTheDotsUserControl
             MainMenuItem1.Click += new RoutedEventHandler(MainMenuItem1_Click);
             MainMenuItem2.Click += new RoutedEventHandler(MainMenuItem2_Click);
             MainMenuItem3.Click += new RoutedEventHandler(MainMenuItem3_Click);
-            MainMenuItem4.Click += new RoutedEventHandler(MainMenuItem4_Click);
         }
         public void removeMainMenuHandlers()
         {
@@ -66,7 +64,6 @@ namespace KinectingTheDotsUserControl
             MainMenuItem1.Click -= new RoutedEventHandler(MainMenuItem1_Click);
             MainMenuItem2.Click -= new RoutedEventHandler(MainMenuItem2_Click);
             MainMenuItem3.Click -= new RoutedEventHandler(MainMenuItem3_Click);
-            MainMenuItem4.Click -= new RoutedEventHandler(MainMenuItem4_Click);
         }
 
 
@@ -75,9 +72,7 @@ namespace KinectingTheDotsUserControl
         {
             mainWindow.transition.Play();
 
-            // TODO: to be implemented
-            //mainWindow.changeGameState(MainWindow.game_states_t.PLAY, mainWindow.xamlMainMenu, mainWindow.Play);
-            mainWindow.changeGameState(MainWindow.game_states_t.PRACTICE, mainWindow.xamlMainMenu, mainWindow.xamlPractice);
+            mainWindow.changeGameState(MainWindow.game_states_t.NEW_SAVE_LOAD, mainWindow.xamlMainMenu, mainWindow.xamlNewSaveLoad);
 
         }
         private void MainMenuItem2_Click(object sender, RoutedEventArgs e)
@@ -94,12 +89,7 @@ namespace KinectingTheDotsUserControl
             mainWindow.changeGameState(MainWindow.game_states_t.CHOOSE_AVATAR, mainWindow.xamlMainMenu, mainWindow.xamlChooseAvatar);
 
         }
-        private void MainMenuItem4_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.transition.Play();
 
-            mainWindow.changeGameState(MainWindow.game_states_t.NEW_SAVE_LOAD, mainWindow.xamlMainMenu, mainWindow.xamlNewSaveLoad);
-        }
 
 
     }

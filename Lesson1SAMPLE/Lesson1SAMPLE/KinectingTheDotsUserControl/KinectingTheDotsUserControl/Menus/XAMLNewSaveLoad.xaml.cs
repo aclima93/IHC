@@ -113,6 +113,7 @@ namespace KinectingTheDotsUserControl
 
         public void checkNewSaveLoadButtons()
         {
+            mainWindow.CheckButton(PlayItem, mainWindow.RightHand);
             mainWindow.CheckButton(NewSaveLoadItem1, mainWindow.RightHand);
             mainWindow.CheckButton(NewSaveLoadItem2, mainWindow.RightHand);
             mainWindow.CheckButton(NewSaveLoadItem3, mainWindow.RightHand);
@@ -122,6 +123,7 @@ namespace KinectingTheDotsUserControl
         public void setNewSaveLoadHandlers()
         {
             // New Save Load Handlers
+            PlayItem.Click += new RoutedEventHandler(PlayItem_Click);
             NewSaveLoadItem1.Click += new RoutedEventHandler(NewSaveLoadItem1_Click);
             NewSaveLoadItem2.Click += new RoutedEventHandler(NewSaveLoadItem2_Click);
             NewSaveLoadItem3.Click += new RoutedEventHandler(NewSaveLoadItem3_Click);
@@ -131,6 +133,7 @@ namespace KinectingTheDotsUserControl
         public void removeNewSaveLoadHandlers()
         {
             // New Save Load Handlers
+            PlayItem.Click -= new RoutedEventHandler(PlayItem_Click);
             NewSaveLoadItem1.Click -= new RoutedEventHandler(NewSaveLoadItem1_Click);
             NewSaveLoadItem2.Click -= new RoutedEventHandler(NewSaveLoadItem2_Click);
             NewSaveLoadItem3.Click -= new RoutedEventHandler(NewSaveLoadItem3_Click);
@@ -158,6 +161,13 @@ namespace KinectingTheDotsUserControl
             mainWindow.transition.Play();
 
             mainWindow.changeGameState(MainWindow.game_states_t.MAIN_MENU, mainWindow.xamlNewSaveLoad, mainWindow.xamlMainMenu);
+
+        }
+        private void PlayItem_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.transition.Play();
+
+            mainWindow.changeGameState(MainWindow.game_states_t.PRACTICE, mainWindow.xamlMainMenu, mainWindow.xamlPractice);
 
         }
 

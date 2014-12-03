@@ -6,7 +6,7 @@
              xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
-    
+
     <Grid x:Name="ChooseAvatar" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="405">
 
         <Grid Margin="0,-113,0,410" >
@@ -78,15 +78,15 @@
                 <Image x:Name="AvatarImage9" Source="/Resources/avatars/avatar_head_9.png" Width="90" Height="90" />
             </Grid>
 
-            <Grid Margin="0,142,0,-96" Grid.Row="2" Grid.ColumnSpan="3" Height="85">
-                <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" Width="400" Height="85"/>
-                <Rectangle x:Name="AvatarReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Return to Main Menu" FontSize="40" TextWrapping="Wrap"/>
-            </Grid>
-
         </Grid>
 
-        <Grid Margin="564,0,-189,10">
+        <Grid Margin="564,310,-189,10">
+            <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" />
+            <Rectangle x:Name="AvatarReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="OK" FontSize="40" TextWrapping="Wrap"/>
+        </Grid>
+
+        <Grid Margin="564,-87,-189,97">
             <Image x:Name="AvatarImage" Source="/Resources/avatars/avatar_body_1.png" Width="120" Height="320" />
         </Grid>
 
