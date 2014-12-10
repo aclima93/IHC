@@ -103,9 +103,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Ball.cs" />
+    <Compile Include="Menus\XAMLPlay.xaml.cs">
+      <DependentUpon>XAMLPlay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menus\XAMLPractice.xaml.cs">
       <DependentUpon>XAMLPractice.xaml</DependentUpon>
     </Compile>
+    <Page Include="Menus\XAMLPlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Menus\XAMLChooseAvatar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,19 +199,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\hand-palm-th.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\hand-palm-th_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\head.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\foot.png" />
-    <Resource Include="Resources\foot_2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\myhand.png" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +237,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ball1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\brickwall.png" />
+    <Resource Include="Resources\CloseButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\P1Hand.png" />
+    <Resource Include="Resources\P2Hand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

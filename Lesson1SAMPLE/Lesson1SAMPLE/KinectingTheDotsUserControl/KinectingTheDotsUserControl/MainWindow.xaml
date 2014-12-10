@@ -19,27 +19,20 @@
 
             <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
+            <Controls:XAMLPlay x:Name="xamlPlay" Visibility="Collapsed" Height="727" Width="1338"/>
+
             <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" Height="727" Width="1338"/>
 
-            <!--
-            <Grid x:Name="GameOn" Visibility="Collapsed">
 
-            </Grid>
-
-            <Grid x:Name="Play" Visibility="Collapsed">
-
-            </Grid>
-            -->
-
-
-
-
-
-
-
-            <Ellipse Height="64" Width="64" Name="RightHand" Canvas.Left="-222" Canvas.Top="373">
+            <Ellipse Height="64" Width="64" Name="HandP1" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="Resources/myhand.png" />
+                    <ImageBrush ImageSource="/Resources/P1Hand.png" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Ellipse Height="64" Width="64" Name="HandP2" Canvas.Left="-291" Canvas.Top="373">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Resources/P2Hand.png" />
                 </Ellipse.Fill>
             </Ellipse>
 
@@ -58,54 +51,54 @@
             -->
 
             <!-- helper dots for back wall dimentions -->
-            
+            <!--
             <Ellipse Name="LU" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
             <Ellipse Name="LD" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
             <Ellipse Name="RU" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
             <Ellipse Name="RD" Fill="Yellow" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
-            
+            -->
 
-            <Ellipse Name="P1J1" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J2" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J3" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J4" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J5" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J6" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J7" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J8" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J9" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J10" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J11" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J12" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J13" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J14" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J15" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J16" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J17" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J18" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J19" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P1J20" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J1" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J2" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J3" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J4" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J5" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J6" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J7" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J8" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J9" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J10" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J11" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J12" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J13" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J14" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J15" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J16" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J17" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J18" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J19" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P1J20" Fill="White" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
 
-            <Ellipse Name="P2J1" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J2" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J3" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J4" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J5" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J6" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J7" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J8" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J9" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J10" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J11" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J12" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J13" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J14" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J15" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J16" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J17" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J18" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J19" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="P2J20" Fill="Green" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J1" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J2" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J3" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J4" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J5" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J6" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J7" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J8" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J9" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J10" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J11" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J12" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J13" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J14" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J15" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J16" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J17" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J18" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J19" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
+            <Ellipse Name="P2J20" Fill="Red" Height="10" Width="10" Canvas.Left="-183" Canvas.Top="823" />
 
         </Canvas>
     </Grid>

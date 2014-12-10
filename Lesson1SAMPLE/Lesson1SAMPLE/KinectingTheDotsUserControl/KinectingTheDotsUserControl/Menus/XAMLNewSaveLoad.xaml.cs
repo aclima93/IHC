@@ -73,6 +73,8 @@ namespace KinectingTheDotsUserControl
 
             if (name.Length == 0) name = "save_file_1337.txt";
 
+            //game_info = infoToText();
+
 	        // Write to the file name selected.
 	        File.WriteAllText(name, game_info);
         }
@@ -113,11 +115,11 @@ namespace KinectingTheDotsUserControl
 
         public void checkNewSaveLoadButtons()
         {
-            mainWindow.CheckButton(PlayItem, mainWindow.RightHand);
-            mainWindow.CheckButton(NewSaveLoadItem1, mainWindow.RightHand);
-            mainWindow.CheckButton(NewSaveLoadItem2, mainWindow.RightHand);
-            mainWindow.CheckButton(NewSaveLoadItem3, mainWindow.RightHand);
-            mainWindow.CheckButton(NewSaveLoadItem4, mainWindow.RightHand);
+            mainWindow.CheckButton(PlayItem, mainWindow.HandP1);
+            mainWindow.CheckButton(NewSaveLoadItem1, mainWindow.HandP1);
+            mainWindow.CheckButton(NewSaveLoadItem2, mainWindow.HandP1);
+            mainWindow.CheckButton(NewSaveLoadItem3, mainWindow.HandP1);
+            mainWindow.CheckButton(NewSaveLoadItem4, mainWindow.HandP1);
         }
 
         public void setNewSaveLoadHandlers()
@@ -158,17 +160,11 @@ namespace KinectingTheDotsUserControl
 
         private void NewSaveLoadItem4_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.transition.Play();
-
             mainWindow.changeGameState(MainWindow.game_states_t.MAIN_MENU, mainWindow.xamlNewSaveLoad, mainWindow.xamlMainMenu);
-
         }
         private void PlayItem_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.transition.Play();
-
-            mainWindow.changeGameState(MainWindow.game_states_t.PRACTICE, mainWindow.xamlMainMenu, mainWindow.xamlPractice);
-
+            mainWindow.changeGameState(MainWindow.game_states_t.PLAY, mainWindow.xamlNewSaveLoad, mainWindow.xamlPlay);
         }
 
     }

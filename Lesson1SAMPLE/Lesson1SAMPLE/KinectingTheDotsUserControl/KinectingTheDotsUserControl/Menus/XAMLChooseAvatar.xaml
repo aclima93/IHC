@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
 
-    <Grid x:Name="ChooseAvatar" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="405">
+    <Grid x:Name="ChooseAvatar" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="404">
 
-        <Grid Margin="0,-113,0,410" >
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Your Avatar" Foreground="LightSkyBlue" FontSize="55" Margin="0,0,0,10" Width="500" Height="98"/>
+        <Grid Margin="0,-140,0,473" >
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Your Avatar" Foreground="LightSkyBlue" FontSize="55" Width="500"/>
         </Grid>
 
 
@@ -30,64 +30,89 @@
             <!-- Line 1 -->
             <Grid Grid.Row="0" Grid.Column="0">
                 <Controls:HoverButton x:Name="Avatar1" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected1" Visibility="Visible" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_1" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected1" Visibility="Visible" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_1" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage1" Source="/Resources/avatars/avatar_head_1.png" Width="90" Height="90" />
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1">
                 <Controls:HoverButton x:Name="Avatar2" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected2" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_2" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected2" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_2" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage2" Source="/Resources/avatars/avatar_head_2.png" Width="90" Height="90" />
             </Grid>
             <Grid Grid.Row="0" Grid.Column="2">
                 <Controls:HoverButton x:Name="Avatar3" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected3" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_3" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected3" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_3" Visibility="Visible" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage3" Source="/Resources/avatars/avatar_head_3.png" Width="90" Height="90" />
             </Grid>
 
             <!-- Line 2 -->
             <Grid Grid.Row="1" Grid.Column="0">
                 <Controls:HoverButton x:Name="Avatar4" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected4" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_4" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected4" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_4" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage4" Source="/Resources/avatars/avatar_head_4.png" Width="90" Height="90" />
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Controls:HoverButton x:Name="Avatar5" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected5" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_5" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected5" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_5" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage5" Source="/Resources/avatars/avatar_head_5.png" Width="90" Height="90" />
             </Grid>
             <Grid Grid.Row="1" Grid.Column="2">
                 <Controls:HoverButton x:Name="Avatar6" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected6" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_6" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected6" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_6" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage6" Source="/Resources/avatars/avatar_head_6.png" Width="90" Height="90" />
             </Grid>
 
             <!-- Line 3 -->
             <Grid Grid.Row="2" Grid.Column="0">
                 <Controls:HoverButton x:Name="Avatar7" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected7" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_7" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected7" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_7" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage7" Source="/Resources/avatars/avatar_head_7.png" Width="90" Height="90" />
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
                 <Controls:HoverButton x:Name="Avatar8" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected8" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_8" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected8" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_8" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage8" Source="/Resources/avatars/avatar_head_8.png" Width="90" Height="90" />
             </Grid>
             <Grid Grid.Row="2" Grid.Column="2">
                 <Controls:HoverButton x:Name="Avatar9" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected9" Visibility="Collapsed" Width="100" Height="100" Stroke="LightSkyBlue" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Controls:HoverButton x:Name="Avatar_9" TimeInterval="1750" Width="100" Height="100"/>
+                <Rectangle x:Name="AvatarSelected9" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_9" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage9" Source="/Resources/avatars/avatar_head_9.png" Width="90" Height="90" />
             </Grid>
 
         </Grid>
 
-        <Grid Margin="564,310,-189,10">
+        <Grid Margin="0,-69,0,415">
             <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" />
+            <Controls:HoverButton x:Name="AvatarReturnToMainMenuP2" TimeInterval="1750" />
             <Rectangle x:Name="AvatarReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="OK" FontSize="40" TextWrapping="Wrap"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="OK" FontSize="35" TextWrapping="Wrap" />
         </Grid>
 
-        <Grid Margin="564,-87,-189,97">
-            <Image x:Name="AvatarImage" Source="/Resources/avatars/avatar_body_1.png" Width="120" Height="320" />
+        <Grid Margin="-200,42,580,42" Width="120" Height="320">
+            <Image x:Name="AvatarImageP1" Source="/Resources/avatars/avatar_body_1.png" />
+            <Rectangle Visibility="Visible" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+        </Grid>
+
+        <Grid Margin="580,42,-200,43" Width="120" Height="320">
+            <Image x:Name="AvatarImageP2" Source="/Resources/avatars/avatar_body_3.png" />
+            <Rectangle Visibility="Visible" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
         </Grid>
 
     </Grid>

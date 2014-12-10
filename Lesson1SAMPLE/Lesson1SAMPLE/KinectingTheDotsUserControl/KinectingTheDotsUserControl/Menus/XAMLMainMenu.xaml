@@ -6,13 +6,18 @@
              xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
-    
+
     <Grid x:Name="MainMenu" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
 
         <Grid Margin="-27,-113,-30,410" >
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="weImagine: Dodgeball" Foreground="LightSkyBlue" FontSize="55" Margin="0,0,10,10" Width="547" Height="98"/>
         </Grid>
 
+
+        <Grid Margin="732,-113,-318,433" Height="75" Width="75">
+            <Controls:HoverButton x:Name="CloseButton" TimeInterval="1750"/>
+            <Image Source="/Resources/CloseButton.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
 
         <Grid Margin="0,0,0,320">
             <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1750" Width="500" Height="85"/>

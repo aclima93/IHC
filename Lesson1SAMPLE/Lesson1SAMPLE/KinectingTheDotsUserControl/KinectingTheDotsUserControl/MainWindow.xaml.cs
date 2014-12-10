@@ -48,7 +48,9 @@ namespace KinectingTheDotsUserControl
         public const int screen_width = 1366;
         public const int screen_height = 768;
 
-        public int player_score = 0;
+        public int player1_score = 0;
+        public int player2_score = 0;
+
         public const int gained_points = 50;
         public const int lost_points = 0;
 
@@ -87,8 +89,7 @@ namespace KinectingTheDotsUserControl
             xamlPractice.Visibility = Visibility.Collapsed;
             xamlChooseAvatar.Visibility = Visibility.Collapsed;
             xamlNewSaveLoad.Visibility = Visibility.Collapsed;
-            //Play.Visibility = Visibility.Collapsed;
-            //GameOn.Visibility = Visibility.Collapsed;
+            xamlPlay.Visibility = Visibility.Collapsed;
 
 
             activateHandlersFor(game_state);
@@ -127,7 +128,7 @@ namespace KinectingTheDotsUserControl
             ball = new Ball(x, y, z, dx, dy, dz, radius, size, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
         }
 
-        public void updateBallAndSkeleton(SkeletonData data)
+        public void updateBallAndSkeleton1(SkeletonData data)
         {
 
             ball.updatePosition();
@@ -137,7 +138,7 @@ namespace KinectingTheDotsUserControl
             if (ball.checkWallCollisions())
             {
                 //resetBall();
-                player_score = player_score - lost_points;
+                player1_score = player1_score - lost_points;
             }
             
             Console.WriteLine("");
@@ -150,9 +151,14 @@ namespace KinectingTheDotsUserControl
             Canvas.SetLeft(Ball_2D, ball.getX2D() - Ball_2D.Height/2);
             Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
 
+        }
 
+        public void updateBallAndSkeleton2(SkeletonData data)
+        {
 
+            drawSkeleton2(data);
 
+            // To be added once the collisions work on the other side...
         }
 
         private void drawSkeleton1(SkeletonData data)
@@ -195,7 +201,56 @@ namespace KinectingTheDotsUserControl
             num_joint_collisions += SetEllipsePosition(P1J20, data.Joints[JointID.WristRight], true);
 
 
-            player_score = player_score + (gained_points * num_joint_collisions);
+            player1_score = player1_score + (gained_points * num_joint_collisions);
+            if (num_joint_collisions > 0)
+            {
+                Console.WriteLine("[Collision] Collided with {0} joints!", num_joint_collisions);
+                Console.WriteLine("");
+            }
+
+        }
+
+        private void drawSkeleton2(SkeletonData data)
+        {
+
+            //SetEllipsePosition(Ball_2D, data.Joints[JointID.HandRight]);
+
+            //if (DEBUG) Console.WriteLine("Ball at: x={0} y={1}, size={2}", ball.getX2D(), ball.getY2D(), ball.getSize());
+
+            int num_joint_collisions = 0;
+
+            num_joint_collisions += SetEllipsePosition(P2J1, data.Joints[JointID.AnkleLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J2, data.Joints[JointID.AnkleRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J3, data.Joints[JointID.ElbowLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J4, data.Joints[JointID.ElbowRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J5, data.Joints[JointID.FootLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J6, data.Joints[JointID.FootRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J7, data.Joints[JointID.HandLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J8, data.Joints[JointID.HandRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J9, data.Joints[JointID.Head], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J10, data.Joints[JointID.HipCenter], true);
+            num_joint_collisions += SetEllipsePosition(P2J11, data.Joints[JointID.HipLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J12, data.Joints[JointID.HipRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J13, data.Joints[JointID.KneeLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J14, data.Joints[JointID.KneeRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J15, data.Joints[JointID.ShoulderCenter], true);
+            num_joint_collisions += SetEllipsePosition(P2J16, data.Joints[JointID.ShoulderLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J17, data.Joints[JointID.ShoulderRight], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J18, data.Joints[JointID.Spine], true);
+
+            num_joint_collisions += SetEllipsePosition(P2J19, data.Joints[JointID.WristLeft], true);
+            num_joint_collisions += SetEllipsePosition(P2J20, data.Joints[JointID.WristRight], true);
+
+
+            player2_score = player2_score + (gained_points * num_joint_collisions);
             if (num_joint_collisions > 0)
             {
                 Console.WriteLine("[Collision] Collided with {0} joints!", num_joint_collisions);
@@ -208,95 +263,124 @@ namespace KinectingTheDotsUserControl
         {
             SkeletonFrame skeletonSet = e.SkeletonFrame;
 
+            /*
             SkeletonData data = (from s in skeletonSet.Skeletons
                                  where s.TrackingState == SkeletonTrackingState.Tracked
                                  select s).FirstOrDefault();
+            */
+
+            SkeletonData skeleton1 = (from s in skeletonSet.Skeletons
+                        where s.TrackingState == SkeletonTrackingState.Tracked
+                        select s).FirstOrDefault();
+
+            int count = (from s in skeletonSet.Skeletons
+            where s.TrackingState != SkeletonTrackingState.NotTracked
+            select s).Count();
+
+            SkeletonData skeleton2 = null;
+            if( count > 1 )
+                skeleton2 = (from s in skeletonSet.Skeletons
+                        where s.TrackingState != SkeletonTrackingState.NotTracked
+                        select s).ElementAt(1);
 
 
-            if (data != null)
+            if (skeleton1 != null)
             {
 
-                SetEllipsePosition(RightHand, data.Joints[JointID.HandRight], false);
+                SetEllipsePosition(HandP1, skeleton1.Joints[JointID.HandRight], false);
 
-                //if (game_state != game_states_t.GAME_ON)
-                if (game_state == game_states_t.PLAY || game_state == game_states_t.PRACTICE)
+                if(skeleton2 != null)
+                    SetEllipsePosition(HandP2, skeleton2.Joints[JointID.HandLeft], false);
+
+                if (game_state == game_states_t.PRACTICE)
                 {
-                    RightHand.Visibility = Visibility.Collapsed;
-                    Ball_2D.Visibility = Visibility.Visible;
-
-                    P1J1.Visibility = Visibility.Visible;
-                    P1J2.Visibility = Visibility.Visible;
-
-                    P1J3.Visibility = Visibility.Visible;
-                    P1J4.Visibility = Visibility.Visible;
-
-                    P1J5.Visibility = Visibility.Visible;
-                    P1J6.Visibility = Visibility.Visible;
-
-                    P1J7.Visibility = Visibility.Visible;
-                    P1J8.Visibility = Visibility.Visible;
-
-                    P1J9.Visibility = Visibility.Visible;
-
-                    P1J10.Visibility = Visibility.Visible;
-                    P1J11.Visibility = Visibility.Visible;
-                    P1J12.Visibility = Visibility.Visible;
-
-                    P1J13.Visibility = Visibility.Visible;
-                    P1J14.Visibility = Visibility.Visible;
-
-                    P1J15.Visibility = Visibility.Visible;
-                    P1J16.Visibility = Visibility.Visible;
-                    P1J17.Visibility = Visibility.Visible;
-
-                    P1J18.Visibility = Visibility.Visible;
-
-                    P1J19.Visibility = Visibility.Visible;
-                    P1J20.Visibility = Visibility.Visible;
-
-
-
-                    updateBallAndSkeleton(data);
+                    changeSkeleton1VisibilityTo(Visibility.Visible);
+                    changeSkeleton2VisibilityTo(Visibility.Visible);
+                    updateBallAndSkeleton1(skeleton1);
+                }
+                else if (game_state == game_states_t.PLAY )
+                {
+                    changeSkeleton1VisibilityTo(Visibility.Visible);
+                    changeSkeleton2VisibilityTo(Visibility.Visible);
+                    updateBallAndSkeleton1(skeleton1);
+                    
+                    if(skeleton2 != null)
+                        updateBallAndSkeleton2(skeleton2);
                 }
                 else
                 {
-                    RightHand.Visibility = Visibility.Visible;
-                    Ball_2D.Visibility = Visibility.Collapsed;
-
-                    P1J1.Visibility = Visibility.Collapsed;
-                    P1J2.Visibility = Visibility.Collapsed;
-
-                    P1J3.Visibility = Visibility.Collapsed;
-                    P1J4.Visibility = Visibility.Collapsed;
-
-                    P1J5.Visibility = Visibility.Collapsed;
-                    P1J6.Visibility = Visibility.Collapsed;
-
-                    P1J7.Visibility = Visibility.Collapsed;
-                    P1J8.Visibility = Visibility.Collapsed;
-
-                    P1J9.Visibility = Visibility.Collapsed;
-
-                    P1J10.Visibility = Visibility.Collapsed;
-                    P1J11.Visibility = Visibility.Collapsed;
-                    P1J12.Visibility = Visibility.Collapsed;
-
-                    P1J13.Visibility = Visibility.Collapsed;
-                    P1J14.Visibility = Visibility.Collapsed;
-
-                    P1J15.Visibility = Visibility.Collapsed;
-                    P1J16.Visibility = Visibility.Collapsed;
-                    P1J17.Visibility = Visibility.Collapsed;
-
-                    P1J18.Visibility = Visibility.Collapsed;
-
-                    P1J19.Visibility = Visibility.Collapsed;
-                    P1J20.Visibility = Visibility.Collapsed;
+                    changeSkeleton1VisibilityTo(Visibility.Collapsed);
+                    changeSkeleton2VisibilityTo(Visibility.Collapsed);
                 }
 
             }
 
             checkGameStateButtons(game_state);
+
+        }
+
+        private void changeSkeleton1VisibilityTo(Visibility v){
+        
+            if(v == System.Windows.Visibility.Visible)
+                HandP1.Visibility = Visibility.Collapsed;
+            else if(v == System.Windows.Visibility.Collapsed)
+                HandP1.Visibility = Visibility.Visible;
+
+            Ball_2D.Visibility = v;
+
+            P1J1.Visibility = v;
+            P1J2.Visibility = v;
+            P1J3.Visibility = v;
+            P1J4.Visibility = v;
+            P1J5.Visibility = v;
+            P1J6.Visibility = v;
+            P1J7.Visibility = v;
+            P1J8.Visibility = v;
+            P1J9.Visibility = v;
+            P1J10.Visibility = v;
+            P1J11.Visibility = v;
+            P1J12.Visibility = v;
+            P1J13.Visibility = v;
+            P1J14.Visibility = v;
+            P1J15.Visibility = v;
+            P1J16.Visibility = v;
+            P1J17.Visibility = v;
+            P1J18.Visibility = v;
+            P1J19.Visibility = v;
+            P1J20.Visibility = v;
+        
+        }
+
+        private void changeSkeleton2VisibilityTo(Visibility v)
+        {
+
+            if (v == System.Windows.Visibility.Visible)
+                HandP2.Visibility = Visibility.Collapsed;
+            else if (v == System.Windows.Visibility.Collapsed)
+                HandP2.Visibility = Visibility.Visible;
+
+            //Ball_2D.Visibility = v;
+
+            P2J1.Visibility = v;
+            P2J2.Visibility = v;
+            P2J3.Visibility = v;
+            P2J4.Visibility = v;
+            P2J5.Visibility = v;
+            P2J6.Visibility = v;
+            P2J7.Visibility = v;
+            P2J8.Visibility = v;
+            P2J9.Visibility = v;
+            P2J10.Visibility = v;
+            P2J11.Visibility = v;
+            P2J12.Visibility = v;
+            P2J13.Visibility = v;
+            P2J14.Visibility = v;
+            P2J15.Visibility = v;
+            P2J16.Visibility = v;
+            P2J17.Visibility = v;
+            P2J18.Visibility = v;
+            P2J19.Visibility = v;
+            P2J20.Visibility = v;
 
         }
 
@@ -421,6 +505,8 @@ namespace KinectingTheDotsUserControl
 
         public void changeGameState(game_states_t new_state, UIElement from, UIElement to)
         {
+            transition.Play();
+
             deactivateHandlersFor(game_state);
             game_state = new_state;
             transitionFromTo(from, to);
@@ -445,12 +531,14 @@ namespace KinectingTheDotsUserControl
             {
                 xamlPractice.checkPracticeButtons();
             }
+            else if (game_state == game_states_t.PLAY)
+            {
+                xamlPlay.checkPlayButtons();
+            }
         }
 
         private void activateHandlersFor(game_states_t state)
         {
-
-            if (DEBUG) Console.WriteLine("Activating event handlers for game state: {0}", state);
 
             if (state == game_states_t.MAIN_MENU)
             {
@@ -468,13 +556,15 @@ namespace KinectingTheDotsUserControl
             {
                 xamlPractice.setPracticeHandlers();
             }
+            else if (state == game_states_t.PLAY)
+            {
+                xamlPlay.setPlayHandlers();
+            }
 
         }
 
         private void deactivateHandlersFor(game_states_t state)
         {
-
-            if (DEBUG) Console.WriteLine("Deactivating event handlers for game state: {0}", state);
 
             if (state == game_states_t.MAIN_MENU)
             {
@@ -491,6 +581,10 @@ namespace KinectingTheDotsUserControl
             else if (state == game_states_t.PRACTICE)
             {
                 xamlPractice.removePracticeHandlers();
+            }
+            else if (state == game_states_t.PLAY)
+            {
+                xamlPlay.removePlayHandlers();
             }
 
         }

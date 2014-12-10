@@ -1,0 +1,29 @@
+J1 = AnkleLeft
+J2 = AnkleRight
+
+J3 = ElbowLeft
+J4 = ElbowRight
+
+J5 = FootLeft
+J6 = FootRight
+
+J7 = HandLeft
+J8 = HandRight
+
+J9 = Head
+
+J10 = HipCenter
+J11 = HipLeft
+J12 = HipRight
+
+J13 = KneeLeft
+J14 = KneeRight
+
+J15 = ShoulderCenter
+J16 = ShoulderLeft
+J17 = ShoulderRight
+
+J18 = Spine
+
+J19 = WristLeft
+J20 = WristRight

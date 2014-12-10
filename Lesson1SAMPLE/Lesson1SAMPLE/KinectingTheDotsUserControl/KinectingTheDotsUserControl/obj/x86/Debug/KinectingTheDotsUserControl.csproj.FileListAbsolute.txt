@@ -161,3 +161,5 @@ C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Le
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Menus\XAMLPractice.g.cs
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.g.cs
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Menus\XAMLPlay.baml
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Menus\XAMLPlay.g.cs

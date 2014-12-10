@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="weImage_DodgeBall.exe.manifest" size="6132">
+    <dependentAssembly dependencyType="install" codebase="weImage_DodgeBall.exe.manifest" size="6134">
       <assemblyIdentity name="weImage_DodgeBall.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>l9TCzFtjsXB84/Xayy5GycwIFbg=</dsig:DigestValue>
+        <dsig:DigestValue>1cbMEO3dkt5oDZHmTzEtm65oY0U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
