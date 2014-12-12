@@ -90,6 +90,8 @@ namespace KinectingTheDotsUserControl
             xamlChooseAvatar.Visibility = Visibility.Collapsed;
             xamlNewSaveLoad.Visibility = Visibility.Collapsed;
             xamlPlay.Visibility = Visibility.Collapsed;
+            Paused1Player.Visibility = Visibility.Collapsed;
+            Paused2Players.Visibility = Visibility.Collapsed;
 
 
             activateHandlersFor(game_state);
@@ -287,32 +289,56 @@ namespace KinectingTheDotsUserControl
             if (skeleton1 != null)
             {
 
+                Paused1Player.Visibility = Visibility.Collapsed;
+
                 SetEllipsePosition(HandP1, skeleton1.Joints[JointID.HandRight], false);
 
-                if(skeleton2 != null)
+                if (skeleton2 != null)
                     SetEllipsePosition(HandP2, skeleton2.Joints[JointID.HandLeft], false);
+
 
                 if (game_state == game_states_t.PRACTICE)
                 {
+
+                    xamlPractice.score.Text = "Score: " + player1_score.ToString();
+
                     changeSkeleton1VisibilityTo(Visibility.Visible);
                     changeSkeleton2VisibilityTo(Visibility.Visible);
                     updateBallAndSkeleton1(skeleton1);
                 }
-                else if (game_state == game_states_t.PLAY )
+                else if (game_state == game_states_t.PLAY)
                 {
-                    changeSkeleton1VisibilityTo(Visibility.Visible);
-                    changeSkeleton2VisibilityTo(Visibility.Visible);
-                    updateBallAndSkeleton1(skeleton1);
-                    
-                    if(skeleton2 != null)
+
+                    if (skeleton2 != null)
+                    {
+
+                        Paused2Players.Visibility = Visibility.Collapsed;
+
+                        // update game score indicators
+                        xamlPlay.scorePlayer1.Text = "P1 Score: " + player1_score.ToString();
+                        xamlPlay.scorePlayer2.Text = "P2 Score: " + player2_score.ToString();
+
+                        changeSkeleton1VisibilityTo(Visibility.Visible);
+                        changeSkeleton2VisibilityTo(Visibility.Visible);
+                        updateBallAndSkeleton1(skeleton1);
                         updateBallAndSkeleton2(skeleton2);
+                    }
+                    else
+                    {
+                        Paused2Players.Visibility = Visibility.Visible;
+                    }
                 }
                 else
                 {
                     changeSkeleton1VisibilityTo(Visibility.Collapsed);
                     changeSkeleton2VisibilityTo(Visibility.Collapsed);
+                    HandP2.Visibility = Visibility.Collapsed; //ignore the second hand
                 }
 
+            }
+            else
+            {
+                Paused1Player.Visibility = Visibility.Visible;
             }
 
             checkGameStateButtons(game_state);
@@ -321,9 +347,9 @@ namespace KinectingTheDotsUserControl
 
         private void changeSkeleton1VisibilityTo(Visibility v){
         
-            if(v == System.Windows.Visibility.Visible)
+            if(v == Visibility.Visible)
                 HandP1.Visibility = Visibility.Collapsed;
-            else if(v == System.Windows.Visibility.Collapsed)
+            else if(v == Visibility.Collapsed)
                 HandP1.Visibility = Visibility.Visible;
 
             Ball_2D.Visibility = v;
@@ -354,9 +380,9 @@ namespace KinectingTheDotsUserControl
         private void changeSkeleton2VisibilityTo(Visibility v)
         {
 
-            if (v == System.Windows.Visibility.Visible)
+            if (v == Visibility.Visible)
                 HandP2.Visibility = Visibility.Collapsed;
-            else if (v == System.Windows.Visibility.Collapsed)
+            else if (v == Visibility.Collapsed)
                 HandP2.Visibility = Visibility.Visible;
 
             //Ball_2D.Visibility = v;

@@ -12,35 +12,47 @@
         <Grid x:Name="Player1Screen" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Width="683" Height="768" Margin="0,0,683,0" >
 
             <Grid>
-                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="0" X2="683" Y2="768" />
-                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="768" X2="683" Y2="0"/>
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="0" X2="285" Y2="320" />
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="768" X2="285" Y2="446" />
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="683" Y1="0" X2="397" Y2="320" />
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="683" Y1="768" X2="397" Y2="446" />
             </Grid>
 
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Rectangle Height="1" Fill="LightSkyBlue" Margin="460,258,460,509"/>
-                <Rectangle Height="1" Fill="LightSkyBlue" Margin="460,509,460,258"/>
-                <Rectangle Width="1" Fill="LightSkyBlue" Margin="460,259,905,259"/>
-                <Rectangle Width="1" Fill="LightSkyBlue" Margin="906,258,459,258"/>
+                <Rectangle Height="1" Fill="LightSkyBlue" Margin="285,320,285,446"/>
+                <Rectangle Height="1" Fill="LightSkyBlue" Margin="285,446,285,320"/>
+                <Rectangle Width="1" Fill="LightSkyBlue" Margin="285,320,397,322"/>
+                <Rectangle Width="1" Fill="LightSkyBlue" Margin="397,320,285,322"/>
             </Grid>
 
-            <Rectangle Height="1" Fill="LightSkyBlue" Margin="285,320,285,446"/>
-            <Rectangle Height="1" Fill="LightSkyBlue" Margin="285,446,285,320"/>
-            <Rectangle Width="1" Fill="LightSkyBlue" Margin="285,320,397,322"/>
-            <Rectangle Width="1" Fill="LightSkyBlue" Margin="397,320,285,322"/>
-
-            <Grid Margin="10" >
-                <Rectangle Height="10" Fill="LightSkyBlue" Margin="0,0,0,767"/>
-                <Rectangle Height="10" Fill="LightSkyBlue" Margin="0,767,0,0"/>
-                <Rectangle Width="10" Fill="LightSkyBlue" Margin="0,0,1365,0"/>
-                <Rectangle Width="10" Fill="LightSkyBlue" Margin="1365,0,0,0"/>
-            </Grid>
-
-            <Grid Margin="204,10,204,698">
-                <TextBlock Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Score: " FontSize="30" Height="44" Width="90" Margin="0,0,155,0"/>
-                <TextBlock Name="scorePlayer1" Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0" FontSize="30" Height="44" Width="155" Margin="90,0,0,0"/>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock Name="scorePlayer1" Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Left" Text="P1 Score: 0" FontSize="35" />
             </Grid>
         </Grid>
 
+        <Grid x:Name="Player2Screen" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Width="683" Height="768" Margin="688,0,0,0" >
+
+            <Grid>
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="0" X2="285" Y2="320" />
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="0" Y1="768" X2="285" Y2="446" />
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="683" Y1="0" X2="397" Y2="320" />
+                <Line StrokeThickness="1" Stroke="LightSkyBlue" X1="683" Y1="768" X2="397" Y2="446" />
+            </Grid>
+
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle Height="1" Fill="LightSkyBlue" Margin="285,320,285,446"/>
+                <Rectangle Height="1" Fill="LightSkyBlue" Margin="285,446,285,320"/>
+                <Rectangle Width="1" Fill="LightSkyBlue" Margin="285,320,397,322"/>
+                <Rectangle Width="1" Fill="LightSkyBlue" Margin="397,320,285,322"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock Name="scorePlayer2" Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Left" Text="P2 Score: 0" FontSize="35" />
+            </Grid>
+        </Grid>
+
+
+        
         <Line StrokeThickness="5" Stroke="LightSkyBlue" X1="683" Y1="768" X2="683" Y2="0"/>
 
         <Grid Margin="568,18,568,677">

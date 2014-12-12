@@ -19,11 +19,19 @@
 
             <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
-            <Controls:XAMLPlay x:Name="xamlPlay" Visibility="Collapsed" Height="727" Width="1338"/>
+            <Controls:XAMLPlay x:Name="xamlPlay" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
-            <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" Height="727" Width="1338"/>
+            <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
 
+            <Grid Name="Paused1Player" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177">
+                <Image Source="/Resources/Paused1Player.png" />
+            </Grid>
+
+            <Grid Name="Paused2Players" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177">
+                <Image Source="/Resources/Paused2Players.png" />
+            </Grid>
+            
             <Ellipse Height="64" Width="64" Name="HandP1" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Resources/P1Hand.png" />

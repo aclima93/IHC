@@ -67,8 +67,6 @@ namespace KinectingTheDotsUserControl
         public void checkPlayButtons()
         {
 
-            scorePlayer1.Text = mainWindow.player1_score.ToString();
-
             // player1's hands
             mainWindow.CheckButton(PlayReturnToMainMenuL1, mainWindow.P1J7);
             mainWindow.CheckButton(PlayReturnToMainMenuR1, mainWindow.P1J8);

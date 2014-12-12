@@ -55,9 +55,8 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="25"/>
         </Grid>
 
-        <Grid Margin="1104,11,0,697">
-            <TextBlock Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Score: " FontSize="30" Height="44" Width="90" Margin="0,0,155,0"/>
-            <TextBlock Name="score" Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0" FontSize="30" Height="44" Width="155" Margin="90,0,0,0"/>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Name="score" Foreground="LightSkyBlue" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Score: 0" FontSize="40" />
         </Grid>
     </Grid>
 
