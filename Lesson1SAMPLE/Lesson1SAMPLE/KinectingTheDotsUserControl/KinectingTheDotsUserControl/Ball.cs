@@ -47,8 +47,8 @@ namespace KinectingTheDotsUserControl
             this.y_3D = y;
             this.z_3D = z;
 
-            this.radius = radius;
             this.size = size;
+            this.radius = radius;
             this.dist = 2 * radius;
 
             this.dx_3D = dx;
@@ -131,6 +131,7 @@ namespace KinectingTheDotsUserControl
 
             float joint_z = backWallPlane +1 ;
 
+            /*
             bool leftHit = ((this.x_3D - this.radius) >= joint_x);
             bool rightHit = (joint_x <= (this.x_3D + this.radius));
 
@@ -143,39 +144,72 @@ namespace KinectingTheDotsUserControl
                 {
                     if ((this.z_3D - this.radius) >= joint_z || joint_z <= (this.z_3D + this.radius))
                     {
+            */
+
+            if ((this.z_3D - this.radius) >= joint_z || joint_z <= (this.z_3D + this.radius))
+            {
+
+                
+                float xLD = getX2D() - getSize() / 2;
+                float yLD = getY2D() - getSize() / 2;
+
+                float xRD = getX2D() + getSize() / 2;
+                float yRD = getY2D() - getSize() / 2;
+
+                float xLU = getX2D() - getSize() / 2;
+                float yLU = getY2D() + getSize() / 2;
+
+                float xRU = getX2D() + getSize() / 2;
+                float yRU = getY2D() + getSize() / 2;
 
 
-                        if (leftHit )//&& (this.dx_3D < 0))
-                        {
-                            Console.WriteLine("[LeftHit]");
-                            xAxisRicochet();
-                        }
-                        else if (rightHit )//&& (this.dx_3D > 0))
-                        {
-                            Console.WriteLine("[RightHit]");
-                            xAxisRicochet();
-                        }
+
+                bool leftHit = ( (joint_x <= getX2D()) && (joint_x >= xLD) );
+                bool rightHit = ((joint_x <= xRD) && (joint_x >= getX2D()) );
+
+                bool downHit = ((joint_y <= getY2D()) && (joint_y >= yLD));
+                bool upHit = ((joint_y <= yRD) && (joint_y >= getY2D()));
+
+                if ( (leftHit || rightHit) && (downHit || upHit) )
+                {
 
 
-                        if (downHit )//&& (this.dy_3D < 0))
-                        {
-                            Console.WriteLine("[DownHit]");
-                            yAxisRicochet();
-                        }
-                        else if (upHit )//&& (this.dx_3D > 0))
-                        {
-                            Console.WriteLine("[UpHit]");
-                            yAxisRicochet();
-                        }
-
-                        //collision so just reverse dz of ball
-                        zAxisRicochet();
-
-                        updatePosition();
-
-                        Console.WriteLine("[Collision] Hit joint at: x={0} y={1}, z={2}", joint_x, joint_y, joint_z);
-                        return true;
+                    if (leftHit )//&& (this.dx_3D < 0))
+                    {
+                        Console.WriteLine("[LeftHit]");
+                        xAxisRicochet();
                     }
+                    else if (rightHit )//&& (this.dx_3D > 0))
+                    {
+                        Console.WriteLine("[RightHit]");
+                        xAxisRicochet();
+                    }
+
+
+                    if (downHit )//&& (this.dy_3D < 0))
+                    {
+                        Console.WriteLine("[DownHit]");
+                        yAxisRicochet();
+                    }
+                    else if (upHit )//&& (this.dx_3D > 0))
+                    {
+                        Console.WriteLine("[UpHit]");
+                        yAxisRicochet();
+                    }
+
+                    //i'm a dumbass, it can (and did) get stuck this way
+                    /*
+                    //collision so just reverse dz of ball
+                    zAxisRicochet();
+                    */
+                    // only reverse on the next time it's coming at us
+                    if (dx_3D < 0)
+                        dx_3D = -dx_3D;
+
+                    updatePosition();
+
+                    Console.WriteLine("[Collision] Hit joint at: x={0} y={1}, z={2}", joint_x, joint_y, joint_z);
+                    return true;
                 }
             }
 

@@ -166,16 +166,16 @@ namespace KinectingTheDotsUserControl
             Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
 
             Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height / 2);
-            Canvas.SetTop(xL, ball.getY2D() - Ball_2D.Height);
+            Canvas.SetTop(xL, ball.getY2D() - Ball_2D.Height / 2);
 
             Canvas.SetLeft(xR, ball.getX2D() + Ball_2D.Height / 2);
-            Canvas.SetTop(xR, ball.getY2D() - Ball_2D.Height);
+            Canvas.SetTop(xR, ball.getY2D() - Ball_2D.Height / 2);
 
             Canvas.SetLeft(yU, ball.getX2D() - Ball_2D.Height / 2);
-            Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height);
+            Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height / 2);
 
             Canvas.SetLeft(yD, ball.getX2D() + Ball_2D.Height / 2);
-            Canvas.SetTop(yD, ball.getY2D() + Ball_2D.Height);
+            Canvas.SetTop(yD, ball.getY2D() + Ball_2D.Height / 2);
 
         }
 
