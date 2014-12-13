@@ -5,7 +5,19 @@
         Title="weImagine: Dodgeball" Width="1366" Height="768" Background="Black"
         Icon="/weImage_DodgeBall;component/Resources/dodgeball.ico">
 
+    <!--
+    <Window.Resources>
+        <Storyboard x:Key="TransitionAnimation" Storyboard.TargetProperty="Opacity">
+            <DoubleAnimation From="1.0" To="0.0" Duration="0:0:5" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+        <Storyboard x:Key="TransitionAnimation2" Storyboard.TargetProperty="Opacity">
+            <DoubleAnimation From="0.0" To="1.0" Duration="0:0:5" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+    </Window.Resources>
+    -->
+
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="0*" />
@@ -13,15 +25,15 @@
 
         <Canvas Background="Transparent" Width="1338" Height="727" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="1" Margin="10,10,10,0">
 
+            <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177" />
+
             <Controls:XAMLNewSaveLoad x:Name="xamlNewSaveLoad" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
 
             <Controls:XAMLChooseAvatar x:Name="xamlChooseAvatar" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="117"/>
 
-            <Controls:XAMLMainMenu x:Name="xamlMainMenu" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
+            <Controls:XAMLPlay x:Name="xamlPlay" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Height="768" Width="1366" Canvas.Left="-15" Canvas.Top="-25"/>
 
-            <Controls:XAMLPlay x:Name="xamlPlay" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
-
-            <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177"/>
+            <Controls:XAMLPractice x:Name="xamlPractice" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Height="768" Width="1366" Canvas.Left="-15" Canvas.Top="-25"/>
 
 
             <Grid Name="Paused1Player" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177">
@@ -31,7 +43,7 @@
             <Grid Name="Paused2Players" Visibility="Collapsed" Canvas.Left="415" Canvas.Top="177">
                 <Image Source="/Resources/Paused2Players.png" />
             </Grid>
-            
+
             <Ellipse Height="64" Width="64" Name="HandP1" Canvas.Left="-222" Canvas.Top="373">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Resources/P1Hand.png" />
@@ -49,14 +61,19 @@
                     <ImageBrush ImageSource="Resources/ball1.png" />
                 </Ellipse.Fill>
             </Ellipse>
+            <Ellipse Height="64" Width="64" Name="Ball2_2D" Canvas.Left="-291" Canvas.Top="481">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Resources/ball1.png" />
+                </Ellipse.Fill>
+            </Ellipse>
 
             <!-- helper dots for ball position -->
-            <!--
-            <Ellipse Name="xL" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="xR" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="yU" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
-            <Ellipse Name="yD" Fill="Violet" Height="5" Width="5" Canvas.Left="-183" Canvas.Top="823" />
-            -->
+
+            <Ellipse Name="xL" Fill="BlueViolet" Height="10" Width="10" Canvas.Left="-159" Canvas.Top="823" />
+            <Ellipse Name="xR" Fill="BlueViolet" Height="10" Width="10" Canvas.Left="-159" Canvas.Top="823" />
+            <Ellipse Name="yU" Fill="BlueViolet" Height="10" Width="10" Canvas.Left="-159" Canvas.Top="823" />
+            <Ellipse Name="yD" Fill="BlueViolet" Height="10" Width="10" Canvas.Left="-159" Canvas.Top="823" />
+
 
             <!-- helper dots for back wall dimentions -->
             <!--

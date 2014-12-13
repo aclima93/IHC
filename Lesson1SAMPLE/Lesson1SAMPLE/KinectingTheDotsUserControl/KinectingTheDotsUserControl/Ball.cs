@@ -28,12 +28,12 @@ namespace KinectingTheDotsUserControl
         private float window_aspect;
 
         // assuming http://www.povray.org/documentation/images/tutorial/handed.png coordinate system
-        private int left;
-        private int right;
-        private int up;
-        private int down;
-        private int front;
-        private int back;
+        private int leftWallPlane;
+        private int rightWallPlane;
+        private int upWallPlane;
+        private int downWallPlane;
+        private int frontWallPlane;
+        private int backWallPlane;
 
 
         public Ball(float x, float y, float z,
@@ -60,14 +60,14 @@ namespace KinectingTheDotsUserControl
 
             this.window_aspect = window_width / window_height;
 
-            this.left = (int)(-distLR/2);
-            this.right = (int)(distLR/2);
+            this.leftWallPlane = 0;//(int)(-distLR/2);
+            this.rightWallPlane = (int)(distLR);//(int)(distLR/2);
 
-            this.up = (int)(distUD/2);
-            this.down = (int)(-distUD/2);
+            this.upWallPlane = 0;//(int)(distUD/2);
+            this.downWallPlane = (int)(distUD);//(int)(-distUD/2);
 
-            this.front = (int)(distFB+1);
-            this.back = 1;
+            this.frontWallPlane = (int)(distFB+1);
+            this.backWallPlane = 1;
 
         }
 
@@ -90,7 +90,7 @@ namespace KinectingTheDotsUserControl
         {
 
             // como um pedreiro de verdade, mas não quero saber. if it works don't fuck with it!
-            return 1 - (this.z_3D / this.front);
+            return 1 - (this.z_3D / this.frontWallPlane);
 
             /*
             float temp1_x_2D = (((this.x_3D - this.radius) / this.z_3D) + this.half_screen_width) * this.half_screen_width;
@@ -118,16 +118,18 @@ namespace KinectingTheDotsUserControl
             update3DCoordinates();
             update2DCoordinates();
             //Console.WriteLine("[POS] Ball at: x={0} y={1}, size={2}", getX2D(), getY2D(), getSize());
-            Console.WriteLine("[2D] Ball at: x={0} y={1}, size={2}", x_2D, y_2D, getSize());
             Console.WriteLine("[3D] Ball at: x={0} y={1}, z={2}", x_3D, y_3D, z_3D);
+            Console.WriteLine("[2D] Ball at: x={0} y={1}, size={2}", x_2D, y_2D, getSize());
             Console.WriteLine("");
             Console.WriteLine("");
 
 
         }
 
-        public bool checkJointCollision(float joint_x, float joint_y, float joint_z)
+        public bool checkJointCollision(float joint_x, float joint_y)
         {
+
+            float joint_z = backWallPlane +1 ;
 
             bool leftHit = ((this.x_3D - this.radius) >= joint_x);
             bool rightHit = (joint_x <= (this.x_3D + this.radius));
@@ -195,13 +197,14 @@ namespace KinectingTheDotsUserControl
 
         private void update2DCoordinates()
         {
+            
             this.x_2D = (this.x_3D / this.z_3D) + this.half_screen_width;
             this.y_2D = (-1 * (this.y_3D / this.z_3D)) + this.half_screen_height;
-
+            
             /*
             this.x_2D = ((this.x_3D / this.z_3D) + this.half_screen_width) * this.half_screen_width;
             this.y_2D = ((-1 * (this.y_3D / this.z_3D)) + this.half_screen_height) * this.half_screen_height;
-             * */
+            */
 
 
             if (this.window_aspect > 1.0)
@@ -237,28 +240,40 @@ namespace KinectingTheDotsUserControl
 
         private void checkLeftRightWallCollisions()
         {
-            if ((this.x_3D - this.radius) <= this.left || (this.x_3D + this.radius) >= this.right)
+            if ((this.x_3D - this.radius) <= this.leftWallPlane )
             {
                 xAxisRicochet();
                 updatePosition();
-                Console.WriteLine("[Collision] Left/Right Wall Collision");
+                Console.WriteLine("[Collision] Left Wall Collision");
+            }
+            if((this.x_3D + this.radius) >= this.rightWallPlane)
+            {
+                xAxisRicochet();
+                updatePosition();
+                Console.WriteLine("[Collision] Right Wall Collision");
             }
         }
 
         private void checkUpDownCollisions()
         {
-            if ((this.y_3D - this.radius) <= this.down || (this.y_3D + this.radius) >= this.up)
+            if ((this.y_3D - this.radius) <= this.downWallPlane )
             {
                 yAxisRicochet();
                 updatePosition();
-                Console.WriteLine("[Collision] Up or Down Wall Collision");
+                Console.WriteLine("[Collision] Down Wall Collision");
+            }    
+            if( (this.y_3D + this.radius) >= this.upWallPlane)
+            {
+                yAxisRicochet();
+                updatePosition();
+                Console.WriteLine("[Collision] Up Wall Collision");
             }
         }
 
 
         private void checkFrontCollision()
         {
-            if ((this.z_3D + this.radius) >= this.front)
+            if ((this.z_3D + this.radius) >= this.frontWallPlane)
             {
                 zAxisRicochet();
                 updatePosition();
@@ -268,8 +283,8 @@ namespace KinectingTheDotsUserControl
 
         private bool checkBackCollision()
         {
-            if ((this.z_3D - this.radius) <= this.back)
-            //if (this.z_3D <= this.back) // the radius was messing the initial position because it would always be colliding
+            if ((this.z_3D - this.radius) <= this.backWallPlane)
+            //if (this.z_3D <= this.backWallPlane) // the radius was messing the initial position because it would always be colliding
             {
                 zAxisRicochet();
                 updatePosition();
@@ -280,7 +295,7 @@ namespace KinectingTheDotsUserControl
         }
 
 
-        // if it passes the back wall deduce some points and reset ball
+        // if it passes the backWallPlane wall deduce some points and reset ball
         private bool checkFrontBackCollisions()
         {
 

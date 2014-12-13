@@ -23,6 +23,7 @@ using System.IO;
 using System.Text;
 
 using Microsoft.Win32;
+using System.Windows.Media.Animation;
 
 
 
@@ -34,7 +35,7 @@ namespace KinectingTheDotsUserControl
         Runtime runtime = Runtime.Kinects[0];
 
         public enum game_states_t { MAIN_MENU, PLAY, PRACTICE, CHOOSE_AVATAR, NEW_SAVE_LOAD, GAME_ON };
-        private game_states_t game_state = game_states_t.MAIN_MENU;
+        private game_states_t game_state;
 
         public string[] game_file;
 
@@ -42,14 +43,16 @@ namespace KinectingTheDotsUserControl
 
         public SoundPlayer transition = new SoundPlayer("swoosh.wav");
         public SoundPlayer selection = new SoundPlayer("selection-click.wav");
-
+        public Storyboard sb;
+        public Storyboard sb2;
+        
         public Ball ball;
 
         public const int screen_width = 1366;
         public const int screen_height = 768;
 
-        public int player1_score = 0;
-        public int player2_score = 0;
+        public long player1_score = 0;
+        public long player2_score = 0;
 
         public const int gained_points = 50;
         public const int lost_points = 0;
@@ -80,13 +83,19 @@ namespace KinectingTheDotsUserControl
             xamlMainMenu.setMainWindow(this);
             xamlChooseAvatar.setMainWindow(this);
             xamlNewSaveLoad.setMainWindow(this);
+            xamlPlay.setMainWindow(this);
             xamlPractice.setMainWindow(this);
 
 
             // Hide your kids, hide your wife
-            xamlMainMenu.Visibility = Visibility.Visible;
+            game_state = game_states_t.PRACTICE;
+            xamlMainMenu.Visibility = Visibility.Collapsed;
 
-            xamlPractice.Visibility = Visibility.Collapsed;
+            xamlPractice.Visibility = Visibility.Visible;
+            //game_state = game_states_t.MAIN_MENU;
+            //xamlMainMenu.Visibility = Visibility.Visible;
+
+            //xamlPractice.Visibility = Visibility.Collapsed;
             xamlChooseAvatar.Visibility = Visibility.Collapsed;
             xamlNewSaveLoad.Visibility = Visibility.Collapsed;
             xamlPlay.Visibility = Visibility.Collapsed;
@@ -110,7 +119,7 @@ namespace KinectingTheDotsUserControl
 
             float dx = r.Next(-10, 11);
             float dy = r.Next(-10, 11);
-            float dz = r.Next(-3, 0);
+            float dz = -7;//r.Next(-3, 0);
 
             float radius = 16;//32; //hardcoded because fuck you, that's why
             int size = 64;
@@ -119,15 +128,19 @@ namespace KinectingTheDotsUserControl
             int window_width = screen_width;
             int window_height = screen_height;
 
-            int distLR = window_width * 10;
-            int distUD = window_height * 10;
-            int distFB = 100;
+            int distLR = window_width - 100;
+            int distUD = window_height - 125;
+            int distFB = 500;
 
-            float x = r.Next(-distLR / 2, distLR / 2);
-            float y = r.Next(-distUD / 2, distUD / 2);
+            float x = r.Next(-distLR / 2, (distLR / 2) + 1);
+            float y = r.Next(-distUD / 2, (distUD / 2) + 1);
             float z = radius*2 + 1; // to be tweeked?
 
-            ball = new Ball(x, y, z, dx, dy, dz, radius, size, screen_width, screen_height, window_width, window_height, distLR, distUD, distFB);
+            ball = new Ball(x, y, z, dx, dy, dz, 
+                radius, size, 
+                screen_width, screen_height, 
+                window_width, window_height, 
+                distLR, distUD, distFB);
         }
 
         public void updateBallAndSkeleton1(SkeletonData data)
@@ -146,12 +159,23 @@ namespace KinectingTheDotsUserControl
             Console.WriteLine("");
             Console.WriteLine("");
 
-            
             Ball_2D.Height = ball.getSize();
             Ball_2D.Width = Ball_2D.Height;
             
-            Canvas.SetLeft(Ball_2D, ball.getX2D() - Ball_2D.Height/2);
+            Canvas.SetLeft(Ball_2D, ball.getX2D() - Ball_2D.Height / 2);
             Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
+
+            Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height / 2);
+            Canvas.SetTop(xL, ball.getY2D() - Ball_2D.Height);
+
+            Canvas.SetLeft(xR, ball.getX2D() + Ball_2D.Height / 2);
+            Canvas.SetTop(xR, ball.getY2D() - Ball_2D.Height);
+
+            Canvas.SetLeft(yU, ball.getX2D() - Ball_2D.Height / 2);
+            Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height);
+
+            Canvas.SetLeft(yD, ball.getX2D() + Ball_2D.Height / 2);
+            Canvas.SetTop(yD, ball.getY2D() + Ball_2D.Height);
 
         }
 
@@ -165,10 +189,6 @@ namespace KinectingTheDotsUserControl
 
         private void drawSkeleton1(SkeletonData data)
         {
-
-            //SetEllipsePosition(Ball_2D, data.Joints[JointID.HandRight]);
-
-            //if (DEBUG) Console.WriteLine("Ball at: x={0} y={1}, size={2}", ball.getX2D(), ball.getY2D(), ball.getSize());
 
             int num_joint_collisions = 0;
 
@@ -289,7 +309,7 @@ namespace KinectingTheDotsUserControl
             if (skeleton1 != null)
             {
 
-                Paused1Player.Visibility = Visibility.Collapsed;
+                unpauseGame1P();
 
                 SetEllipsePosition(HandP1, skeleton1.Joints[JointID.HandRight], false);
 
@@ -302,8 +322,8 @@ namespace KinectingTheDotsUserControl
 
                     xamlPractice.score.Text = "Score: " + player1_score.ToString();
 
-                    changeSkeleton1VisibilityTo(Visibility.Visible);
-                    changeSkeleton2VisibilityTo(Visibility.Visible);
+                    changeP1ItemsVisibilityTo(Visibility.Visible);
+                    changeP2ItemsVisibilityTo(Visibility.Visible);
                     updateBallAndSkeleton1(skeleton1);
                 }
                 else if (game_state == game_states_t.PLAY)
@@ -312,40 +332,40 @@ namespace KinectingTheDotsUserControl
                     if (skeleton2 != null)
                     {
 
-                        Paused2Players.Visibility = Visibility.Collapsed;
+                        unpauseGame2P();
 
                         // update game score indicators
                         xamlPlay.scorePlayer1.Text = "P1 Score: " + player1_score.ToString();
                         xamlPlay.scorePlayer2.Text = "P2 Score: " + player2_score.ToString();
 
-                        changeSkeleton1VisibilityTo(Visibility.Visible);
-                        changeSkeleton2VisibilityTo(Visibility.Visible);
+                        changeP1ItemsVisibilityTo(Visibility.Visible);
+                        changeP2ItemsVisibilityTo(Visibility.Visible);
                         updateBallAndSkeleton1(skeleton1);
                         updateBallAndSkeleton2(skeleton2);
                     }
                     else
                     {
-                        Paused2Players.Visibility = Visibility.Visible;
+                        pauseGame2P();
                     }
                 }
                 else
                 {
-                    changeSkeleton1VisibilityTo(Visibility.Collapsed);
-                    changeSkeleton2VisibilityTo(Visibility.Collapsed);
+                    changeP1ItemsVisibilityTo(Visibility.Collapsed);
+                    changeP2ItemsVisibilityTo(Visibility.Collapsed);
                     HandP2.Visibility = Visibility.Collapsed; //ignore the second hand
                 }
 
             }
             else
             {
-                Paused1Player.Visibility = Visibility.Visible;
+                pauseGame1P();
             }
 
             checkGameStateButtons(game_state);
 
         }
 
-        private void changeSkeleton1VisibilityTo(Visibility v){
+        private void changeP1ItemsVisibilityTo(Visibility v){
         
             if(v == Visibility.Visible)
                 HandP1.Visibility = Visibility.Collapsed;
@@ -354,30 +374,11 @@ namespace KinectingTheDotsUserControl
 
             Ball_2D.Visibility = v;
 
-            P1J1.Visibility = v;
-            P1J2.Visibility = v;
-            P1J3.Visibility = v;
-            P1J4.Visibility = v;
-            P1J5.Visibility = v;
-            P1J6.Visibility = v;
-            P1J7.Visibility = v;
-            P1J8.Visibility = v;
-            P1J9.Visibility = v;
-            P1J10.Visibility = v;
-            P1J11.Visibility = v;
-            P1J12.Visibility = v;
-            P1J13.Visibility = v;
-            P1J14.Visibility = v;
-            P1J15.Visibility = v;
-            P1J16.Visibility = v;
-            P1J17.Visibility = v;
-            P1J18.Visibility = v;
-            P1J19.Visibility = v;
-            P1J20.Visibility = v;
+            changeSkeleton1VisibilityTo(v);
         
         }
 
-        private void changeSkeleton2VisibilityTo(Visibility v)
+        private void changeP2ItemsVisibilityTo(Visibility v)
         {
 
             if (v == Visibility.Visible)
@@ -385,28 +386,9 @@ namespace KinectingTheDotsUserControl
             else if (v == Visibility.Collapsed)
                 HandP2.Visibility = Visibility.Visible;
 
-            //Ball_2D.Visibility = v;
+            Ball2_2D.Visibility = v;
 
-            P2J1.Visibility = v;
-            P2J2.Visibility = v;
-            P2J3.Visibility = v;
-            P2J4.Visibility = v;
-            P2J5.Visibility = v;
-            P2J6.Visibility = v;
-            P2J7.Visibility = v;
-            P2J8.Visibility = v;
-            P2J9.Visibility = v;
-            P2J10.Visibility = v;
-            P2J11.Visibility = v;
-            P2J12.Visibility = v;
-            P2J13.Visibility = v;
-            P2J14.Visibility = v;
-            P2J15.Visibility = v;
-            P2J16.Visibility = v;
-            P2J17.Visibility = v;
-            P2J18.Visibility = v;
-            P2J19.Visibility = v;
-            P2J20.Visibility = v;
+            changeSkeleton2VisibilityTo(v);
 
         }
 
@@ -417,7 +399,6 @@ namespace KinectingTheDotsUserControl
             Microsoft.Research.Kinect.Nui.Vector vector = new Microsoft.Research.Kinect.Nui.Vector();
             vector.X = ScaleVector(screen_width, joint.Position.X);
             vector.Y = ScaleVector(screen_height, -joint.Position.Y);
-            vector.Z = joint.Position.Z;
 
             Joint updatedJoint = new Joint();
             updatedJoint.ID = joint.ID;
@@ -429,7 +410,7 @@ namespace KinectingTheDotsUserControl
 
             if (checkCollisionWithBall)
             {
-                if (ball.checkJointCollision(updatedJoint.Position.X, updatedJoint.Position.Y, updatedJoint.Position.Z))
+                if (ball.checkJointCollision(updatedJoint.Position.X, updatedJoint.Position.Y))
                 {
                     return 1;
                 }
@@ -463,6 +444,11 @@ namespace KinectingTheDotsUserControl
 
             //You can adjust the resolution here.
             runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution1280x1024, ImageType.Color);
+
+            /*
+            sb = this.FindResource("TransitionAnimation") as Storyboard;
+            sb2 = this.FindResource("TransitionAnimation2") as Storyboard;
+            */
         }
 
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
@@ -531,11 +517,21 @@ namespace KinectingTheDotsUserControl
 
         public void changeGameState(game_states_t new_state, UIElement from, UIElement to)
         {
-            transition.Play();
 
             deactivateHandlersFor(game_state);
             game_state = new_state;
-            transitionFromTo(from, to);
+
+            // play transition effect
+            transition.Play();
+            //Storyboard.SetTarget(sb, from);
+            //sb.Begin();
+
+            from.Visibility = Visibility.Collapsed;
+            to.Visibility = Visibility.Visible;
+
+            //Storyboard.SetTarget(sb2, to);
+            //sb2.Begin();
+
             activateHandlersFor(game_state);
         }
 
@@ -615,12 +611,83 @@ namespace KinectingTheDotsUserControl
 
         }
 
-        private void transitionFromTo(UIElement from, UIElement to)
+        private void pauseGame1P()
         {
-            from.Visibility = Visibility.Collapsed;
-            to.Visibility = Visibility.Visible;
+            Paused1Player.Visibility = Visibility.Visible;
+            changeSkeleton1VisibilityTo(Visibility.Collapsed);
+            Ball_2D.Visibility = Visibility.Collapsed;
+        }
+        private void unpauseGame1P()
+        {
+            Paused1Player.Visibility = Visibility.Collapsed;
+            changeSkeleton1VisibilityTo(Visibility.Visible);
+            Ball_2D.Visibility = Visibility.Visible;
+        }
+        private void pauseGame2P()
+        {
+            Paused2Players.Visibility = Visibility.Visible;
+            changeSkeleton1VisibilityTo(Visibility.Collapsed);
+            changeSkeleton2VisibilityTo(Visibility.Collapsed);
+            Ball_2D.Visibility = Visibility.Collapsed;
+            Ball2_2D.Visibility = Visibility.Collapsed;
+        }
+        private void unpauseGame2P()
+        {
+            Paused2Players.Visibility = Visibility.Collapsed;
+            changeSkeleton1VisibilityTo(Visibility.Visible);
+            changeSkeleton2VisibilityTo(Visibility.Visible);
+            Ball_2D.Visibility = Visibility.Visible;
+            Ball2_2D.Visibility = Visibility.Visible;
         }
 
+        private void changeSkeleton1VisibilityTo(Visibility v)
+        {
+            P1J1.Visibility = v;
+            P1J2.Visibility = v;
+            P1J3.Visibility = v;
+            P1J4.Visibility = v;
+            P1J5.Visibility = v;
+            P1J6.Visibility = v;
+            P1J7.Visibility = v;
+            P1J8.Visibility = v;
+            P1J9.Visibility = v;
+            P1J10.Visibility = v;
+            P1J11.Visibility = v;
+            P1J12.Visibility = v;
+            P1J13.Visibility = v;
+            P1J14.Visibility = v;
+            P1J15.Visibility = v;
+            P1J16.Visibility = v;
+            P1J17.Visibility = v;
+            P1J18.Visibility = v;
+            P1J19.Visibility = v;
+            P1J20.Visibility = v;
+
+        }
+
+        private void changeSkeleton2VisibilityTo(Visibility v)
+        {
+            P2J1.Visibility = v;
+            P2J2.Visibility = v;
+            P2J3.Visibility = v;
+            P2J4.Visibility = v;
+            P2J5.Visibility = v;
+            P2J6.Visibility = v;
+            P2J7.Visibility = v;
+            P2J8.Visibility = v;
+            P2J9.Visibility = v;
+            P2J10.Visibility = v;
+            P2J11.Visibility = v;
+            P2J12.Visibility = v;
+            P2J13.Visibility = v;
+            P2J14.Visibility = v;
+            P2J15.Visibility = v;
+            P2J16.Visibility = v;
+            P2J17.Visibility = v;
+            P2J18.Visibility = v;
+            P2J19.Visibility = v;
+            P2J20.Visibility = v;
+        }
 
     }
 }

@@ -41,13 +41,14 @@
         </Grid>
         -->
 
+        <!--
         <Grid Margin="10" >
             <Rectangle Height="10" Fill="LightSkyBlue" Margin="0,0,0,767"/>
             <Rectangle Height="10" Fill="LightSkyBlue" Margin="0,767,0,0"/>
             <Rectangle Width="10" Fill="LightSkyBlue" Margin="0,0,1365,0"/>
             <Rectangle Width="10" Fill="LightSkyBlue" Margin="1365,0,0,0"/>
         </Grid>
-
+        -->
 
         <Grid Margin="29,22,1137,685">
             <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000" />

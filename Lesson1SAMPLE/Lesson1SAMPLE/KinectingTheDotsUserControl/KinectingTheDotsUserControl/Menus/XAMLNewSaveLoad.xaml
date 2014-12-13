@@ -10,7 +10,7 @@
     <Grid x:Name="NewSaveLoad" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="500" Height="405" >
 
         <Grid Margin="0,-113,0,410" >
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" Foreground="LightSkyBlue" FontSize="55" Margin="196,10,195,20" Width="109" Height="78"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" Foreground="LightSkyBlue" FontSize="55" />
         </Grid>
 
 
@@ -47,7 +47,7 @@
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Load Game" FontSize="40" TextWrapping="Wrap"/>
             </Grid>
         </Grid>
-        <Grid Margin="-60,254,-60,40">
+        <Grid Margin="-60,249,-60,39">
             <Controls:HoverButton x:Name="NewSaveLoadItem4" TimeInterval="1750" Margin="10"/>
             <Rectangle x:Name="NewSaveLoadImage4" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10" />
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Return to Main Menu" FontSize="40" TextWrapping="Wrap"/>

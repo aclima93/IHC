@@ -9,7 +9,7 @@
 
     <Grid x:Name="ChooseAvatar" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="409" Canvas.Top="295" Width="500" Height="404">
 
-        <Grid Margin="0,-140,0,473" >
+        <Grid Margin="0,394,0,-61" >
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Your Avatar" Foreground="LightSkyBlue" FontSize="55" Width="500"/>
         </Grid>
 
