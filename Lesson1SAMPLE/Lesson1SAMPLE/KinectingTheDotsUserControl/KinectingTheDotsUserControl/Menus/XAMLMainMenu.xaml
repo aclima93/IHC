@@ -15,8 +15,8 @@
 
 
         <Grid Margin="732,-113,-318,433" Height="75" Width="75">
-            <Controls:HoverButton x:Name="CloseButton" TimeInterval="1750"/>
             <Image Source="/Resources/CloseButton.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Controls:HoverButton x:Name="CloseButton" TimeInterval="1750"/>
         </Grid>
 
         <Grid Margin="-60,0,-60,39">
@@ -31,19 +31,19 @@
             </Grid.ColumnDefinitions>
             
             <Grid Grid.Row="0" Grid.Column="0" >
-                <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1750" Margin="10"/>
                 <Rectangle x:Name="MainMenuItemImage1" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Play" FontSize="40" TextWrapping="Wrap"/>
+                <Controls:HoverButton x:Name="MainMenuItem1" TimeInterval="1750" Margin="10"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="0">
-                <Controls:HoverButton x:Name="MainMenuItem2" TimeInterval="1750" Margin="10"/>
                 <Rectangle x:Name="MainMenuItemImage2" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Practice" FontSize="40" TextWrapping="Wrap"/>
+                <Controls:HoverButton x:Name="MainMenuItem2" TimeInterval="1750" Margin="10"/>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="0">
-                <Controls:HoverButton x:Name="MainMenuItem3" TimeInterval="1750" Margin="10"/>
                 <Rectangle x:Name="MainMenuItemImage3" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Margin="10"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Choose Avatar" FontSize="40" TextWrapping="Wrap"/>
+                <Controls:HoverButton x:Name="MainMenuItem3" TimeInterval="1750" Margin="10"/>
             </Grid>
         </Grid>
     </Grid>

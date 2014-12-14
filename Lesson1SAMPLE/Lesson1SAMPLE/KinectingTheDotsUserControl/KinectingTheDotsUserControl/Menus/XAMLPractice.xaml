@@ -49,9 +49,9 @@
         -->
 
         <Grid Margin="29,22,1137,685">
-            <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000" />
             <Rectangle x:Name="PracticeReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="25"/>
+            <Controls:HoverButton x:Name="PracticeReturnToMainMenu" TimeInterval="1000" />
         </Grid>
 
         <Grid HorizontalAlignment="Center" VerticalAlignment="Top">

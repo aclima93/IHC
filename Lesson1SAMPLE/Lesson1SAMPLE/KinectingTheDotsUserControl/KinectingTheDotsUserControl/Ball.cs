@@ -49,7 +49,7 @@ namespace KinectingTheDotsUserControl
 
             this.size = size;
             this.radius = radius;
-            this.dist = 2 * radius;
+            this.dist = 2 * radius * 2;
 
             this.dx_3D = dx;
             this.dy_3D = dy;
@@ -221,6 +221,36 @@ namespace KinectingTheDotsUserControl
             checkUpDownCollisions();
 
             return checkFrontBackCollisions();
+        }
+
+        public bool checkOutsideOfField()
+        {
+            if ((this.x_3D - this.dist) <= this.leftWallPlane)
+            {
+                return true;
+            }
+            if ((this.x_3D + this.dist) >= this.rightWallPlane)
+            {
+                return true;
+            }
+            if ((this.y_3D - this.dist) <= this.downWallPlane)
+            {
+                return true;
+            }
+            if ((this.y_3D + this.dist) >= this.upWallPlane)
+            {
+                return true;
+            }
+            if ((this.z_3D + this.dist) >= this.frontWallPlane)
+            {
+                return true;
+            }
+            if ((this.z_3D - this.dist) <= this.backWallPlane)
+            {
+                return true;
+            }
+
+            return false;
         }
 
 

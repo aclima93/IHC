@@ -56,12 +56,12 @@
         <Line StrokeThickness="5" Stroke="LightSkyBlue" X1="683" Y1="768" X2="683" Y2="0"/>
 
         <Grid Margin="568,18,568,677">
+            <Rectangle x:Name="PlayReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="25"/>
             <Controls:HoverButton x:Name="PlayReturnToMainMenuL1" TimeInterval="1000"/>
             <Controls:HoverButton x:Name="PlayReturnToMainMenuR1" TimeInterval="1000"/>
             <Controls:HoverButton x:Name="PlayReturnToMainMenuL2" TimeInterval="1000"/>
             <Controls:HoverButton x:Name="PlayReturnToMainMenuR2" TimeInterval="1000"/>
-            <Rectangle x:Name="PlayReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" />
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Main Menu" FontSize="25"/>
         </Grid>
 
     </Grid>

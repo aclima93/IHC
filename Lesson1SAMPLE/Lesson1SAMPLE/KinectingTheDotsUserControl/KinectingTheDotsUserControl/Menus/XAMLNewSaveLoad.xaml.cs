@@ -60,6 +60,17 @@ namespace KinectingTheDotsUserControl
             File.WriteAllText(name, "");
         }
 
+        private string infoToText()
+        {
+            string info = "";
+            info += mainWindow.player1_score + "\n";
+            info += mainWindow.player2_score + "\n";
+            info += mainWindow.selected_avatarP1 + "\n";
+            info += mainWindow.selected_avatarP2 + "\n";
+
+            return info;
+        }
+
         private void saveFileDialog()
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -73,7 +84,7 @@ namespace KinectingTheDotsUserControl
 
             if (name.Length == 0) name = "save_file_1337.txt";
 
-            //game_info = infoToText();
+            game_info = infoToText();
 
 	        // Write to the file name selected.
 	        File.WriteAllText(name, game_info);
@@ -99,17 +110,25 @@ namespace KinectingTheDotsUserControl
             // Process input if the user clicked OK.
             if (userClickedOK == true)
             {
-                /*
-                // Open the selected file to read.
-                System.IO.Stream fileStream = openFileDialog1.File.OpenRead();
-                using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
-                */
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(openFileDialog1.FileName))
                 {
                     // Read lines into a string array
                     mainWindow.game_file = reader.ReadToEnd().Split('\n');
+
+                    mainWindow.player1_score = Convert.ToInt64(mainWindow.game_file[0]);
+                    mainWindow.player2_score = Convert.ToInt64(mainWindow.game_file[1]);
+
+                    mainWindow.selected_avatarP1 = Convert.ToInt32(mainWindow.game_file[2]);
+                    mainWindow.selected_avatarP2 = Convert.ToInt32(mainWindow.game_file[3]);
+
+                    /*
+                    Console.WriteLine("P1 score = {0}", mainWindow.player1_score);
+                    Console.WriteLine("P2 score = {0}", mainWindow.player2_score);
+                    Console.WriteLine("Avatar P1 = {0}", mainWindow.selected_avatarP1);
+                    Console.WriteLine("Avatar P2 = {0}", mainWindow.selected_avatarP2);
+                    */
+
                 }
-                //fileStream.Close();
             }
         }
 
@@ -146,6 +165,8 @@ namespace KinectingTheDotsUserControl
         {
             // reset contents of current game file
             game_info = "";
+            mainWindow.player1_score = 0;
+            mainWindow.player2_score = 0;
         }
         private void NewSaveLoadItem2_Click(object sender, RoutedEventArgs e)
         {

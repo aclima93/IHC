@@ -29,6 +29,7 @@ using System.Windows.Media.Animation;
 
 namespace KinectingTheDotsUserControl
 {
+
     public partial class MainWindow : Window
     {
 
@@ -43,6 +44,8 @@ namespace KinectingTheDotsUserControl
 
         public SoundPlayer transition = new SoundPlayer("swoosh.wav");
         public SoundPlayer selection = new SoundPlayer("selection-click.wav");
+        public SoundPlayer bounce = new SoundPlayer("bounce.wav");
+        public SoundPlayer score = new SoundPlayer("score.wav");
         public Storyboard sb;
         public Storyboard sb2;
         
@@ -54,10 +57,14 @@ namespace KinectingTheDotsUserControl
         public static int window_width;
         public static int window_height;
 
+        public static bool game_paused = false;
+
+        public int selected_avatarP1 = 1;
+        public int selected_avatarP2 = 3;
         public long player1_score = 0;
         public long player2_score = 0;
 
-        public const int gained_points = 5;//50;
+        public const int gained_points = 15;//50;
         public const int lost_points = 5;
 
         private static double _topBoundary;
@@ -117,8 +124,8 @@ namespace KinectingTheDotsUserControl
         {
             Random r = new Random();
 
-            float dx = r.Next(-10, 11);
-            float dy = r.Next(-10, 11);
+            float dx = 50 * r.Next(-1, 2);
+            float dy = 50 * r.Next(-1, 2);
             float dz = -5;//r.Next(-3, 0);
 
             float radius = 10;//16;//32; //hardcoded because fuck you, that's why
@@ -134,14 +141,13 @@ namespace KinectingTheDotsUserControl
                 window_height /= 2;
             }
 
-            int distLR = (window_width - 100)*10;
+            int distLR = (window_width - 100)*7;
             int distUD = (window_height - 125)*10;
             int distFB = 500;
 
-            // TODO: TEST AND RETEST ME!
 
-            float x = distLR / 2 + 10;//r.Next(-distLR / 2, (distLR / 2) + 1);
-            float y = distUD / 2 + 10;//r.Next(-distUD / 2, (distUD / 2) + 1);
+            float x = r.Next((-distLR/2) + 1, (distLR / 2));
+            float y = r.Next((-distUD/2) + 1, (distUD / 2));
             float z = radius*2 + 1; // to be tweeked?
 
             ball = new Ball(x, y, z, dx, dy, dz, 
@@ -154,11 +160,20 @@ namespace KinectingTheDotsUserControl
         public void updateBallAndSkeleton1(SkeletonData data)
         {
 
+
+            //if (ball.checkOutsideOfField())
+            //    resetBall();
+
             ball.updatePosition();
 
             drawSkeleton1(data); // joint collisions with ball are made when they are updated and drawn to reduce redundance
 
-            if (ball.checkWallCollisions() == 2)
+            int collision = ball.checkWallCollisions();
+
+            if (collision != 0)
+                bounce.Play();
+
+            if (collision == 2)
             {
                 if (player1_score - lost_points >= 0)
                     player1_score = player1_score - lost_points;
@@ -174,19 +189,6 @@ namespace KinectingTheDotsUserControl
             else
                 Canvas.SetLeft(Ball_2D, ball.getX2D() - (Ball_2D.Height / 2) - (window_width / 2));
 
-            /*
-            Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height / 2);
-            Canvas.SetTop(xL, ball.getY2D() - Ball_2D.Height / 2);
-
-            Canvas.SetLeft(xR, ball.getX2D() + Ball_2D.Height / 2);
-            Canvas.SetTop(xR, ball.getY2D() - Ball_2D.Height / 2);
-
-            Canvas.SetLeft(yU, ball.getX2D() - Ball_2D.Height / 2);
-            Canvas.SetTop(yU, ball.getY2D() + Ball_2D.Height / 2);
-
-            Canvas.SetLeft(yD, ball.getX2D() + Ball_2D.Height / 2);
-            Canvas.SetTop(yD, ball.getY2D() + Ball_2D.Height / 2);
-            */
 
         }
 
@@ -195,8 +197,14 @@ namespace KinectingTheDotsUserControl
 
             drawSkeleton2(data);
 
-            if (ball.checkWallCollisions() == 1)
+            int collision = ball.checkWallCollisions();
+
+            if (collision != 0)
+                bounce.Play();
+
+            if (collision == 1)
             {
+
                 if (player2_score - lost_points >= 0)
                     player2_score = player2_score - lost_points;
             }
@@ -290,15 +298,21 @@ namespace KinectingTheDotsUserControl
                 else if (game_state == game_states_t.CHOOSE_AVATAR)
                 {
 
+                    changeP1ItemsVisibilityTo(Visibility.Collapsed);
+                    changeP2ItemsVisibilityTo(Visibility.Collapsed);
+
                     HandP1.Visibility = Visibility.Visible;
 
                     if (skeleton2 != null)
                         HandP2.Visibility = Visibility.Visible;
+                    else
+                        HandP2.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
                     changeP1ItemsVisibilityTo(Visibility.Collapsed);
                     changeP2ItemsVisibilityTo(Visibility.Collapsed);
+                    HandP1.Visibility = Visibility.Visible;
                     HandP2.Visibility = Visibility.Collapsed;
                 }
 
@@ -308,7 +322,8 @@ namespace KinectingTheDotsUserControl
                 pauseGame1P();
             }
 
-            checkGameStateButtons(game_state);
+            if(!game_paused)
+                checkGameStateButtons(game_state);
 
         }
 
@@ -357,6 +372,7 @@ namespace KinectingTheDotsUserControl
             {
                 if (ball.checkJointCollision(updatedJoint.Position.X, updatedJoint.Position.Y, pID))
                 {
+                    score.Play();
                     return 1;
                 }
             }
@@ -556,6 +572,9 @@ namespace KinectingTheDotsUserControl
 
         private void pauseGame1P()
         {
+
+            game_paused = true;
+
             Paused1Player.Visibility = Visibility.Visible;
             changeSkeleton1VisibilityTo(Visibility.Collapsed);
             Ball_2D.Visibility = Visibility.Collapsed;
@@ -568,6 +587,8 @@ namespace KinectingTheDotsUserControl
         }
         private void unpauseGame1P()
         {
+            game_paused = false;
+
             Paused1Player.Visibility = Visibility.Collapsed;
             changeSkeleton1VisibilityTo(Visibility.Visible);
             Ball_2D.Visibility = Visibility.Visible;
@@ -580,6 +601,8 @@ namespace KinectingTheDotsUserControl
         }
         private void pauseGame2P()
         {
+            game_paused = true;
+
             Paused2Players.Visibility = Visibility.Visible;
             changeSkeleton1VisibilityTo(Visibility.Collapsed);
             changeSkeleton2VisibilityTo(Visibility.Collapsed);
@@ -591,6 +614,8 @@ namespace KinectingTheDotsUserControl
         }
         private void unpauseGame2P(SkeletonData skeleton2)
         {
+            game_paused = false;
+            
             Paused2Players.Visibility = Visibility.Collapsed;
             changeSkeleton1VisibilityTo(Visibility.Visible);
             changeSkeleton2VisibilityTo(Visibility.Visible);
@@ -691,6 +716,7 @@ namespace KinectingTheDotsUserControl
             player1_score = player1_score + (gained_points * num_joint_collisions);
             if (num_joint_collisions > 0)
             {
+                Console.WriteLine("[P1 Score] Score: {0}", player1_score);
                 Console.WriteLine("[Collisions P1] Collided with {0} joints!", num_joint_collisions);
                 Console.WriteLine("");
             }
@@ -736,6 +762,7 @@ namespace KinectingTheDotsUserControl
             player2_score = player2_score + (gained_points * num_joint_collisions);
             if (num_joint_collisions > 0)
             {
+                Console.WriteLine("[P2 Score] Score: {0}", player2_score);
                 Console.WriteLine("[Collisions P2] Collided with {0} joints!", num_joint_collisions);
                 Console.WriteLine("");
             }

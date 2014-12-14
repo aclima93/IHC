@@ -234,9 +234,6 @@
     <Resource Include="Resources\avatars\avatar_head_9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Menus\ball1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\ball1.png" />
   </ItemGroup>
   <ItemGroup>

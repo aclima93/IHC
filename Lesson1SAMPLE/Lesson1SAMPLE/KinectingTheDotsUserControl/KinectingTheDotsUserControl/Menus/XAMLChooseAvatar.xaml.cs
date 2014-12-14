@@ -32,8 +32,6 @@ namespace KinectingTheDotsUserControl
     public partial class XAMLChooseAvatar : UserControl
     {
 
-        public int selected_avatarP1 = 1;
-        public int selected_avatarP2 = 3;
         private MainWindow mainWindow;
 
 
@@ -49,6 +47,10 @@ namespace KinectingTheDotsUserControl
 
         public void setChooseAvatarHandlers()
         {
+
+            selectAvatarP1(mainWindow.selected_avatarP1);
+            selectAvatarP2(mainWindow.selected_avatarP2);
+
             // Choose Avatar Handlers
             Avatar1.Click += new RoutedEventHandler(Avatar1_Click);
             Avatar2.Click += new RoutedEventHandler(Avatar2_Click);
@@ -174,7 +176,7 @@ namespace KinectingTheDotsUserControl
 
             mainWindow.selection.Play();
 
-            selected_avatarP1 = index;
+            mainWindow.selected_avatarP1 = index;
             AvatarImageP1.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/avatars/avatar_body_" + index + ".png"));
 
             if (index == 1)
@@ -260,7 +262,7 @@ namespace KinectingTheDotsUserControl
 
             mainWindow.selection.Play();
 
-            selected_avatarP2 = index;
+            mainWindow.selected_avatarP2 = index;
             AvatarImageP2.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/avatars/avatar_body_" + index + ".png"));
 
             if (index == 1)
@@ -305,94 +307,94 @@ namespace KinectingTheDotsUserControl
         // Avatar P1 Button EventHandlers
         void Avatar1_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(1);
         }
         void Avatar2_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(2);
         }
         void Avatar3_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(3);
         }
         void Avatar4_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(4);
         }
         void Avatar5_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(5);
         }
         void Avatar6_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(6);
         }
         void Avatar7_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(7);
         }
         void Avatar8_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(8);
         }
         void Avatar9_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP1(selected_avatarP1);
+            unselectAvatarP1(mainWindow.selected_avatarP1);
             selectAvatarP1(9);
         }
 
         // Avatar P2 Button EventHandlers
         void Avatar_1_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(1);
         }
         void Avatar_2_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(2);
         }
         void Avatar_3_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(3);
         }
         void Avatar_4_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(4);
         }
         void Avatar_5_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(5);
         }
         void Avatar_6_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(6);
         }
         void Avatar_7_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(7);
         }
         void Avatar_8_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(8);
         }
         void Avatar_9_Click(object sender, RoutedEventArgs e)
         {
-            unselectAvatarP2(selected_avatarP2);
+            unselectAvatarP2(mainWindow.selected_avatarP2);
             selectAvatarP2(9);
         }
 

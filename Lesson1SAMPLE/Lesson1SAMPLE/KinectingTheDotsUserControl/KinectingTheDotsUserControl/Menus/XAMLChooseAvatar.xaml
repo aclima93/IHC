@@ -31,7 +31,7 @@
             <Grid Grid.Row="0" Grid.Column="0">
                 <Controls:HoverButton x:Name="Avatar1" TimeInterval="1750" Width="100" Height="100"/>
                 <Controls:HoverButton x:Name="Avatar_1" TimeInterval="1750" Width="100" Height="100"/>
-                <Rectangle x:Name="AvatarSelected1" Visibility="Visible" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected1" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Rectangle x:Name="AvatarSelected_1" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage1" Source="/Resources/avatars/avatar_head_1.png" Width="90" Height="90" />
             </Grid>
@@ -46,7 +46,7 @@
                 <Controls:HoverButton x:Name="Avatar3" TimeInterval="1750" Width="100" Height="100"/>
                 <Controls:HoverButton x:Name="Avatar_3" TimeInterval="1750" Width="100" Height="100"/>
                 <Rectangle x:Name="AvatarSelected3" Visibility="Collapsed" Width="100" Height="100" Stroke="White" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
-                <Rectangle x:Name="AvatarSelected_3" Visibility="Visible" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
+                <Rectangle x:Name="AvatarSelected_3" Visibility="Collapsed" Width="105" Height="105" Stroke="Red" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
                 <Image x:Name="AvatarImage3" Source="/Resources/avatars/avatar_head_3.png" Width="90" Height="90" />
             </Grid>
 
@@ -99,10 +99,10 @@
         </Grid>
 
         <Grid Margin="0,-69,0,415">
-            <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" />
-            <Controls:HoverButton x:Name="AvatarReturnToMainMenuP2" TimeInterval="1750" />
             <Rectangle x:Name="AvatarReturnToMainMenuImage" Fill="LightSkyBlue" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="OK" FontSize="35" TextWrapping="Wrap" />
+            <Controls:HoverButton x:Name="AvatarReturnToMainMenu" TimeInterval="1750" />
+            <Controls:HoverButton x:Name="AvatarReturnToMainMenuP2" TimeInterval="1750" />
         </Grid>
 
         <Grid Margin="-200,42,580,42" Width="120" Height="320">
