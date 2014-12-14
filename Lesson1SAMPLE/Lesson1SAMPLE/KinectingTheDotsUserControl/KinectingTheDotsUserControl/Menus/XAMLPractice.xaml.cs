@@ -62,6 +62,7 @@ namespace KinectingTheDotsUserControl
         {
 
             // player1's hand
+            mainWindow.player1_score = 0;
             mainWindow.CheckButton(PracticeReturnToMainMenu, mainWindow.P1J7);
 
         }

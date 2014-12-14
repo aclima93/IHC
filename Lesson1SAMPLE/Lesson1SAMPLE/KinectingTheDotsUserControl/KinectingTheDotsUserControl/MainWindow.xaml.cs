@@ -134,14 +134,14 @@ namespace KinectingTheDotsUserControl
                 window_height /= 2;
             }
 
-            int distLR = window_width - 100;
-            int distUD = window_height - 125;
+            int distLR = (window_width - 100)*10;
+            int distUD = (window_height - 125)*10;
             int distFB = 500;
 
             // TODO: TEST AND RETEST ME!
 
-            float x = -distLR / 2 + 10;//r.Next(-distLR / 2, (distLR / 2) + 1);
-            float y = 1;//r.Next(-distUD / 2, (distUD / 2) + 1);
+            float x = distLR / 2 + 10;//r.Next(-distLR / 2, (distLR / 2) + 1);
+            float y = distUD / 2 + 10;//r.Next(-distUD / 2, (distUD / 2) + 1);
             float z = radius*2 + 1; // to be tweeked?
 
             ball = new Ball(x, y, z, dx, dy, dz, 
@@ -168,7 +168,11 @@ namespace KinectingTheDotsUserControl
             Ball_2D.Width = Ball_2D.Height;
 
             Canvas.SetTop(Ball_2D, ball.getY2D() - Ball_2D.Height / 2);
-            Canvas.SetLeft(Ball_2D, ball.getX2D() - (Ball_2D.Height / 2) - (window_width / 2));
+
+            if(game_state == game_states_t.PRACTICE)
+                Canvas.SetLeft(Ball_2D, ball.getX2D() - (Ball_2D.Height / 2));
+            else
+                Canvas.SetLeft(Ball_2D, ball.getX2D() - (Ball_2D.Height / 2) - (window_width / 2));
 
             /*
             Canvas.SetLeft(xL, ball.getX2D() - Ball_2D.Height / 2);
@@ -257,7 +261,8 @@ namespace KinectingTheDotsUserControl
                     xamlPractice.score.Text = "Score: " + player1_score.ToString();
 
                     changeP1ItemsVisibilityTo(Visibility.Visible);
-                    changeP2ItemsVisibilityTo(Visibility.Visible);
+                    changeP2ItemsVisibilityTo(Visibility.Collapsed);
+                    HandP2.Visibility = Visibility.Collapsed;
                     updateBallAndSkeleton1(skeleton1);
                 }
                 else if (game_state == game_states_t.PLAY)
@@ -294,6 +299,7 @@ namespace KinectingTheDotsUserControl
                 {
                     changeP1ItemsVisibilityTo(Visibility.Collapsed);
                     changeP2ItemsVisibilityTo(Visibility.Collapsed);
+                    HandP2.Visibility = Visibility.Collapsed;
                 }
 
             }
@@ -384,10 +390,6 @@ namespace KinectingTheDotsUserControl
             //You can adjust the resolution here.
             runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution1280x1024, ImageType.Color);
 
-            /*
-            sb = this.FindResource("TransitionAnimation") as Storyboard;
-            sb2 = this.FindResource("TransitionAnimation2") as Storyboard;
-            */
         }
 
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
@@ -453,19 +455,21 @@ namespace KinectingTheDotsUserControl
         public void changeGameState(game_states_t new_state, UIElement from, UIElement to)
         {
 
+            sb = this.FindResource("TransitionAnimation") as Storyboard;
+            sb2 = this.FindResource("TransitionAnimation2") as Storyboard;
+            Storyboard.SetTarget(sb, from);
+            Storyboard.SetTarget(sb2, to);
+
             deactivateHandlersFor(game_state);
             game_state = new_state;
 
             // play transition effect
             transition.Play();
-            //Storyboard.SetTarget(sb, from);
-            //sb.Begin();
+            sb.Begin();
 
             from.Visibility = Visibility.Collapsed;
             to.Visibility = Visibility.Visible;
-
-            //Storyboard.SetTarget(sb2, to);
-            //sb2.Begin();
+            sb2.Begin();
 
             activateHandlersFor(game_state);
 
@@ -695,10 +699,6 @@ namespace KinectingTheDotsUserControl
 
         private void drawSkeleton2(SkeletonData data)
         {
-
-            //SetEllipsePosition(Ball_2D, data.Joints[JointID.HandRight]);
-
-            //if (DEBUG) Console.WriteLine("Ball at: x={0} y={1}, size={2}", ball.getX2D(), ball.getY2D(), ball.getSize());
 
             int num_joint_collisions = 0;
 

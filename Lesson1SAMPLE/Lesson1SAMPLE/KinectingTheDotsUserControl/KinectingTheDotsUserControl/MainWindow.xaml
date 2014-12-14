@@ -5,16 +5,16 @@
         Title="weImagine: Dodgeball" Width="1366" Height="768" Background="Black"
         Icon="/weImage_DodgeBall;component/Resources/dodgeball.ico">
 
-    <!--
+    
     <Window.Resources>
         <Storyboard x:Key="TransitionAnimation" Storyboard.TargetProperty="Opacity">
-            <DoubleAnimation From="1.0" To="0.0" Duration="0:0:5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation From="1.0" To="0.0" Duration="0:0:3"/>
         </Storyboard>
         <Storyboard x:Key="TransitionAnimation2" Storyboard.TargetProperty="Opacity">
-            <DoubleAnimation From="0.0" To="1.0" Duration="0:0:5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation From="0.0" To="1.0" Duration="0:0:3"/>
         </Storyboard>
     </Window.Resources>
-    -->
+    
 
     <Grid>
 

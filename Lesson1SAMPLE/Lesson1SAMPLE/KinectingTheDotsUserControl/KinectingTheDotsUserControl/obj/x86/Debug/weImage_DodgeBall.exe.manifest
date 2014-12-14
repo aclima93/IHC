@@ -89,14 +89,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="weImage_DodgeBall.exe" size="20546048">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="weImage_DodgeBall.exe" size="20546560">
       <assemblyIdentity name="weImage_DodgeBall" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6AuHFk3XoEHP1oyTBmaCF9aly/U=</dsig:DigestValue>
+        <dsig:DigestValue>n9U0Z6m86a9yt95/o5lmjAMT84Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

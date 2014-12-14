@@ -60,11 +60,11 @@ namespace KinectingTheDotsUserControl
 
             this.window_aspect = window_width / window_height;
 
-            this.leftWallPlane = 0;//(int)(-distLR/2);
-            this.rightWallPlane = (int)(distLR);//(int)(distLR/2);
+            this.leftWallPlane = (int)(-distLR/2);
+            this.rightWallPlane = (int)(distLR/2);
 
-            this.upWallPlane = 0;//(int)(distUD/2);
-            this.downWallPlane = (int)(distUD);//(int)(-distUD/2);
+            this.upWallPlane = (int)(distUD/2);
+            this.downWallPlane = (int)(-distUD/2);
 
             this.frontWallPlane = (int)(distFB+1);
             this.backWallPlane = 1;
@@ -139,20 +139,6 @@ namespace KinectingTheDotsUserControl
             else
                 joint_z = frontWallPlane - radius ;
 
-            /*
-            bool leftHit = ((this.x_3D - this.radius) >= joint_x);
-            bool rightHit = (joint_x <= (this.x_3D + this.radius));
-
-            bool downHit = ((this.y_3D - this.radius) >= joint_y);
-            bool upHit = (joint_y <= (this.y_3D + this.radius));
-
-            if (leftHit || rightHit)
-            {
-                if (downHit || upHit)
-                {
-                    if ((this.z_3D - this.radius) >= joint_z || joint_z <= (this.z_3D + this.radius))
-                    {
-            */
 
             if ((this.z_3D - this.radius) >= joint_z || joint_z <= (this.z_3D + this.radius))
             {
@@ -205,11 +191,6 @@ namespace KinectingTheDotsUserControl
                         yAxisRicochet();
                     }
 
-                    //i'm a dumbass, it can (and did) get stuck this way
-                    /*
-                    //collision so just reverse dz of ball
-                    zAxisRicochet();
-                    */
                     // only reverse on the next time it's coming at us
                     if (pID == 1)
                     {
