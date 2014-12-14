@@ -9,8 +9,6 @@
 
     <Grid x:Name="Practice" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="429" Canvas.Top="295" Width="1366" Height="768" >
 
-        <!-- <Image  Name="videoImage" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="768" Margin="-684,-382,684,382"/> -->
-
         <!-- Debug lines for ball position -->
         <!--
         <Rectangle Height="1" Fill="LightSkyBlue" Margin="0,187,0,571"/>

@@ -86,6 +86,11 @@ namespace KinectingTheDotsUserControl
             return (int)(Math.Abs(size * getDrawingRatio()));
         }
 
+        public int getP2BallSize()
+        {
+            return (int)(Math.Abs(size * ( 1- getDrawingRatio())));
+        }
+
         private float getDrawingRatio()
         {
 
@@ -126,10 +131,13 @@ namespace KinectingTheDotsUserControl
 
         }
 
-        public bool checkJointCollision(float joint_x, float joint_y)
+        public bool checkJointCollision(float joint_x, float joint_y, int pID)
         {
-
-            float joint_z = backWallPlane +1 ;
+            float joint_z;
+            if(pID == 1)
+                joint_z = backWallPlane + radius ;
+            else
+                joint_z = frontWallPlane - radius ;
 
             /*
             bool leftHit = ((this.x_3D - this.radius) >= joint_x);
@@ -203,12 +211,22 @@ namespace KinectingTheDotsUserControl
                     zAxisRicochet();
                     */
                     // only reverse on the next time it's coming at us
-                    if (dx_3D < 0)
-                        dx_3D = -dx_3D;
+                    if (pID == 1)
+                    {
+                        if (dx_3D < 0)
+                            dx_3D = -dx_3D;
+                    }
+                    else 
+                    {
+                        if (dx_3D > 0)
+                            dx_3D = -dx_3D;
+                    }
+
+                    //z_3D = joint_z + 5; 
 
                     updatePosition();
 
-                    Console.WriteLine("[Collision] Hit joint at: x={0} y={1}, z={2}", joint_x, joint_y, joint_z);
+                    Console.WriteLine("[Collision] Hit joint at: x={0} y={1}", joint_x, joint_y);
                     return true;
                 }
             }
@@ -216,7 +234,7 @@ namespace KinectingTheDotsUserControl
             return false;
         }
 
-        public bool checkWallCollisions()
+        public int checkWallCollisions()
         {
             checkLeftRightWallCollisions();
             checkUpDownCollisions();
@@ -305,14 +323,16 @@ namespace KinectingTheDotsUserControl
         }
 
 
-        private void checkFrontCollision()
+        private bool checkFrontCollision()
         {
             if ((this.z_3D + this.radius) >= this.frontWallPlane)
             {
                 zAxisRicochet();
                 updatePosition();
                 Console.WriteLine("[Collision] Front Wall Collision");
+                return true;
             }
+            return false;
         }
 
         private bool checkBackCollision()
@@ -330,11 +350,21 @@ namespace KinectingTheDotsUserControl
 
 
         // if it passes the backWallPlane wall deduce some points and reset ball
-        private bool checkFrontBackCollisions()
+        private int checkFrontBackCollisions()
         {
 
-            checkFrontCollision();
-            return checkBackCollision(); // deduce points and reset ball
+            /*
+             * 0 no collision
+             * 1 collision with front wall
+             * 2 collision with back wall
+             */
+
+            if( checkFrontCollision() )
+                return 1;
+            else if (checkBackCollision()) // deduce points and reset ball
+                return 2;
+            else
+                return 0; 
 
         }
 

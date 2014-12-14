@@ -135,7 +135,6 @@ C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheD
 C:\Users\AntónioCarlosLagarto\Desktop\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Kinect_Keyboard.application
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.dll
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\bin\Debug\Microsoft.Expression.Drawing.xml
-C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csprojResolveAssemblyReference.cache
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\App.g.cs
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.Properties.Resources.resources
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csproj.GenerateResource.Cache
@@ -163,3 +162,4 @@ C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Le
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\MainWindow.baml
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Menus\XAMLPlay.baml
 C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\Menus\XAMLPlay.g.cs
+C:\Users\AntónioCarlosLagarto\Documents\Repositories\IHCaralho\Lesson1SAMPLE\Lesson1SAMPLE\KinectingTheDotsUserControl\KinectingTheDotsUserControl\obj\x86\Debug\KinectingTheDotsUserControl.csprojResolveAssemblyReference.cache
