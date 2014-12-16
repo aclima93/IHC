@@ -1,0 +1,43 @@
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.pdb
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\Game1.baml
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\Game3.baml
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\MainMenu.baml
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.baml
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\Game2.baml
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\Game1.g.cs
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\Game3.g.cs
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\MainMenu.g.cs
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\Game2.g.cs
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csproj.GenerateResource.Cache
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\vuyiswama\Documents\Visual Studio 2012\Projects\Examples\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csprojResolveAssemblyReference.cache
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csprojResolveAssemblyReference.cache
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\Game1.baml
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\Game3.baml
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\MainMenu.baml
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.baml
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\Game2.baml
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\Game1.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\Game3.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\MainMenu.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\Game2.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\AntónioCarlosLagarto\Desktop\Vuyiswamb_Articles_634959886755371172_WpfApplication1\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csproj.GenerateResource.Cache
